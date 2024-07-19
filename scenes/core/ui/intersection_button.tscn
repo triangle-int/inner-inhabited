@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkoakrtki43s5"]
+
+[ext_resource type="PackedScene" uid="uid://ccwqh0h7q8ugm" path="res://scenes/core/ui/base_node_button.tscn" id="1_k8ev3"]
+[ext_resource type="PackedScene" uid="uid://ceua3wogpuk6y" path="res://scenes/core/ui/plan/intersection_plan.tscn" id="2_ttp84"]
+
+[node name="NodeButton" instance=ExtResource("1_k8ev3")]
+text = "intersection"
+target_plan = ExtResource("2_ttp84")

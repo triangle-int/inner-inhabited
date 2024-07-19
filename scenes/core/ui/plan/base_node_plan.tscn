@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bi8175nt5vwhr"]
+
+[ext_resource type="Texture2D" uid="uid://dotaamtqndjj7" path="res://icon.svg" id="1_t1ndw"]
+[ext_resource type="Script" path="res://scripts/core/ui/signal_node_plan.gd" id="2_m15se"]
+
+[node name="BaseNodePlan" type="Sprite2D"]
+texture = ExtResource("1_t1ndw")
+script = ExtResource("2_m15se")
