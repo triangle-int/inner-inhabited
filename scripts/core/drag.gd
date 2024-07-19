@@ -19,6 +19,9 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_released("drag_node"):
 		_is_dragged = false
 
+	if _mouse_over and Input.is_action_pressed("delete_node"):
+		(get_parent() as BaseSignalNode).destroy()
+
 
 func _input(event: InputEvent) -> void:
 	var mouse_event := event as InputEventMouseMotion

@@ -8,7 +8,7 @@ static var current: Connection
 
 
 func start_connection(new_source: BaseSignalNode) -> void:
-	if new_source.connections.size() >= new_source.connection_limit:
+	if new_source.outgoing_connections.size() >= new_source.connection_limit:
 		queue_free()
 		return
 
@@ -20,12 +20,15 @@ func start_connection(new_source: BaseSignalNode) -> void:
 
 
 func end_connection(new_target: BaseSignalNode) -> void:
-	if source.connections.any(func(conn: Connection) -> bool: return conn.target == new_target):
+	if source.outgoing_connections.any(
+		func(conn: Connection) -> bool: return conn.target == new_target
+	):
 		return
 
 	current = null
 	target = new_target
-	source.connections.push_back(self)
+	source.outgoing_connections.push_back(self)
+	target.incoming_connections.push_back(self)
 
 
 func _process(_delta: float) -> void:

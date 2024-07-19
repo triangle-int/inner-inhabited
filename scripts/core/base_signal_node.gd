@@ -3,7 +3,8 @@ extends Node2D
 
 @export var connection_limit: int
 
-var connections: Array[Connection]
+var outgoing_connections: Array[Connection]
+var incoming_connections: Array[Connection]
 
 
 func receive_signal(signal_info: SignalInfo) -> void:
@@ -20,3 +21,15 @@ func reset() -> void:
 
 func _reset() -> void:
 	pass
+
+
+func destroy() -> void:
+	for connection in outgoing_connections:
+		connection.target.incoming_connections.erase(connection)
+		connection.queue_free()
+
+	for connection in incoming_connections:
+		connection.source.outgoing_connections.erase(connection)
+		connection.queue_free()
+
+	queue_free()
