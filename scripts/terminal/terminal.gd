@@ -74,8 +74,10 @@ func attach_level(level: Level) -> void:
 	level_container.add_child(level)
 	_is_level_playing = true
 
-	level.finished.connect(func(_status: Level.SolutionStatus) -> void:
-		push_warning("proper level finish not implemented")
-		_is_level_playing = false
-		level_container.get_children().front().queue_free()
-	)
+	level.finished.connect(_on_level_finished)
+
+
+func _on_level_finished(_status: Level.SolutionStatus) -> void:
+	# TODO: Proper level finish logic
+	_is_level_playing = false
+	level_container.get_children().front().queue_free()
