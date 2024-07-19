@@ -1,3 +1,4 @@
+class_name Level
 extends Node
 
 signal finished(solved: bool)
@@ -6,10 +7,14 @@ signal finished(solved: bool)
 @export var receivers: Array[BaseSignalReceiver]
 @export var root: BaseSignalNode
 
+static var current: Level = null
+
 var _signals_received: int = 0
 
 
 func _ready() -> void:
+	current = self
+
 	for receiver in receivers:
 		receiver.signal_received.connect(_on_signal_reached_endpoint)
 

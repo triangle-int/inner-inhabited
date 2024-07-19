@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bou72wqxg1rjn"]
+[gd_scene load_steps=10 format=3 uid="uid://bou72wqxg1rjn"]
 
 [ext_resource type="PackedScene" uid="uid://cu6u3jmqp284f" path="res://scenes/core/intersection.tscn" id="1_0xjkx"]
 [ext_resource type="Script" path="res://scripts/core/level.gd" id="1_bimvr"]
 [ext_resource type="Script" path="res://scripts/core/signal_info.gd" id="2_6c7n2"]
 [ext_resource type="PackedScene" uid="uid://c4xno8qjrkw4l" path="res://scenes/core/counter_.tscn" id="2_t5ral"]
+[ext_resource type="PackedScene" uid="uid://50raqfm2a7qy" path="res://scenes/core/ui/level_ui.tscn" id="5_mwf1r"]
+[ext_resource type="PackedScene" uid="uid://dkoakrtki43s5" path="res://scenes/core/ui/intersection_button.tscn" id="6_tca8u"]
 
 [sub_resource type="Resource" id="Resource_p071k"]
 script = ExtResource("2_6c7n2")
@@ -24,18 +26,23 @@ receivers = [NodePath("Receiver"), NodePath("Receiver2"), NodePath("Receiver3")]
 root = NodePath("Intersection")
 
 [node name="Intersection" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("1_0xjkx")]
-position = Vector2(544, 178)
+position = Vector2(374, 158)
 connections = [NodePath("../Intersection2"), NodePath("../Receiver")]
 
 [node name="Receiver" parent="." instance=ExtResource("2_t5ral")]
-position = Vector2(306, 489)
+position = Vector2(122, 517)
 
 [node name="Intersection2" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("1_0xjkx")]
-position = Vector2(794, 336)
+position = Vector2(624, 316)
 connections = [NodePath("../Receiver2"), NodePath("../Receiver3")]
 
 [node name="Receiver2" parent="." instance=ExtResource("2_t5ral")]
-position = Vector2(597, 535)
+position = Vector2(427, 515)
 
 [node name="Receiver3" parent="." instance=ExtResource("2_t5ral")]
-position = Vector2(983, 528)
+position = Vector2(813, 508)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="LevelUI" parent="CanvasLayer" instance=ExtResource("5_mwf1r")]
+allowed_nodes = Array[PackedScene]([ExtResource("6_tca8u"), ExtResource("6_tca8u")])
