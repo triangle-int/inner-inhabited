@@ -9,4 +9,12 @@ func receive_signal(signal_info: SignalInfo) -> void:
 
 
 func _receive_signal(_signal_info: SignalInfo) -> void:
-	push_error("unimplemented!")
+	push_warning("unimplemented!")
+
+
+func reset() -> void:
+	_reset()
+
+
+func _reset() -> void:
+	pass

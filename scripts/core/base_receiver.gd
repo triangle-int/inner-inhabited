@@ -16,5 +16,10 @@ func is_correct() -> bool:
 
 
 func _is_correct() -> bool:
-	push_error("unimplemented!")
+	push_warning("unimplemented!")
 	return true
+
+
+func _reset() -> void:
+	super._reset()
+	_received_signals.clear()

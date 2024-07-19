@@ -9,6 +9,8 @@ signal finished(solved: bool)
 
 static var current: Level = null
 
+var is_simulating: bool
+
 var _signals_received: int = 0
 
 
@@ -17,12 +19,6 @@ func _ready() -> void:
 
 	for receiver in receivers:
 		receiver.signal_received.connect(_on_signal_reached_endpoint)
-
-	_send_next()
-
-
-func _send_next() -> void:
-	root.receive_signal(sequence[_signals_received])
 
 
 func _on_signal_reached_endpoint() -> void:
@@ -36,4 +32,31 @@ func _on_signal_reached_endpoint() -> void:
 		func(receiver: BaseSignalReceiver) -> bool: return receiver.is_correct()
 	)
 	print("solved" if solved else "not solved")
+	stop_simulation()
 	finished.emit(solved)
+
+
+func start_simulation() -> void:
+	if is_simulating:
+		return
+
+	is_simulating = true
+	_signals_received = 0
+	_send_next()
+
+
+func stop_simulation() -> void:
+	is_simulating = false
+	SignalSender.stop_all_signals()
+
+	for child in get_children():
+		var node := child as BaseSignalNode
+
+		if node == null:
+			continue
+
+		node.reset()
+
+
+func _send_next() -> void:
+	root.receive_signal(sequence[_signals_received])

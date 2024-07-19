@@ -10,6 +10,9 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
+	if Level.current.is_simulating:
+		return
+
 	if _mouse_over and Input.is_action_just_pressed("drag_node"):
 		_is_dragged = true
 
