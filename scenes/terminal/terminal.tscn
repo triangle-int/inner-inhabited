@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=3 uid="uid://by61b1vkmlfgw"]
+
+[ext_resource type="Script" path="res://scripts/terminal/terminal.gd" id="1_cea4a"]
+[ext_resource type="PackedScene" uid="uid://fhejaqaayb4m" path="res://scenes/terminal/input_line.tscn" id="1_fff5l"]
+[ext_resource type="Material" uid="uid://d3aelfodyn3bn" path="res://materials/terminal_screen_material.tres" id="2_kla3r"]
+[ext_resource type="PackedScene" uid="uid://blxqg5qptkwsa" path="res://scenes/terminal/response_line.tscn" id="2_xdqnh"]
+
+[node name="Terminal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cea4a")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.0392157, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="LinesContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="InputLine" parent="MarginContainer/LinesContainer" instance=ExtResource("1_fff5l")]
+layout_mode = 2
+
+[node name="ResponseLine" parent="MarginContainer/LinesContainer" instance=ExtResource("2_xdqnh")]
+layout_mode = 2
+
+[node name="CRTEffect" type="ColorRect" parent="."]
+material = ExtResource("2_kla3r")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
