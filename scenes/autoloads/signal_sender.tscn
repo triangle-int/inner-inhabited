@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cno0n5grpy3s4"]
 
-[ext_resource type="Script" path="res://scripts/core/signal_sender.gd" id="1_keews"]
+[ext_resource type="Script" path="res://scripts/core/signal/signal_sender.gd" id="1_keews"]
 [ext_resource type="PackedScene" uid="uid://cp5ioeyfv4lex" path="res://scenes/core/signal.tscn" id="2_8snk2"]
 
 [node name="SignalSender" type="Node"]
