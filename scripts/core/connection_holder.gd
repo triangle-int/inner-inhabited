@@ -11,7 +11,11 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	if not _mouse_over or not Input.is_action_just_pressed("connect_nodes"):
+	if (
+		Level.current.is_simulating
+		or not _mouse_over
+		or not Input.is_action_just_pressed("connect_nodes")
+	):
 		return
 
 	if Connection.current == null:
