@@ -30,11 +30,22 @@ expected_count = 1
 script = ExtResource("6_e0uo0")
 counts = Array[ExtResource("5_dtdu5")]([SubResource("Resource_nw370")])
 
-[node name="TestLevel" type="Node2D" node_paths=PackedStringArray("receivers", "root")]
+[node name="TestLevel" type="Control" node_paths=PackedStringArray("receivers", "root")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_bimvr")
 sequence = Array[ExtResource("2_6c7n2")]([SubResource("Resource_p071k"), SubResource("Resource_r7g8l"), SubResource("Resource_xhi4g")])
 receivers = [NodePath("BaseSignalNode2"), NodePath("BaseSignalNode3"), NodePath("BaseSignalNode4")]
 root = NodePath("BaseSignalNode")
+
+[node name="LevelUI" parent="." instance=ExtResource("5_mwf1r")]
+layout_mode = 1
+allowed_nodes = Array[PackedScene]([ExtResource("6_tca8u"), ExtResource("6_tca8u")])
 
 [node name="BaseSignalNode" parent="." instance=ExtResource("3_hdv3g")]
 position = Vector2(475, 94)
@@ -50,8 +61,3 @@ normal_validator = SubResource("Resource_bgqqs")
 [node name="BaseSignalNode4" parent="." instance=ExtResource("4_ksrk6")]
 position = Vector2(759, 479)
 normal_validator = SubResource("Resource_bgqqs")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="LevelUI" parent="CanvasLayer" instance=ExtResource("5_mwf1r")]
-allowed_nodes = Array[PackedScene]([ExtResource("6_tca8u"), ExtResource("6_tca8u")])

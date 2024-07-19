@@ -11,10 +11,10 @@ func _matches_command(_string: String) -> bool:
 	return true
 
 
-func execute(command: String) -> String:
-	return _execute(command)
+func execute(command: String, terminal: Terminal) -> String:
+	return _execute(command, terminal)
 
 
-func _execute(_command: String) -> String:
+func _execute(_command: String, _terminal: Terminal) -> String:
 	push_warning("unimplemented!")
 	return "command not implemented yet"
