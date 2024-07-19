@@ -24,7 +24,7 @@ func _process(_delta: float) -> void:
 		conn.start_connection(get_parent())
 		return
 
-	if Connection.current.source == self:
+	if Connection.current.source == get_parent():
 		return
 
 	Connection.current.end_connection(get_parent())

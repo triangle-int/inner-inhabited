@@ -53,7 +53,7 @@ func _process(_delta: float) -> void:
 	shape.rotation = atan2(end.y, end.x)
 	(shape.shape as RectangleShape2D).size.x = end.length()
 
-	if _mouse_over and Input.is_action_pressed("delete_node"):
+	if !Level.current.is_simulating and _mouse_over and Input.is_action_pressed("delete_node"):
 		_destroy()
 
 
