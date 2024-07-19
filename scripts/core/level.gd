@@ -1,10 +1,10 @@
 class_name Level
 extends Node
 
-signal finished(solved: bool)
+signal finished(solved: SignalReceiver.SolutionStatus)
 
 @export var sequence: Array[SignalInfo]
-@export var receivers: Array[BaseSignalReceiver]
+@export var receivers: Array[SignalReceiver]
 @export var root: BaseSignalNode
 
 static var current: Level = null
@@ -28,12 +28,36 @@ func _on_signal_reached_endpoint() -> void:
 		_send_next()
 		return
 
-	var solved := receivers.all(
-		func(receiver: BaseSignalReceiver) -> bool: return receiver.is_correct()
+	var statuses := receivers.map(
+		func(receiver: SignalReceiver) -> SignalReceiver.SolutionStatus: return (
+			receiver.get_solution_status()
+		)
 	)
-	print("solved" if solved else "not solved")
+	var all_alternative := statuses.all(
+		func(status: SignalReceiver.SolutionStatus) -> bool: return (
+			status == SignalReceiver.SolutionStatus.ALTERNATIVELY_SOLVED
+		)
+	)
+	var all_normal := statuses.all(
+		func(status: SignalReceiver.SolutionStatus) -> bool: return (
+			status == SignalReceiver.SolutionStatus.NORMALLY_SOLVED
+		)
+	)
+
 	stop_simulation()
-	finished.emit(solved)
+
+	if all_alternative:
+		print("solved alternatively")
+		finished.emit(SignalReceiver.SolutionStatus.ALTERNATIVELY_SOLVED)
+		return
+
+	if all_normal:
+		print("solved normally")
+		finished.emit(SignalReceiver.SolutionStatus.NORMALLY_SOLVED)
+		return
+
+	print("not solved")
+	finished.emit(SignalReceiver.SolutionStatus.NOT_SOLVED)
 
 
 func start_simulation() -> void:
