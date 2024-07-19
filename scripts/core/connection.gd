@@ -1,10 +1,20 @@
 class_name Connection
 extends Line2D
 
+@export var area: Area2D
+@export var shape: CollisionShape2D
+
 var source: BaseSignalNode
 var target: BaseSignalNode
 
 static var current: Connection
+
+var _mouse_over: bool
+
+
+func _ready() -> void:
+	area.mouse_entered.connect(func() -> void: _mouse_over = true)
+	area.mouse_exited.connect(func() -> void: _mouse_over = false)
 
 
 func start_connection(new_source: BaseSignalNode) -> void:
@@ -32,7 +42,22 @@ func end_connection(new_target: BaseSignalNode) -> void:
 
 
 func _process(_delta: float) -> void:
-	if target == null:
-		set_point_position(1, get_global_mouse_position() - source.position)
-	else:
-		set_point_position(1, target.global_position - source.global_position)
+	var end := (
+		(get_global_mouse_position() - source.position)
+		if target == null
+		else target.global_position - source.global_position
+	)
+
+	set_point_position(1, end)
+	shape.position = end / 2
+	shape.rotation = atan2(end.y, end.x)
+	(shape.shape as RectangleShape2D).size.x = end.length()
+
+	if _mouse_over and Input.is_action_pressed("delete_node"):
+		_destroy()
+
+
+func _destroy() -> void:
+	source.outgoing_connections.erase(self)
+	target.incoming_connections.erase(self)
+	queue_free()

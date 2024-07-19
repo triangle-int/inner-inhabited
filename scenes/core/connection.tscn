@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://bb2o3vycytnhl"]
+[gd_scene load_steps=3 format=3 uid="uid://bb2o3vycytnhl"]
 
 [ext_resource type="Script" path="res://scripts/core/connection.gd" id="1_ku4s5"]
 
-[node name="Connection" type="Line2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4wf8h"]
+size = Vector2(20, 40)
+
+[node name="Connection" type="Line2D" node_paths=PackedStringArray("area", "shape")]
 script = ExtResource("1_ku4s5")
+area = NodePath("Area2D")
+shape = NodePath("Area2D/CollisionShape2D")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_4wf8h")
