@@ -1,10 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bal0o62qqsxyh"]
+[gd_scene load_steps=3 format=3 uid="uid://bhqnux2qnkqmr"]
 
-[ext_resource type="Script" path="res://scripts/core/receiver.gd" id="1_5e8a3"]
-[ext_resource type="Texture2D" uid="uid://dotaamtqndjj7" path="res://icon.svg" id="2_h3q85"]
+[ext_resource type="Script" path="res://scripts/core/counter_receiver.gd" id="1_mv3u7"]
+[ext_resource type="PackedScene" uid="uid://dcm2wni227j1" path="res://scenes/core/base_signal_node.tscn" id="1_nxr3q"]
 
-[node name="Receiver" type="Node2D"]
-script = ExtResource("1_5e8a3")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_h3q85")
+[node name="BaseSignalNode" instance=ExtResource("1_nxr3q")]
+script = ExtResource("1_mv3u7")
+target_count = 1

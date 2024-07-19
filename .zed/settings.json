@@ -13,7 +13,8 @@
             "cat > {buffer_path} && gdformat {buffer_path} &> /dev/null && cat {buffer_path}"
           ]
         }
-      }
+      },
+      "hard_tabs": true
     }
   }
 }

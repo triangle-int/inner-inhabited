@@ -1,7 +1,9 @@
 class_name BaseSignalNode
 extends Node2D
 
-@export var connections: Array[BaseSignalNode]
+@export var connection_limit: int
+
+var connections: Array[Connection]
 
 
 func receive_signal(signal_info: SignalInfo) -> void:
