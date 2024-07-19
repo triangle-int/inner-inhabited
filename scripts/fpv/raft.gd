@@ -7,5 +7,5 @@ extends Node3D
 func _process(delta: float) -> void:
 	var overlapping_bodies := hitbox.get_overlapping_bodies()
 	for body in overlapping_bodies:
-		if body is CharacterBody3D:
+		if body is Player:
 			body.attach_to_raft(self)
