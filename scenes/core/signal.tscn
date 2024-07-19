@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cp5ioeyfv4lex"]
+
+[ext_resource type="Texture2D" uid="uid://dotaamtqndjj7" path="res://icon.svg" id="1_sgrk4"]
+[ext_resource type="Script" path="res://scripts/core/signal_view.gd" id="2_1vp6u"]
+
+[node name="Signal" type="Node2D"]
+script = ExtResource("2_1vp6u")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_sgrk4")
+script = ExtResource("2_1vp6u")

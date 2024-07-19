@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cu6u3jmqp284f"]
+
+[ext_resource type="Script" path="res://scripts/core/intersection.gd" id="1_jec06"]
+[ext_resource type="Texture2D" uid="uid://dotaamtqndjj7" path="res://icon.svg" id="1_w6icv"]
+
+[node name="Intersection" type="Node2D"]
+script = ExtResource("1_jec06")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_w6icv")

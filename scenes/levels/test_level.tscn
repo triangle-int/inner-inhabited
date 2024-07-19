@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://bou72wqxg1rjn"]
+
+[ext_resource type="PackedScene" uid="uid://cu6u3jmqp284f" path="res://scenes/core/intersection.tscn" id="1_0xjkx"]
+[ext_resource type="Script" path="res://scripts/core/level.gd" id="1_bimvr"]
+[ext_resource type="Script" path="res://scripts/core/signal_info.gd" id="2_6c7n2"]
+[ext_resource type="PackedScene" uid="uid://c4xno8qjrkw4l" path="res://scenes/core/counter_.tscn" id="2_t5ral"]
+
+[sub_resource type="Resource" id="Resource_p071k"]
+script = ExtResource("2_6c7n2")
+number = 0
+
+[sub_resource type="Resource" id="Resource_r7g8l"]
+script = ExtResource("2_6c7n2")
+number = 0
+
+[sub_resource type="Resource" id="Resource_xhi4g"]
+script = ExtResource("2_6c7n2")
+number = 0
+
+[node name="TestLevel" type="Node2D" node_paths=PackedStringArray("receivers", "root")]
+script = ExtResource("1_bimvr")
+sequence = Array[ExtResource("2_6c7n2")]([SubResource("Resource_p071k"), SubResource("Resource_r7g8l"), SubResource("Resource_xhi4g")])
+receivers = [NodePath("Receiver"), NodePath("Receiver2"), NodePath("Receiver3")]
+root = NodePath("Intersection")
+
+[node name="Intersection" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("1_0xjkx")]
+position = Vector2(544, 178)
+connections = [NodePath("../Intersection2"), NodePath("../Receiver")]
+
+[node name="Receiver" parent="." instance=ExtResource("2_t5ral")]
+position = Vector2(306, 489)
+
+[node name="Intersection2" parent="." node_paths=PackedStringArray("connections") instance=ExtResource("1_0xjkx")]
+position = Vector2(794, 336)
+connections = [NodePath("../Receiver2"), NodePath("../Receiver3")]
+
+[node name="Receiver2" parent="." instance=ExtResource("2_t5ral")]
+position = Vector2(597, 535)
+
+[node name="Receiver3" parent="." instance=ExtResource("2_t5ral")]
+position = Vector2(983, 528)

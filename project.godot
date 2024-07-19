@@ -11,8 +11,17 @@ config_version=5
 [application]
 
 config/name="ESC"
+run/main_scene="res://scenes/levels/test_level.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+SignalSender="*res://scenes/autoloads/signal_sender.tscn"
+
+[debug]
+
+gdscript/warnings/untyped_declaration=2
 
 [rendering]
 
