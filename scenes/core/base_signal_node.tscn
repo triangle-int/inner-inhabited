@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcm2wni227j1"]
+
+[ext_resource type="Texture2D" uid="uid://dotaamtqndjj7" path="res://icon.svg" id="1_tl3m1"]
+[ext_resource type="PackedScene" uid="uid://bk7jdnoknpq6c" path="res://scenes/core/connection_holder.tscn" id="2_c8g5t"]
+
+[node name="BaseSignalNode" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_tl3m1")
+
+[node name="ConnectionHolder" parent="." instance=ExtResource("2_c8g5t")]

@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccwqh0h7q8ugm"]
+
+[ext_resource type="Script" path="res://scripts/core/ui/button.gd" id="1_fca5a"]
+
+[node name="NodeButton" type="Button"]
+custom_minimum_size = Vector2(120, 120)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "AMOGUS"
+script = ExtResource("1_fca5a")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
