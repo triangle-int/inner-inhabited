@@ -4,9 +4,17 @@ extends Line2D
 var source: BaseSignalNode
 var target: BaseSignalNode
 
+static var current: Connection
+
 
 func start_connection(new_source: BaseSignalNode) -> void:
+	if new_source.connections.size() >= new_source.connection_limit:
+		queue_free()
+		return
+
+	current = self
 	source = new_source
+
 	add_point(Vector2.ZERO)
 	add_point(Vector2.ZERO)
 
@@ -15,9 +23,9 @@ func end_connection(new_target: BaseSignalNode) -> void:
 	if source.connections.any(func(conn: Connection) -> bool: return conn.target == new_target):
 		return
 
+	current = null
 	target = new_target
 	source.connections.push_back(self)
-	ConnectionHolder.current = null
 
 
 func _process(_delta: float) -> void:

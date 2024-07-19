@@ -7,7 +7,3 @@
 position = Vector2(0, -1)
 script = ExtResource("2_2ofcv")
 connection_limit = 1
-
-[node name="Connection" parent="." index="1"]
-script = ExtResource("2_2ofcv")
-connection_limit = 1
