@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://t3gja6q6n1q"]
+
+[ext_resource type="PackedScene" uid="uid://56js0cahbxuq" path="res://models/table/table.tscn" id="1_cq7yt"]
+[ext_resource type="PackedScene" uid="uid://c0c3c1hneqpvy" path="res://models/lamp/lamp.tscn" id="2_ablob"]
+[ext_resource type="PackedScene" uid="uid://bvda6gxwk0oer" path="res://models/computer/computer.tscn" id="3_1y8fa"]
+[ext_resource type="PackedScene" uid="uid://jd4ln17vtkoe" path="res://models/paper_holder/paper_holder.tscn" id="4_3xxql"]
+
+[node name="OfficeCell" type="Node3D"]
+
+[node name="Table" parent="." instance=ExtResource("1_cq7yt")]
+
+[node name="Computer" parent="." instance=ExtResource("3_1y8fa")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.117211, 0.952868, -0.49766)
+
+[node name="Lamp" parent="." instance=ExtResource("2_ablob")]
+transform = Transform3D(0.529105, 0, -0.848556, 0, 1, 0, 0.848556, 0, 0.529105, -0.761237, 0.949608, -0.699974)
+
+[node name="PaperHolder" parent="." instance=ExtResource("4_3xxql")]
+transform = Transform3D(-0.390458, 0, -0.920621, 0, 1, 0, 0.920621, 0, -0.390458, 0.576432, 0.956064, -0.420438)
+
+[node name="PaperHolder2" parent="." instance=ExtResource("4_3xxql")]
+transform = Transform3D(-0.998763, 0, -0.0497214, 0, 1, 0, 0.0497214, 0, -0.998763, 0.683234, 0.956064, 0.399245)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4, 0)
+light_color = Color(0.878431, 0.996078, 1, 1)
+light_energy = 0.5
+spot_angle = 25.85
