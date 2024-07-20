@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbmrhykpnpl4y"]
+
+[ext_resource type="PackedScene" uid="uid://tbo3ngsdt67g" path="res://scenes/fpv/environment/statue.tscn" id="1_pdoeu"]
+[ext_resource type="Script" path="res://scripts/fpv/player_follow.gd" id="1_xhnn6"]
+
+[node name="MovingStatue" type="Node3D"]
+script = ExtResource("1_xhnn6")
+axis = Vector3(1, 0, 0)
+limit = 10.0
+
+[node name="Statue" parent="." instance=ExtResource("1_pdoeu")]

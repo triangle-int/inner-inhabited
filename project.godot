@@ -18,7 +18,9 @@ config/icon="res://icon.svg"
 [autoload]
 
 SignalSender="*res://scenes/autoloads/signal_sender.tscn"
+LevelSwitcher="*res://scenes/autoloads/level_switcher.tscn"
 NodeInteraction="*res://scenes/autoloads/node_interaction.tscn"
+PlayerProgress="*res://scenes/autoloads/player_progress.tscn"
 
 [debug]
 
@@ -104,3 +106,4 @@ move_back={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+limits/opengl/max_renderable_lights=64

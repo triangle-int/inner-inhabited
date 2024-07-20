@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://dac05n7bv4674"]
+
+[ext_resource type="Script" path="res://scripts/fpv/player_snap.gd" id="1_4eyri"]
+[ext_resource type="PackedScene" uid="uid://caicjo8jm4mf0" path="res://scenes/fpv/player.tscn" id="1_7os2t"]
+[ext_resource type="PackedScene" uid="uid://dnbtdc0lrydsl" path="res://scenes/fpv/environment/office_cells.tscn" id="1_aqs1o"]
+[ext_resource type="PackedScene" uid="uid://c347rww62mav5" path="res://scenes/fpv/environment/world_environment.tscn" id="1_ayi28"]
+[ext_resource type="PackedScene" uid="uid://cbmrhykpnpl4y" path="res://scenes/fpv/environment/moving_statue.tscn" id="5_5uogj"]
+
+[node name="Main" type="Node3D"]
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("1_ayi28")]
+
+[node name="PlayerSnap" type="Node3D" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("1_4eyri")
+player = NodePath("Player")
+limit = 8.0
+axis = Vector3(1, 0, 0)
+
+[node name="Player" parent="PlayerSnap" instance=ExtResource("1_7os2t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+
+[node name="MovingStatue" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_5uogj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+player = NodePath("../PlayerSnap/Player")
+
+[node name="OfficeCells" parent="." instance=ExtResource("1_aqs1o")]
+
+[node name="OfficeCells3" parent="." instance=ExtResource("1_aqs1o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 0)
+
+[node name="OfficeCells2" parent="." instance=ExtResource("1_aqs1o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
