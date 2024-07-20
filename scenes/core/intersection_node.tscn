@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://b55fq6rpc6drj"]
+
+[ext_resource type="PackedScene" uid="uid://dcm2wni227j1" path="res://scenes/core/base_signal_node.tscn" id="1_nqhbe"]
+[ext_resource type="Script" path="res://scripts/core/node/intersection.gd" id="2_b5y5p"]
+[ext_resource type="PackedScene" uid="uid://coew4enk4amt" path="res://scenes/core/drag.tscn" id="3_fhqmd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_66dyl"]
+size = Vector2(60, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w6iuk"]
+size = Vector2(60, 60)
+
+[node name="IntersectionNode" instance=ExtResource("1_nqhbe")]
+script = ExtResource("2_b5y5p")
+connection_limit = 2
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(0.235, 0.235)
+
+[node name="CollisionShape2D" parent="ConnectionHolder" index="0"]
+shape = SubResource("RectangleShape2D_66dyl")
+
+[node name="Drag" parent="." index="2" instance=ExtResource("3_fhqmd")]
+
+[node name="CollisionShape2D" parent="Drag" index="0"]
+shape = SubResource("RectangleShape2D_w6iuk")
+
+[connection signal="drag_stopped" from="Drag" to="." method="_on_drag_stopped"]
+
+[editable path="ConnectionHolder"]
+[editable path="Drag"]

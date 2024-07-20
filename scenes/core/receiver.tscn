@@ -1,7 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://b3i6otukvqj0c"]
-
-[ext_resource type="PackedScene" uid="uid://dcm2wni227j1" path="res://scenes/core/base_signal_node.tscn" id="1_hpayg"]
-[ext_resource type="Script" path="res://scripts/core/node/receiver.gd" id="2_ujajf"]
-
-[node name="BaseSignalNode" instance=ExtResource("1_hpayg")]
-script = ExtResource("2_ujajf")

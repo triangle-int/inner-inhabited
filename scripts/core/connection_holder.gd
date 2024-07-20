@@ -1,30 +1,31 @@
 extends Area2D
+class_name ConnectionHandler
 
 @export var line: PackedScene
 
-var _mouse_over: bool
+var is_dragging := false
+
+static var overlapping_handlers: Array[BaseSignalNode]
 
 
-func _ready() -> void:
-	mouse_entered.connect(func() -> void: _mouse_over = true)
-	mouse_exited.connect(func() -> void: _mouse_over = false)
+func _mouse_enter() -> void:
+	overlapping_handlers.append(get_parent())
 
 
-func _process(_delta: float) -> void:
-	if (
-		Level.current.is_simulating
-		or not _mouse_over
-		or not Input.is_action_just_pressed("connect_nodes")
-	):
+func _mouse_exit() -> void:
+	overlapping_handlers.erase(get_parent())
+
+
+func _input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if Level.current.is_simulating:
 		return
-
-	if Connection.current == null:
+	
+	if event.is_action_pressed("connect_nodes"):
 		var conn := line.instantiate() as Connection
 		add_child(conn)
 		conn.start_connection(get_parent())
 		return
 
-	if Connection.current.source == get_parent():
-		return
 
-	Connection.current.end_connection(get_parent())
+func _exit_tree() -> void:
+	overlapping_handlers.erase(get_parent())

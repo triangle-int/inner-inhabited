@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cac2n1ow1ebqy"]
+
+[ext_resource type="Script" path="res://scripts/core/node/interaction.gd" id="1_xjcdm"]
+
+[node name="NodeInteraction" type="Node"]
+script = ExtResource("1_xjcdm")

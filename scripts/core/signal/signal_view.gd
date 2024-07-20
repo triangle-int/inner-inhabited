@@ -2,5 +2,8 @@ class_name SignalView
 extends Node
 
 
-func load_signal(_signal_info: SignalInfo) -> void:
-	push_warning("unimplemented!")
+@onready var label: Label = $Label
+
+
+func load_signal(signal_info: SignalInfo) -> void:
+	label.text = str(signal_info.number)

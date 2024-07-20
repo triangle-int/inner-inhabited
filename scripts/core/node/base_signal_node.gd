@@ -33,3 +33,7 @@ func destroy() -> void:
 		connection.queue_free()
 
 	queue_free()
+
+
+func sort_outgoing_connections() -> void:
+	outgoing_connections.sort_custom(func(a: Connection, b: Connection) -> bool: return a.target.position.x < b.target.position.x)
