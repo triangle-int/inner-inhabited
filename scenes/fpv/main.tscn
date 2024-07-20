@@ -26,4 +26,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
 
 [node name="MovingStatue" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_5uogj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
 player = NodePath("../PlayerSnap/Player")

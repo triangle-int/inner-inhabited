@@ -12,7 +12,7 @@
 [node name="Statue" parent="." instance=ExtResource("2_lvmxh")]
 
 [node name="Player" parent="." instance=ExtResource("3_hlouc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16)
 
 [node name="Raft" parent="." instance=ExtResource("4_7ikju")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
