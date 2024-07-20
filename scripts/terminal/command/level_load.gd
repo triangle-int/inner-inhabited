@@ -18,7 +18,7 @@ func _execute(command: String, terminal: Terminal) -> String:
 	var level_node := level.instantiate() as Level
 
 	terminal.attach_level(level_node)
-
+	
 	return "Loading level %s..." % level_id
 
 

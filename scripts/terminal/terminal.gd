@@ -73,6 +73,7 @@ func clear() -> void:
 func attach_level(level: Level) -> void:
 	level_container.add_child(level)
 	_is_level_playing = true
+	lines_container.visible = false
 
 	level.finished.connect(_on_level_finished)
 
@@ -80,4 +81,5 @@ func attach_level(level: Level) -> void:
 func _on_level_finished(_status: Level.SolutionStatus) -> void:
 	# TODO: Proper level finish logic
 	_is_level_playing = false
+	lines_container.visible = true
 	level_container.get_children().front().queue_free()
