@@ -41,6 +41,23 @@ func end_connection(new_target: BaseSignalNode) -> void:
 	target.incoming_connections.push_back(self)
 
 
+func _input(event: InputEvent) -> void:
+	if current != self:
+		return
+	
+	if event.is_action_released("connect_nodes"):
+		if ConnectionHandler.overlapping_handlers.is_empty():
+			queue_free()
+			return
+		
+		var candidate: BaseSignalNode = ConnectionHandler.overlapping_handlers.front()
+		if candidate == source:
+			queue_free()
+			return
+		
+		end_connection(candidate)
+
+
 func _process(_delta: float) -> void:
 	var end := (
 		(get_global_mouse_position() - source.position)
