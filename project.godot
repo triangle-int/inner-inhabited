@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 SignalSender="*res://scenes/autoloads/signal_sender.tscn"
 NodeInteraction="*res://scenes/autoloads/node_interaction.tscn"
+PlayerProgress="*res://scenes/autoloads/player_progress.tscn"
 
 [debug]
 
