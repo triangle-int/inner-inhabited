@@ -38,7 +38,30 @@ func end_connection(new_target: BaseSignalNode) -> void:
 	current = null
 	target = new_target
 	source.outgoing_connections.push_back(self)
+	source.sort_outgoing_connections()
 	target.incoming_connections.push_back(self)
+
+
+func _input(event: InputEvent) -> void:
+	if current != self:
+		return
+	
+	if event.is_action_released("connect_nodes"):
+		if ConnectionHandler.overlapping_handlers.is_empty():
+			queue_free()
+			return
+		
+		var candidate: BaseSignalNode = ConnectionHandler.overlapping_handlers.front()
+		if candidate == source:
+			queue_free()
+			return
+		
+		var contains_short_loops: bool = candidate.outgoing_connections.any(func(conn: Connection) -> bool: return conn.target == source)
+		if contains_short_loops:
+			queue_free()
+			return
+		
+		end_connection(candidate)
 
 
 func _process(_delta: float) -> void:

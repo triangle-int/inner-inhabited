@@ -11,3 +11,8 @@ func _receive_signal(signal_info: SignalInfo) -> void:
 func _reset() -> void:
 	super._reset()
 	_current = 0
+
+
+func _on_drag_stopped() -> void:
+	for conn in incoming_connections:
+		conn.source.sort_outgoing_connections()

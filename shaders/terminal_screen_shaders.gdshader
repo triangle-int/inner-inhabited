@@ -20,7 +20,7 @@ void fragment()
 	vec2 iResolution = 1.0 / SCREEN_PIXEL_SIZE;
     vec2 q = FRAGCOORD.xy / iResolution.xy;
     vec2 uv = q;
-    uv = curve( uv );
+    // uv = curve( uv );
     vec3 oricol = texture( screen_texture, vec2(q.x,q.y) ).xyz;
     vec3 col;
 	float x =  sin(0.3*TIME+uv.y*21.0)*sin(0.7*TIME+uv.y*29.0)*sin(0.3+0.33*TIME+uv.y*31.0)*0.0017;
