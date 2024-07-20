@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://co266j3sgyxa5"]
+
+[ext_resource type="PackedScene" uid="uid://caicjo8jm4mf0" path="res://scenes/fpv/player.tscn" id="1_10dml"]
+[ext_resource type="PackedScene" uid="uid://b871gg0ul24w0" path="res://scenes/fpv/raft.tscn" id="2_13kcu"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_iknng"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_4yrnm"]
+sky_material = SubResource("ProceduralSkyMaterial_iknng")
+
+[sub_resource type="Environment" id="Environment_yvgnk"]
+background_mode = 2
+sky = SubResource("Sky_4yrnm")
+tonemap_mode = 2
+
+[node name="TestRaft" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_yvgnk")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("1_10dml")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.540694, 4.16517)
+
+[node name="Raft" parent="." instance=ExtResource("2_13kcu")]
