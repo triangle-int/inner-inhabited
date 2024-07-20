@@ -4,7 +4,5 @@
 [ext_resource type="Script" path="res://scripts/core/ui/signal_node_plan.gd" id="2_m15se"]
 
 [node name="BaseNodePlan" type="Sprite2D"]
-modulate = Color(0, 0.709804, 0, 1)
-scale = Vector2(0.465, 0.465)
 texture = ExtResource("1_n1pcl")
 script = ExtResource("2_m15se")
