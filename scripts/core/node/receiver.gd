@@ -1,8 +1,6 @@
 class_name SignalReceiver
 extends BaseSignalNode
 
-enum SolutionStatus { NOT_SOLVED, ALTERNATIVELY_SOLVED, NORMALLY_SOLVED }
-
 signal signal_received
 
 @export var normal_validator: BaseValidator
@@ -16,14 +14,14 @@ func _receive_signal(_signal_info: SignalInfo) -> void:
 	signal_received.emit()
 
 
-func get_solution_status() -> SolutionStatus:
+func get_solution_status() -> Level.SolutionStatus:
 	if alternative_validator != null and alternative_validator.is_valid(_received_signals):
-		return SolutionStatus.ALTERNATIVELY_SOLVED
+		return Level.SolutionStatus.ALTERNATIVELY_SOLVED
 
 	if normal_validator.is_valid(_received_signals):
-		return SolutionStatus.NORMALLY_SOLVED
+		return Level.SolutionStatus.NORMALLY_SOLVED
 
-	return SolutionStatus.NOT_SOLVED
+	return Level.SolutionStatus.NOT_SOLVED
 
 
 func _reset() -> void:

@@ -1,7 +1,9 @@
 class_name Level
 extends Node
 
-signal finished(solved: SignalReceiver.SolutionStatus)
+enum SolutionStatus { NOT_SOLVED, ALTERNATIVELY_SOLVED, NORMALLY_SOLVED }
+
+signal finished(status: Level.SolutionStatus)
 
 @export var sequence: Array[SignalInfo]
 @export var receivers: Array[SignalReceiver]
@@ -21,6 +23,10 @@ func _ready() -> void:
 		receiver.signal_received.connect(_on_signal_reached_endpoint)
 
 
+func _exit_tree() -> void:
+	current = null
+
+
 func _on_signal_reached_endpoint() -> void:
 	_signals_received += 1
 
@@ -29,35 +35,30 @@ func _on_signal_reached_endpoint() -> void:
 		return
 
 	var statuses := receivers.map(
-		func(receiver: SignalReceiver) -> SignalReceiver.SolutionStatus: return (
+		func(receiver: SignalReceiver) -> Level.SolutionStatus: return (
 			receiver.get_solution_status()
 		)
 	)
-	var all_alternative := statuses.all(
-		func(status: SignalReceiver.SolutionStatus) -> bool: return (
-			status == SignalReceiver.SolutionStatus.ALTERNATIVELY_SOLVED
-		)
-	)
-	var all_normal := statuses.all(
-		func(status: SignalReceiver.SolutionStatus) -> bool: return (
-			status == SignalReceiver.SolutionStatus.NORMALLY_SOLVED
-		)
-	)
-
 	stop_simulation()
 
-	if all_alternative:
+	if statuses.all(
+		func(status: Level.SolutionStatus) -> bool: return (
+			status == SolutionStatus.ALTERNATIVELY_SOLVED
+		)
+	):
 		print("solved alternatively")
-		finished.emit(SignalReceiver.SolutionStatus.ALTERNATIVELY_SOLVED)
+		finished.emit(SolutionStatus.ALTERNATIVELY_SOLVED)
 		return
 
-	if all_normal:
+	if statuses.all(
+		func(status: Level.SolutionStatus) -> bool: return status == SolutionStatus.NORMALLY_SOLVED
+	):
 		print("solved normally")
-		finished.emit(SignalReceiver.SolutionStatus.NORMALLY_SOLVED)
+		finished.emit(SolutionStatus.NORMALLY_SOLVED)
 		return
 
 	print("not solved")
-	finished.emit(SignalReceiver.SolutionStatus.NOT_SOLVED)
+	finished.emit(SolutionStatus.NOT_SOLVED)
 
 
 func start_simulation() -> void:

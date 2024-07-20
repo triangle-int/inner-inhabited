@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://blxqg5qptkwsa"]
+
+[ext_resource type="Theme" uid="uid://yrgk4422x7hg" path="res://ui/terminal_theme.tres" id="1_aewp0"]
+[ext_resource type="Script" path="res://scripts/terminal/response_line.gd" id="1_g52yw"]
+
+[node name="ResponseLine" type="HBoxContainer"]
+theme_override_constants/separation = 10
+script = ExtResource("1_g52yw")
+
+[node name="Response" type="Label" parent="."]
+layout_mode = 2
+theme = ExtResource("1_aewp0")
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 34
+text = "Unknown command."

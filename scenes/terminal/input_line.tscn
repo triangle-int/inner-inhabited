@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://fhejaqaayb4m"]
+
+[ext_resource type="Script" path="res://scripts/terminal/input_line.gd" id="1_76bik"]
+[ext_resource type="Theme" uid="uid://yrgk4422x7hg" path="res://ui/terminal_theme.tres" id="1_j5g0j"]
+
+[node name="InputLine" type="HBoxContainer"]
+theme_override_constants/separation = 10
+script = ExtResource("1_76bik")
+
+[node name="Start" type="Label" parent="."]
+layout_mode = 2
+theme = ExtResource("1_j5g0j")
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 34
+text = "User???> "
+
+[node name="Input" type="Label" parent="."]
+layout_mode = 2
+theme = ExtResource("1_j5g0j")
+theme_override_colors/font_color = Color(0, 1, 0, 1)
