@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dac05n7bv4674"]
+[gd_scene load_steps=6 format=3 uid="uid://dac05n7bv4674"]
 
 [ext_resource type="Script" path="res://scripts/fpv/player_snap.gd" id="1_4eyri"]
 [ext_resource type="PackedScene" uid="uid://caicjo8jm4mf0" path="res://scenes/fpv/player.tscn" id="1_7os2t"]
 [ext_resource type="PackedScene" uid="uid://dnbtdc0lrydsl" path="res://scenes/fpv/environment/office_cells.tscn" id="1_aqs1o"]
+[ext_resource type="PackedScene" uid="uid://tbo3ngsdt67g" path="res://scenes/fpv/environment/entrance.tscn" id="4_yx6w5"]
 
 [sub_resource type="Environment" id="Environment_4y65x"]
 background_energy_multiplier = 0.0
@@ -29,3 +30,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0)
 
 [node name="OfficeCells2" parent="." instance=ExtResource("1_aqs1o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+
+[node name="Entrance" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_yx6w5")]
+player = NodePath("../PlayerSnap/Player")
