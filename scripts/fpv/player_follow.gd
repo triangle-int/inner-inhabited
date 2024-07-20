@@ -1,3 +1,4 @@
+class_name Statue
 extends Node3D
 
 @export var player: Node3D
@@ -16,8 +17,12 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	var axis2 := Vector3.UP.cross(axis)
 	var player_offset := player.position - _initial_player_position
-	position = (
-		_initial_position
-		+ axis * player_offset.dot(axis)
-		+ axis2 * clamp(player_offset.dot(axis2), -limit, limit)
-	)
+
+	var axis_proj := player_offset.dot(axis)
+	var axis2_proj := player_offset.dot(axis2)
+
+	if axis2_proj >= limit || axis2_proj <= -limit:
+		LevelSwitcher.switch_to_statue(player)
+		return
+
+	position = _initial_position + axis * axis_proj + axis2 * axis2_proj

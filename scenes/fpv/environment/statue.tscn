@@ -1,14 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://tbo3ngsdt67g"]
-
-[ext_resource type="Script" path="res://scripts/fpv/player_follow.gd" id="1_k4df6"]
+[gd_scene load_steps=2 format=3 uid="uid://tbo3ngsdt67g"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ff1v8"]
 size = Vector3(1, 2, 1)
 
-[node name="Entrance" type="Node3D"]
-script = ExtResource("1_k4df6")
-axis = Vector3(1, 0, 0)
-limit = 20.0
+[node name="Statue" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
