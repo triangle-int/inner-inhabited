@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://d2bnf1g3p3brq"]
+
+[ext_resource type="FontFile" uid="uid://cwpg0ydx12vhx" path="res://fonts/FiraCode-Regular.ttf" id="1_cagxy"]
+[ext_resource type="Script" path="res://scripts/fpv/raft/alt_hint_view.gd" id="2_grivs"]
+[ext_resource type="Script" path="res://scripts/fpv/raft/hint.gd" id="3_ly8v5"]
+
+[sub_resource type="Resource" id="Resource_8meql"]
+script = ExtResource("3_ly8v5")
+level_id = "TEST"
+message = "ну хз, выключи компьютер"
+
+[node name="AltHint" type="Label3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+offset = Vector2(-300, 0)
+text = "L1337:
+Vashey mame zyat' ne nuzhen?"
+font = ExtResource("1_cagxy")
+outline_size = 0
+horizontal_alignment = 0
+autowrap_mode = 2
+width = 600.0
+script = ExtResource("2_grivs")
+alt_hints = Array[ExtResource("3_ly8v5")]([SubResource("Resource_8meql")])

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bv5b30febt42g"]
+[gd_scene load_steps=6 format=3 uid="uid://bv5b30febt42g"]
 
 [ext_resource type="PackedScene" uid="uid://c347rww62mav5" path="res://scenes/fpv/environment/world_environment.tscn" id="1_47cms"]
 [ext_resource type="PackedScene" uid="uid://tbo3ngsdt67g" path="res://scenes/fpv/environment/statue.tscn" id="2_lvmxh"]
 [ext_resource type="PackedScene" uid="uid://caicjo8jm4mf0" path="res://scenes/fpv/player.tscn" id="3_hlouc"]
 [ext_resource type="PackedScene" uid="uid://b871gg0ul24w0" path="res://scenes/fpv/raft.tscn" id="4_7ikju"]
+[ext_resource type="PackedScene" uid="uid://d2bnf1g3p3brq" path="res://scenes/fpv/alt_hint.tscn" id="5_eb8cm"]
 
 [node name="Statue" type="Node3D"]
 
@@ -16,5 +17,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16)
 
 [node name="Raft" parent="." instance=ExtResource("4_7ikju")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
-tween_time = 2.0
-offset = Vector3(0, 0, -10)
+tween_time = 4.0
+offset = Vector3(0, 0, 10)
+
+[node name="AltHint" parent="." instance=ExtResource("5_eb8cm")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 4, 12)
