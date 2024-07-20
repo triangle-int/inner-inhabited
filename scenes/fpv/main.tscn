@@ -13,18 +13,20 @@
 [node name="PlayerSnap" type="Node3D" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("1_4eyri")
 player = NodePath("Player")
-limit = 10.0
+limit = 8.0
 axis = Vector3(1, 0, 0)
 
 [node name="Player" parent="PlayerSnap" instance=ExtResource("1_7os2t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
 
-[node name="OfficeCells" parent="." instance=ExtResource("1_aqs1o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0)
-
-[node name="OfficeCells2" parent="." instance=ExtResource("1_aqs1o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
-
 [node name="MovingStatue" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_5uogj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
 player = NodePath("../PlayerSnap/Player")
+
+[node name="OfficeCells" parent="." instance=ExtResource("1_aqs1o")]
+
+[node name="OfficeCells3" parent="." instance=ExtResource("1_aqs1o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 0)
+
+[node name="OfficeCells2" parent="." instance=ExtResource("1_aqs1o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
