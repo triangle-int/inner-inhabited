@@ -20,6 +20,7 @@ levels = Array[ExtResource("5_6fmok")]([SubResource("Resource_grxsu")])
 
 [sub_resource type="Resource" id="Resource_mh2nj"]
 script = ExtResource("7_5n7gl")
+delay = 2.0
 
 [node name="Terminal" type="Control"]
 layout_mode = 3
