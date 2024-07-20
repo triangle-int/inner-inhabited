@@ -12,16 +12,18 @@ var start_position: Vector3
 var camera_node: Camera3D
 var target_position: Vector3
 
+
 func _ready() -> void:
 	camera_node = $"."
 	assert(camera_node is Node3D)
 	start_position = camera_node.position
 	target_position = start_position
 
+
 func _process(delta: float) -> void:
 	target_position = get_target_position()
 	apply_smoothed_position(target_position, delta)
-	
+
 	camera_node.look_at(get_focus_position())
 
 
@@ -39,7 +41,7 @@ func get_footstep_motion_position() -> Vector3:
 
 
 func apply_smoothed_position(pos: Vector3, delta: float) -> void:
-	if (camera_node.position == pos):
+	if camera_node.position == pos:
 		return
 	camera_node.position = camera_node.position.lerp(pos, smooth_speed * delta)
 
