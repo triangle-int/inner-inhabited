@@ -13,4 +13,6 @@ func _execute(_command: String, terminal: Terminal) -> String:
 	terminal.get_tree().create_timer(delay).timeout.connect(
 		func() -> void: LevelSwitcher.switch_to_main()
 	)
+	PlayerProgress.escaped_terminal = true
+
 	return "Disabling simulation..."
