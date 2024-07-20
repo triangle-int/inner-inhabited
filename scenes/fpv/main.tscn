@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dac05n7bv4674"]
+
+[ext_resource type="Script" path="res://scripts/fpv/player_snap.gd" id="1_4eyri"]
+[ext_resource type="PackedScene" uid="uid://caicjo8jm4mf0" path="res://scenes/fpv/player.tscn" id="1_7os2t"]
+[ext_resource type="PackedScene" uid="uid://dnbtdc0lrydsl" path="res://scenes/fpv/environment/office_cells.tscn" id="1_aqs1o"]
+
+[sub_resource type="Environment" id="Environment_4y65x"]
+background_energy_multiplier = 0.0
+fog_enabled = true
+fog_light_color = Color(0, 0, 0, 1)
+fog_density = 0.2
+
+[node name="Main" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4y65x")
+
+[node name="PlayerSnap" type="Node3D" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("1_4eyri")
+player = NodePath("Player")
+limit = 10.0
+axis = Vector3(1, 0, 0)
+
+[node name="Player" parent="PlayerSnap" instance=ExtResource("1_7os2t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+
+[node name="OfficeCells" parent="." instance=ExtResource("1_aqs1o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0)
+
+[node name="OfficeCells2" parent="." instance=ExtResource("1_aqs1o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
