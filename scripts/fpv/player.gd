@@ -9,7 +9,8 @@ extends CharacterBody3D
 @export var on_raft := false
 @export var slide_time := 1.0
 
-@onready var camera: Camera3D = $Camera3D
+@onready var head: Node3D = $Head
+@onready var camera: Camera3D = $Head/Camera3D
 
 
 func _input(event: InputEvent) -> void:
@@ -20,9 +21,9 @@ func _input(event: InputEvent) -> void:
 
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED and event is InputEventMouseMotion:
 		rotate_y(-event.relative.x * rotation_speed)
-		camera.rotate_x(-event.relative.y * rotation_speed)
-		camera.rotation.x = clamp(
-			camera.rotation.x, deg_to_rad(min_rotation_angle), deg_to_rad(max_rotation_angle)
+		head.rotate_x(-event.relative.y * rotation_speed)
+		head.rotation.x = clamp(
+			head.rotation.x, deg_to_rad(min_rotation_angle), deg_to_rad(max_rotation_angle)
 		)
 
 
@@ -33,7 +34,6 @@ func _physics_process(delta: float) -> void:
 	var direction: Vector3 = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	velocity.x = direction.x * movement_speed
 	velocity.z = direction.z * movement_speed
-
 	move_and_slide()
 
 
@@ -42,3 +42,7 @@ func attach_to_raft(raft: Node3D) -> void:
 	var tween := create_tween()
 	var final_position := Vector3(raft.position.x, position.y, raft.position.z)
 	tween.tween_property(self, "position", final_position, slide_time)
+
+
+func is_moving() -> bool:
+	return velocity.length_squared() > 0
