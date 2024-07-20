@@ -38,6 +38,7 @@ func end_connection(new_target: BaseSignalNode) -> void:
 	current = null
 	target = new_target
 	source.outgoing_connections.push_back(self)
+	source.sort_outgoing_connections()
 	target.incoming_connections.push_back(self)
 
 
