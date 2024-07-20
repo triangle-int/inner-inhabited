@@ -6,7 +6,13 @@ signal signal_received
 @export var normal_validator: BaseValidator
 @export var alternative_validator: BaseValidator
 
+@export var hint := ""
+
 var _received_signals: Array[SignalInfo]
+
+
+func _ready() -> void:
+	$Label.text = hint
 
 
 func _receive_signal(_signal_info: SignalInfo) -> void:
@@ -27,3 +33,6 @@ func get_solution_status() -> Level.SolutionStatus:
 func _reset() -> void:
 	super._reset()
 	_received_signals.clear()
+
+
+

@@ -14,5 +14,6 @@ shape = SubResource("RectangleShape2D_xy53k")
 
 [node name="Selection" type="Sprite2D" parent="."]
 visible = false
+modulate = Color(0, 0, 0, 1)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_ypddo")

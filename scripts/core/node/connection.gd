@@ -56,6 +56,11 @@ func _input(event: InputEvent) -> void:
 			queue_free()
 			return
 		
+		var contains_short_loops: bool = candidate.outgoing_connections.any(func(conn: Connection) -> bool: return conn.target == source)
+		if contains_short_loops:
+			queue_free()
+			return
+		
 		end_connection(candidate)
 
 

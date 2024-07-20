@@ -12,9 +12,9 @@ func send_signal(start_pos: Vector2, target: BaseSignalNode, signal_info: Signal
 	var time := distance / signal_speed
 
 	var signal_view := signal_scene.instantiate() as SignalView
-	signal_view.load_signal(signal_info)
 	signal_view.position = start_pos
 	Level.current.add_child(signal_view)
+	signal_view.load_signal(signal_info)
 
 	var tween := get_tree().create_tween()
 	tween.tween_property(signal_view, "position", target.position, time)

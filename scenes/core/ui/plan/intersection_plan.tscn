@@ -1,8 +1,8 @@
 [gd_scene load_steps=3 format=3 uid="uid://ceua3wogpuk6y"]
 
 [ext_resource type="PackedScene" uid="uid://bi8175nt5vwhr" path="res://scenes/core/ui/plan/base_node_plan.tscn" id="1_yagxj"]
-[ext_resource type="PackedScene" uid="uid://b55fq6rpc6drj" path="res://scenes/core/intersection.tscn" id="2_34ick"]
+[ext_resource type="PackedScene" uid="uid://b55fq6rpc6drj" path="res://scenes/core/intersection_node.tscn" id="2_yuq2y"]
 
 [node name="BaseNodePlan" instance=ExtResource("1_yagxj")]
 scale = Vector2(0.235, 0.235)
-target_node = ExtResource("2_34ick")
+target_node = ExtResource("2_yuq2y")
