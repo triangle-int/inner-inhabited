@@ -52,6 +52,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.118496, 0, -8.40907)
 script = ExtResource("8_efh5a")
 player = NodePath("../PlayerSnap/Player")
 animation_duration = 12.0
+fast_animation_duration = 3.0
 
 [node name="Path3D" type="Path3D" parent="TerminalPlayerSpawn"]
 curve = SubResource("Curve3D_6o0p8")
