@@ -1,8 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://dn63jd2aiv1f0"]
+[gd_scene load_steps=4 format=3 uid="uid://dn63jd2aiv1f0"]
 
 [ext_resource type="PackedScene" uid="uid://bi8175nt5vwhr" path="res://scenes/core/ui/plan/base_node_plan.tscn" id="1_mevbj"]
+[ext_resource type="Texture2D" uid="uid://cn4rmhqjogawx" path="res://textures/multiplicator/multiplicator.png" id="2_dxnnn"]
 [ext_resource type="PackedScene" uid="uid://340oa3u2cixc" path="res://scenes/core/nodes/multiplicator.tscn" id="2_gsoon"]
 
 [node name="BaseNodePlan" instance=ExtResource("1_mevbj")]
+modulate = Color(1, 1, 1, 1)
 scale = Vector2(0.233, 0.233)
+texture = ExtResource("2_dxnnn")
 target_node = ExtResource("2_gsoon")

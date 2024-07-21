@@ -1,8 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://ceua3wogpuk6y"]
+[gd_scene load_steps=4 format=3 uid="uid://ceua3wogpuk6y"]
 
 [ext_resource type="PackedScene" uid="uid://bi8175nt5vwhr" path="res://scenes/core/ui/plan/base_node_plan.tscn" id="1_yagxj"]
 [ext_resource type="PackedScene" uid="uid://b55fq6rpc6drj" path="res://scenes/core/nodes/intersection_node.tscn" id="2_mm17n"]
+[ext_resource type="Texture2D" uid="uid://8yqe2d6et47y" path="res://textures/intersection/intersection.png" id="2_xa7rs"]
 
 [node name="BaseNodePlan" instance=ExtResource("1_yagxj")]
+modulate = Color(1, 1, 1, 1)
 scale = Vector2(0.235, 0.235)
+texture = ExtResource("2_xa7rs")
 target_node = ExtResource("2_mm17n")
