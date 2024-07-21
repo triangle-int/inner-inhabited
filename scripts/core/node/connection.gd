@@ -45,22 +45,24 @@ func end_connection(new_target: BaseSignalNode) -> void:
 func _input(event: InputEvent) -> void:
 	if current != self:
 		return
-	
+
 	if event.is_action_released("connect_nodes"):
 		if ConnectionHandler.overlapping_handlers.is_empty():
 			queue_free()
 			return
-		
+
 		var candidate: BaseSignalNode = ConnectionHandler.overlapping_handlers.front()
 		if candidate == source:
 			queue_free()
 			return
-		
-		var contains_short_loops: bool = candidate.outgoing_connections.any(func(conn: Connection) -> bool: return conn.target == source)
+
+		var contains_short_loops: bool = candidate.outgoing_connections.any(
+			func(conn: Connection) -> bool: return conn.target == source
+		)
 		if contains_short_loops:
 			queue_free()
 			return
-		
+
 		end_connection(candidate)
 
 

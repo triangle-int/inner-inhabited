@@ -28,7 +28,7 @@ func _process(delta: float) -> void:
 
 
 func get_target_position() -> Vector3:
-	if player_movement.is_moving():
+	if player_movement.is_moving() and not player_movement.on_raft:
 		return get_footstep_motion_position()
 	return start_position
 

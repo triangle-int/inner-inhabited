@@ -4,6 +4,7 @@ extends CharacterBody3D
 signal entered_raft
 
 @export var movement_speed := 5.0
+@export var stop_duration := 0.2
 @export var rotation_speed := 0.005
 @export var min_rotation_angle := -60.0
 @export var max_rotation_angle := 60.0
@@ -34,15 +35,23 @@ func _input(event: InputEvent) -> void:
 		)
 
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if on_raft:
 		return
 
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var direction: Vector3 = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	if direction:
+		velocity.x = direction.x * movement_speed
+		velocity.z = direction.z * movement_speed
+	else:
+		var horizontal_velocity := Vector3(velocity.x, 0, velocity.z)
+		var new_horizontal_velocity := horizontal_velocity.move_toward(
+			Vector3.ZERO, (movement_speed / stop_duration) * delta
+		)
+		velocity.x = new_horizontal_velocity.x
+		velocity.z = new_horizontal_velocity.z
 
-	velocity.x = direction.x * movement_speed
-	velocity.z = direction.z * movement_speed
 	move_and_slide()
 
 
