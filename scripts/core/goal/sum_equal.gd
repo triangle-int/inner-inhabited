@@ -1,4 +1,4 @@
-class_name AllEqualGoal
+class_name SumEqualGoal
 extends BaseLevelGoal
 
 @export_node_path var receiver_path: NodePath
