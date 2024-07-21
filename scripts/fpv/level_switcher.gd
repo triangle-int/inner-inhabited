@@ -3,6 +3,7 @@ extends Node
 @export var main_level: PackedScene
 @export var statue_level: PackedScene
 @export var terminal_level: PackedScene
+@export var end_level: PackedScene
 @export var fade: ColorRect
 @export var fade_time: float
 
@@ -30,8 +31,7 @@ func switch_to_statue(player: Player) -> void:
 
 
 func switch_to_main() -> void:
-	fade.color = Color.BLACK
-	get_tree().create_tween().tween_property(fade, "color", Color(0, 0, 0, 0), fade_time)
+	_start_fade(Color.BLACK)
 	get_tree().change_scene_to_packed(main_level)
 
 
@@ -52,3 +52,15 @@ func switch_to_terminal() -> void:
 	tween.tween_property(fade, "color:a", 1.0, fade_time)
 	tween.tween_callback(func() -> void: get_tree().change_scene_to_packed(terminal_level)) 
 	tween.tween_property(fade, "color:a", 0.0, fade_time)
+
+
+func switch_to_end() -> void:
+	_start_fade(Color.BLACK)
+	get_tree().change_scene_to_packed(end_level)
+
+
+func _start_fade(initial_color: Color) -> void:
+	fade.color = initial_color
+	get_tree().create_tween().tween_property(
+		fade, "color", Color(initial_color.r, initial_color.g, initial_color.b, 0), fade_time
+	)

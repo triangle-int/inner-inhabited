@@ -5,7 +5,7 @@ extends Area3D
 
 func _on_body_entered(body: Node3D) -> void:
 	if body is Player:
-		body.enable_interaction("DOZE OFF", self)
+		body.enable_interaction("ENTER SIMULATION", self)
 
 
 func _on_body_exited(body: Node3D) -> void:
