@@ -16,10 +16,10 @@ func _mouse_exit() -> void:
 	overlapping_handlers.erase(get_parent())
 
 
-func _input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if Level.current.is_simulating:
 		return
-	
+
 	if event.is_action_pressed("connect_nodes"):
 		var conn := line.instantiate() as Connection
 		add_child(conn)
