@@ -21,4 +21,8 @@ func _on_player_entered_raft() -> void:
 	tween.parallel().tween_property(self, "position", position + offset, tween_time)
 
 	await tween.finished
-	LevelSwitcher.switch_to_main()
+
+	if PlayerProgress.all_alt_solved():
+		LevelSwitcher.switch_to_end()
+	else:
+		LevelSwitcher.switch_to_main()

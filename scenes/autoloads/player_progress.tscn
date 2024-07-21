@@ -3,12 +3,11 @@
 [ext_resource type="Script" path="res://scripts/core/player_progress.gd" id="1_n78ci"]
 [ext_resource type="Script" path="res://scripts/core/alt_level.gd" id="2_lgwga"]
 
-[sub_resource type="Resource" id="Resource_if5e7"]
+[sub_resource type="Resource" id="Resource_xu8u8"]
 script = ExtResource("2_lgwga")
 level_id = "TEST"
-message = "LTEST:
-хз, выключи компьютер"
+message = "blah blah blah"
 
 [node name="PlayerProgress" type="Node"]
 script = ExtResource("1_n78ci")
-alt_levels = Array[ExtResource("2_lgwga")]([SubResource("Resource_if5e7")])
+alt_levels = Array[ExtResource("2_lgwga")]([SubResource("Resource_xu8u8")])
