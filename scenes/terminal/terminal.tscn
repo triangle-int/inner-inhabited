@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://by61b1vkmlfgw"]
+[gd_scene load_steps=19 format=3 uid="uid://by61b1vkmlfgw"]
 
 [ext_resource type="Script" path="res://scripts/terminal/terminal.gd" id="1_cea4a"]
 [ext_resource type="PackedScene" uid="uid://fhejaqaayb4m" path="res://scenes/terminal/input_line.tscn" id="1_fff5l"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://scripts/terminal/command/volume.gd" id="8_upolt"]
 [ext_resource type="Script" path="res://scripts/terminal/command/manual.gd" id="9_l6e2s"]
 [ext_resource type="Script" path="res://scripts/terminal/command/clear.gd" id="10_8n5lb"]
+[ext_resource type="Script" path="res://scripts/terminal/scroll.gd" id="11_u6uwd"]
 
 [sub_resource type="Resource" id="Resource_grxsu"]
 script = ExtResource("5_6fmok")
@@ -67,25 +68,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
-
-[node name="LinesContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 5
-
-[node name="ResponseLine" parent="MarginContainer/LinesContainer" instance=ExtResource("2_xdqnh")]
-layout_mode = 2
+mouse_filter = 2
 
 [node name="LevelContainer" type="Control" parent="."]
 layout_mode = 1
@@ -95,3 +78,28 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+vertical_scroll_mode = 3
+script = ExtResource("11_u6uwd")
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="LinesContainer" type="VBoxContainer" parent="ScrollContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 5
+
+[node name="ResponseLine" parent="ScrollContainer/MarginContainer/LinesContainer" instance=ExtResource("2_xdqnh")]
+layout_mode = 2
