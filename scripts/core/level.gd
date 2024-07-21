@@ -64,9 +64,9 @@ func _on_signal_reached_endpoint() -> void:
 func start_simulation() -> void:
 	if is_simulating:
 		return
-	
+
 	NodeInteraction.deselect()
-	
+
 	is_simulating = true
 	_signals_received = 0
 	_send_next()

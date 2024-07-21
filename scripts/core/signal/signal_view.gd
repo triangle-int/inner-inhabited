@@ -1,7 +1,6 @@
 class_name SignalView
 extends Node
 
-
 @onready var label: Label = $Label
 
 

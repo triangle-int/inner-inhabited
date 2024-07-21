@@ -33,6 +33,3 @@ func get_solution_status() -> Level.SolutionStatus:
 func _reset() -> void:
 	super._reset()
 	_received_signals.clear()
-
-
-
