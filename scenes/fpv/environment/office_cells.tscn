@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dnbtdc0lrydsl"]
+[gd_scene load_steps=3 format=3 uid="uid://c5vsxtrwocnrj"]
 
 [ext_resource type="PackedScene" uid="uid://t3gja6q6n1q" path="res://scenes/fpv/environment/office_cell.tscn" id="1_plw62"]
 

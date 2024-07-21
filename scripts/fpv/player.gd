@@ -2,6 +2,7 @@ class_name Player
 extends CharacterBody3D
 
 signal entered_raft
+signal can_interact
 
 @export var movement_speed := 5.0
 @export var stop_duration := 0.2
@@ -12,8 +13,12 @@ signal entered_raft
 
 @onready var head: Node3D = $Head
 @onready var camera: Camera3D = $Head/Camera3D
+@onready var interaction_box: InteractionBox = $HUD/InteractionBox
 
 var on_raft := false
+var can_move := true
+
+var interactable_object: Node
 
 
 func _ready() -> void:
@@ -26,7 +31,11 @@ func _input(event: InputEvent) -> void:
 	elif event.is_action_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
-	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED and event is InputEventMouseMotion:
+	if event.is_action_pressed("interact") and interactable_object != null:
+		interactable_object.interact(self)
+
+	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED and event is InputEventMouseMotion \
+		and can_move:
 		rotate_y(-event.relative.x * rotation_speed)
 		head.rotation.x = clamp(
 			head.rotation.x - event.relative.y * rotation_speed,
@@ -52,7 +61,8 @@ func _physics_process(delta: float) -> void:
 		velocity.x = new_horizontal_velocity.x
 		velocity.z = new_horizontal_velocity.z
 
-	move_and_slide()
+	if can_move:
+		move_and_slide()
 
 
 func attach_to_raft(raft: Node3D) -> void:
@@ -67,4 +77,15 @@ func attach_to_raft(raft: Node3D) -> void:
 
 
 func is_moving() -> bool:
-	return velocity.length_squared() > 0
+	return can_move and velocity.length_squared() > 0 
+
+
+func enable_interaction(text: String, object: Node) -> void:
+	interaction_box.show_interaction(text)
+	interactable_object = object
+	can_interact.emit()
+
+
+func disable_interaction() -> void:
+	interaction_box.hide_interaction()
+	interactable_object = null

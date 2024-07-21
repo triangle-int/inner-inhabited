@@ -1,9 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://bvda6gxwk0oer"]
+[gd_scene load_steps=5 format=3 uid="uid://bvda6gxwk0oer"]
 
 [ext_resource type="PackedScene" uid="uid://cd71c4xptplwj" path="res://models/computer/computer.glb" id="1_v6oks"]
+[ext_resource type="Script" path="res://scripts/fpv/terminal/computer_screen.gd" id="2_jwsyo"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_nhclu"]
+size = Vector2(0.41, 0.305)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d681u"]
+resource_local_to_scene = true
+shading_mode = 0
 
 [node name="Computer" type="Node3D"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="computer" parent="." instance=ExtResource("1_v6oks")]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
+
+[node name="ScreenMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.047093, 0.369065, -2.0585e-09)
+mesh = SubResource("QuadMesh_nhclu")
+surface_material_override/0 = SubResource("StandardMaterial3D_d681u")
+script = ExtResource("2_jwsyo")
+
+[node name="ScreenLight" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.218404, 0.300467, -9.54673e-09)
+light_color = Color(0.732015, 1, 0.771359, 1)
+light_energy = 0.2
+omni_range = 0.413353
