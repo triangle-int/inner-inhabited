@@ -9,4 +9,4 @@ func _is_achieved(level: Level) -> bool:
 	var receiver := level.get_node(receiver_path) as BaseSignalNode
 	var signals: Array[SignalInfo] = receiver.received_signals
 
-	return target_sum == signals.reduce(func(acc: int, s: SignalInfo) -> int: return acc + s.number)
+	return target_sum == signals.reduce(func(acc: int, s: SignalInfo) -> int: return acc + s.number, 0)

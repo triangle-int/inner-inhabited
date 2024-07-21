@@ -1,0 +1,79 @@
+[gd_scene load_steps=19 format=3 uid="uid://jhi4uirj18b2"]
+
+[ext_resource type="PackedScene" uid="uid://b1bpb1u2oqt8f" path="res://scenes/levels/base_level.tscn" id="1_jjm6c"]
+[ext_resource type="Script" path="res://scripts/core/signal/signal_info.gd" id="2_pkmhi"]
+[ext_resource type="Script" path="res://scripts/core/goal/sequence.gd" id="3_186x5"]
+[ext_resource type="Script" path="res://scripts/core/goal/and.gd" id="4_dooni"]
+[ext_resource type="PackedScene" uid="uid://dkoakrtki43s5" path="res://scenes/core/ui/intersection_button.tscn" id="5_4qvth"]
+[ext_resource type="PackedScene" uid="uid://dylm2rolg2r3" path="res://scenes/core/ui/reverse_intersection_button.tscn" id="6_q25d2"]
+[ext_resource type="PackedScene" uid="uid://b3i6otukvqj0c" path="res://scenes/core/nodes/receiver_node.tscn" id="7_mecx0"]
+
+[sub_resource type="Resource" id="Resource_ik2w7"]
+script = ExtResource("2_pkmhi")
+number = 2
+
+[sub_resource type="Resource" id="Resource_6l0yw"]
+script = ExtResource("2_pkmhi")
+number = 3
+
+[sub_resource type="Resource" id="Resource_hf8fo"]
+script = ExtResource("2_pkmhi")
+number = 2
+
+[sub_resource type="Resource" id="Resource_1ktlt"]
+script = ExtResource("2_pkmhi")
+number = 3
+
+[sub_resource type="Resource" id="Resource_kh3d2"]
+script = ExtResource("2_pkmhi")
+number = 2
+
+[sub_resource type="Resource" id="Resource_kxd8e"]
+script = ExtResource("3_186x5")
+receiver_path = NodePath("ReceiverNode2")
+target_sequence = Array[int]([3, 3])
+invert = false
+
+[sub_resource type="Resource" id="Resource_ydk0m"]
+script = ExtResource("3_186x5")
+receiver_path = NodePath("ReceiverNode")
+target_sequence = Array[int]([2, 2, 2])
+invert = false
+
+[sub_resource type="Resource" id="Resource_2a256"]
+script = ExtResource("4_dooni")
+goals = Array[Resource("res://scripts/core/goal/base_goal.gd")]([SubResource("Resource_kxd8e"), SubResource("Resource_ydk0m")])
+invert = false
+
+[sub_resource type="Resource" id="Resource_yuqwr"]
+script = ExtResource("3_186x5")
+receiver_path = NodePath("ReceiverNode")
+target_sequence = Array[int]([3, 3])
+invert = false
+
+[sub_resource type="Resource" id="Resource_esmug"]
+script = ExtResource("3_186x5")
+receiver_path = NodePath("ReceiverNode2")
+target_sequence = Array[int]([2, 2, 2])
+invert = false
+
+[sub_resource type="Resource" id="Resource_x0leh"]
+script = ExtResource("4_dooni")
+goals = Array[Resource("res://scripts/core/goal/base_goal.gd")]([SubResource("Resource_yuqwr"), SubResource("Resource_esmug")])
+invert = false
+
+[node name="BaseLevel" instance=ExtResource("1_jjm6c")]
+sequence = Array[ExtResource("2_pkmhi")]([SubResource("Resource_ik2w7"), SubResource("Resource_6l0yw"), SubResource("Resource_hf8fo"), SubResource("Resource_1ktlt"), SubResource("Resource_kh3d2")])
+normal_goal = SubResource("Resource_2a256")
+alt_goal = SubResource("Resource_x0leh")
+
+[node name="LevelUI" parent="." index="0"]
+allowed_nodes = Array[PackedScene]([ExtResource("5_4qvth"), ExtResource("6_q25d2")])
+
+[node name="ReceiverNode" parent="." index="2" instance=ExtResource("7_mecx0")]
+position = Vector2(324, 512)
+hint = "2"
+
+[node name="ReceiverNode2" parent="." index="3" instance=ExtResource("7_mecx0")]
+position = Vector2(753, 511)
+hint = "3"

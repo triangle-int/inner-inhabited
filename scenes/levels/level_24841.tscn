@@ -1,0 +1,49 @@
+[gd_scene load_steps=15 format=3 uid="uid://cwkx2s7v2jmd5"]
+
+[ext_resource type="PackedScene" uid="uid://b1bpb1u2oqt8f" path="res://scenes/levels/base_level.tscn" id="1_p08po"]
+[ext_resource type="Script" path="res://scripts/core/signal/signal_info.gd" id="2_w66ob"]
+[ext_resource type="Script" path="res://scripts/core/goal/sum_equal.gd" id="3_4ua2y"]
+[ext_resource type="PackedScene" uid="uid://dkoakrtki43s5" path="res://scenes/core/ui/intersection_button.tscn" id="4_dmu2e"]
+[ext_resource type="PackedScene" uid="uid://dylm2rolg2r3" path="res://scenes/core/ui/reverse_intersection_button.tscn" id="5_kw45y"]
+[ext_resource type="PackedScene" uid="uid://ce6j6hof0swu6" path="res://scenes/core/ui/multiplicator_button.tscn" id="6_j40yn"]
+[ext_resource type="PackedScene" uid="uid://buokm32k0djs1" path="res://scenes/core/ui/trash_button.tscn" id="7_4gtrr"]
+[ext_resource type="PackedScene" uid="uid://b3i6otukvqj0c" path="res://scenes/core/nodes/receiver_node.tscn" id="8_vtbnk"]
+
+[sub_resource type="Resource" id="Resource_woa02"]
+script = ExtResource("2_w66ob")
+number = 2
+
+[sub_resource type="Resource" id="Resource_xkmq4"]
+script = ExtResource("2_w66ob")
+number = 4
+
+[sub_resource type="Resource" id="Resource_b6b88"]
+script = ExtResource("2_w66ob")
+number = 8
+
+[sub_resource type="Resource" id="Resource_eif5h"]
+script = ExtResource("2_w66ob")
+number = 4
+
+[sub_resource type="Resource" id="Resource_q6j6b"]
+script = ExtResource("3_4ua2y")
+receiver_path = NodePath("ReceiverNode")
+target_sum = 32
+invert = false
+
+[sub_resource type="Resource" id="Resource_m5gua"]
+script = ExtResource("3_4ua2y")
+receiver_path = NodePath("ReceiverNode")
+target_sum = 256
+invert = false
+
+[node name="BaseLevel" instance=ExtResource("1_p08po")]
+sequence = Array[ExtResource("2_w66ob")]([SubResource("Resource_woa02"), SubResource("Resource_xkmq4"), SubResource("Resource_b6b88"), SubResource("Resource_eif5h")])
+normal_goal = SubResource("Resource_q6j6b")
+alt_goal = SubResource("Resource_m5gua")
+
+[node name="LevelUI" parent="." index="0"]
+allowed_nodes = Array[PackedScene]([ExtResource("4_dmu2e"), ExtResource("5_kw45y"), ExtResource("6_j40yn"), ExtResource("7_4gtrr")])
+
+[node name="ReceiverNode" parent="." index="2" instance=ExtResource("8_vtbnk")]
+position = Vector2(549, 543)
