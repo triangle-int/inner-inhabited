@@ -9,6 +9,8 @@ var _need_rotate: bool
 var _old_player_rotation: Vector3
 var _old_player_head_rotation: Vector3
 
+var play_terminal_animation: bool
+
 
 func rotate_to_match_old(new_player: Player) -> void:
 	if not _need_rotate:
@@ -30,3 +32,13 @@ func switch_to_main() -> void:
 	fade.color = Color.BLACK
 	get_tree().create_tween().tween_property(fade, "color", Color(0, 0, 0, 0), fade_time)
 	get_tree().change_scene_to_packed(main_level)
+
+
+func switch_to_main_from_terminal() -> void:
+	fade.color = Color.WHITE
+	fade.color.a = 0.0
+	play_terminal_animation = true
+	var tween := create_tween()
+	tween.tween_property(fade, "color:a", 1.0, fade_time)
+	tween.tween_callback(func() -> void: get_tree().change_scene_to_packed(main_level)) 
+	

@@ -13,6 +13,7 @@ signal entered_raft
 @onready var camera: Camera3D = $Head/Camera3D
 
 var on_raft := false
+var can_move := true
 
 
 func _ready() -> void:
@@ -25,7 +26,8 @@ func _input(event: InputEvent) -> void:
 	elif event.is_action_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
-	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED and event is InputEventMouseMotion:
+	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED and event is InputEventMouseMotion \
+		and can_move:
 		rotate_y(-event.relative.x * rotation_speed)
 		head.rotation.x = clamp(
 			head.rotation.x - event.relative.y * rotation_speed,
@@ -40,10 +42,11 @@ func _physics_process(_delta: float) -> void:
 
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-
+	
 	velocity.x = direction.x * movement_speed
 	velocity.z = direction.z * movement_speed
-	move_and_slide()
+	if can_move:
+		move_and_slide()
 
 
 func attach_to_raft(raft: Node3D) -> void:
