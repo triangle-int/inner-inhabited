@@ -15,13 +15,6 @@ func _matches_command(string: String) -> bool:
 func _execute(command: String, terminal: Terminal) -> String:
 	var level_id := command.substr(1)
 	var index := find_level_index(level_id)
-
-	if index > 0:
-		var prev := levels[index - 1].id
-
-		if not PlayerProgress.passed_levels_ids.has(prev):
-			return "Level locked!\nYou should beat level %s to unlock this it." % prev
-
 	var level_node := levels[index].level.instantiate() as Level
 
 	level_node.level_id = level_id
