@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bc2dx0d40mt21"]
+
+[ext_resource type="PackedScene" uid="uid://by6jsd6ng1o2p" path="res://scenes/core/nodes/base_signal_node.tscn" id="1_5w4nq"]
+[ext_resource type="Script" path="res://scripts/core/node/reverse_intersection.gd" id="2_6mwu0"]
+[ext_resource type="PackedScene" uid="uid://coew4enk4amt" path="res://scenes/core/drag.tscn" id="2_yn03p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dccjd"]
+size = Vector2(60, 60)
+
+[node name="BaseSignalNode" instance=ExtResource("1_5w4nq")]
+script = ExtResource("2_6mwu0")
+connection_limit = 2
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(0.235, 0.235)
+
+[node name="CollisionShape2D" parent="ConnectionHolder" index="0"]
+shape = SubResource("RectangleShape2D_dccjd")
+
+[node name="Drag" parent="." index="2" instance=ExtResource("2_yn03p")]
+
+[connection signal="drag_stopped" from="Drag" to="." method="_on_drag_stopped"]
+
+[editable path="ConnectionHolder"]

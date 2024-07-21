@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dylm2rolg2r3"]
+
+[ext_resource type="PackedScene" uid="uid://ccwqh0h7q8ugm" path="res://scenes/core/ui/base_node_button.tscn" id="1_k1erb"]
+[ext_resource type="PackedScene" uid="uid://cggct0unucwh5" path="res://scenes/core/ui/plan/reverse_intersection_plan.tscn" id="2_tca0c"]
+
+[node name="NodeButton" instance=ExtResource("1_k1erb")]
+text = "REVERSE
+JUNCTION"
+target_plan = ExtResource("2_tca0c")

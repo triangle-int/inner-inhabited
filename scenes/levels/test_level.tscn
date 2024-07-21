@@ -1,11 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://corjgcidgpl3t"]
+[gd_scene load_steps=10 format=3 uid="uid://corjgcidgpl3t"]
 
 [ext_resource type="PackedScene" uid="uid://b1bpb1u2oqt8f" path="res://scenes/levels/base_level.tscn" id="1_ghc5h"]
 [ext_resource type="Script" path="res://scripts/core/signal/signal_info.gd" id="2_rrmng"]
 [ext_resource type="Script" path="res://scripts/core/goal/sequence.gd" id="3_2vc5b"]
 [ext_resource type="PackedScene" uid="uid://dkoakrtki43s5" path="res://scenes/core/ui/intersection_button.tscn" id="4_o7qkm"]
-[ext_resource type="PackedScene" uid="uid://buokm32k0djs1" path="res://scenes/core/ui/plan/trash_button.tscn" id="5_falup"]
+[ext_resource type="PackedScene" uid="uid://buokm32k0djs1" path="res://scenes/core/ui/trash_button.tscn" id="5_falup"]
 [ext_resource type="PackedScene" uid="uid://b3i6otukvqj0c" path="res://scenes/core/nodes/receiver_node.tscn" id="6_1eem8"]
+[ext_resource type="PackedScene" uid="uid://dylm2rolg2r3" path="res://scenes/core/ui/reverse_intersection_button.tscn" id="6_ej133"]
 
 [sub_resource type="Resource" id="Resource_gfsn6"]
 script = ExtResource("2_rrmng")
@@ -22,7 +23,7 @@ sequence = Array[ExtResource("2_rrmng")]([SubResource("Resource_gfsn6")])
 normal_goal = SubResource("Resource_q3tpx")
 
 [node name="LevelUI" parent="." index="0"]
-allowed_nodes = Array[PackedScene]([ExtResource("4_o7qkm"), ExtResource("5_falup")])
+allowed_nodes = Array[PackedScene]([ExtResource("4_o7qkm"), ExtResource("5_falup"), ExtResource("6_ej133")])
 
 [node name="ReceiverNode" parent="." index="2" instance=ExtResource("6_1eem8")]
 position = Vector2(556, 542)

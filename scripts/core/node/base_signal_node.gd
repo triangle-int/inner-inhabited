@@ -46,3 +46,8 @@ func sort_outgoing_connections() -> void:
 	outgoing_connections.sort_custom(
 		func(a: Connection, b: Connection) -> bool: return a.target.position.x < b.target.position.x
 	)
+
+
+func _sort_in_incoming() -> void:
+	for conn in incoming_connections:
+		conn.source.sort_outgoing_connections()

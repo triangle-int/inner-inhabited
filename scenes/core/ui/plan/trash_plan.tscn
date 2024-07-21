@@ -4,4 +4,5 @@
 [ext_resource type="PackedScene" uid="uid://cif8yl81wsuur" path="res://scenes/core/nodes/trash_node.tscn" id="2_iqdn8"]
 
 [node name="BaseNodePlan" instance=ExtResource("1_yki0m")]
+scale = Vector2(0.235, 0.235)
 target_node = ExtResource("2_iqdn8")
