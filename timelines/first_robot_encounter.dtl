@@ -4,4 +4,4 @@ robot: Do you want to know why I helped you get out?
 	robot: HORAY
 - Uh... actually no
 	robot: Alright, then...
-	[signal arg="show_raft"]
+	set {show_raft} = true

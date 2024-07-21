@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://wmlp2ilgd6wv"]
+[gd_scene load_steps=10 format=3 uid="uid://wmlp2ilgd6wv"]
 
 [ext_resource type="PackedScene" path="res://scenes/fpv/environment/world_environment.tscn" id="1_47cms"]
 [ext_resource type="PackedScene" path="res://scenes/fpv/environment/statue.tscn" id="2_lvmxh"]
@@ -6,9 +6,15 @@
 [ext_resource type="PackedScene" uid="uid://b871gg0ul24w0" path="res://scenes/fpv/raft.tscn" id="4_7ikju"]
 [ext_resource type="PackedScene" uid="uid://d2bnf1g3p3brq" path="res://scenes/fpv/alt_hint.tscn" id="5_eb8cm"]
 [ext_resource type="Script" path="res://scripts/fpv/interaction/dialogue_interaction_area.gd" id="6_8hq6v"]
+[ext_resource type="Material" uid="uid://cuu6v0i6wy8r4" path="res://materials/river.tres" id="7_dtvqq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2gkaa"]
 size = Vector3(1.54102, 1.60306, 1.09229)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rbs6s"]
+size = Vector2(7, 7)
+subdivide_width = 10
+subdivide_depth = 10
 
 [node name="Statue" type="Node3D"]
 
@@ -20,12 +26,17 @@ size = Vector3(1.54102, 1.60306, 1.09229)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16)
 
 [node name="Raft" parent="." instance=ExtResource("4_7ikju")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
-tween_time = 4.0
-offset = Vector3(0, 0, 10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.14777)
+tween_time = 9.0
+wait_time = 5.0
+offset = Vector3(0, 0, 60)
 
 [node name="AltHint" parent="." instance=ExtResource("5_eb8cm")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 4, 12)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1, 59.6895)
+
+[node name="AltHint2" parent="." instance=ExtResource("5_eb8cm")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1, 67.163)
+text_type = 1
 
 [node name="DialogueInteractionArea" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1)
@@ -37,6 +48,81 @@ shape = SubResource("BoxShape3D_2gkaa")
 
 [node name="TargetCameraPoint" type="Marker3D" parent="DialogueInteractionArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.582794, 0.778254)
+
+[node name="Water" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.245335, 5.46622)
+mesh = SubResource("PlaneMesh_rbs6s")
+surface_material_override/0 = ExtResource("7_dtvqq")
+
+[node name="Water2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.245335, 12.4662)
+mesh = SubResource("PlaneMesh_rbs6s")
+surface_material_override/0 = ExtResource("7_dtvqq")
+
+[node name="Water3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.245335, 19.4662)
+mesh = SubResource("PlaneMesh_rbs6s")
+surface_material_override/0 = ExtResource("7_dtvqq")
+
+[node name="Water4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.245335, 26.4662)
+mesh = SubResource("PlaneMesh_rbs6s")
+surface_material_override/0 = ExtResource("7_dtvqq")
+
+[node name="Water5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.245335, 33.4662)
+mesh = SubResource("PlaneMesh_rbs6s")
+surface_material_override/0 = ExtResource("7_dtvqq")
+
+[node name="Water6" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.245335, 40.4662)
+mesh = SubResource("PlaneMesh_rbs6s")
+surface_material_override/0 = ExtResource("7_dtvqq")
+
+[node name="Water7" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.245335, 47.4662)
+mesh = SubResource("PlaneMesh_rbs6s")
+surface_material_override/0 = ExtResource("7_dtvqq")
+
+[node name="Water8" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.245335, 54.4662)
+mesh = SubResource("PlaneMesh_rbs6s")
+surface_material_override/0 = ExtResource("7_dtvqq")
+
+[node name="Water9" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.245335, 61.4662)
+mesh = SubResource("PlaneMesh_rbs6s")
+surface_material_override/0 = ExtResource("7_dtvqq")
+
+[node name="Water10" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.245335, 68.4662)
+mesh = SubResource("PlaneMesh_rbs6s")
+surface_material_override/0 = ExtResource("7_dtvqq")
+
+[node name="Water11" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.245335, 75.4662)
+mesh = SubResource("PlaneMesh_rbs6s")
+surface_material_override/0 = ExtResource("7_dtvqq")
+
+[node name="Water12" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.245335, 82.4662)
+mesh = SubResource("PlaneMesh_rbs6s")
+surface_material_override/0 = ExtResource("7_dtvqq")
+
+[node name="Water13" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.245335, 89.4662)
+mesh = SubResource("PlaneMesh_rbs6s")
+surface_material_override/0 = ExtResource("7_dtvqq")
+
+[node name="Water14" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.245335, 96.4662)
+mesh = SubResource("PlaneMesh_rbs6s")
+surface_material_override/0 = ExtResource("7_dtvqq")
+
+[node name="Water15" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.245335, 103.466)
+mesh = SubResource("PlaneMesh_rbs6s")
+surface_material_override/0 = ExtResource("7_dtvqq")
 
 [connection signal="body_entered" from="DialogueInteractionArea" to="DialogueInteractionArea" method="_on_body_entered"]
 [connection signal="body_exited" from="DialogueInteractionArea" to="DialogueInteractionArea" method="_on_body_exited"]

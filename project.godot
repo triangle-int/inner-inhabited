@@ -38,6 +38,9 @@ directories/dtl_directory={
 layout/style_list=["res://timelines/default_style.tres"]
 layout/default_style="res://timelines/default_style.tres"
 glossary/default_case_sensitive=true
+variables={
+"show_raft": false
+}
 
 [display]
 
