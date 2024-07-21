@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://5kaqyh70jjf0"]
+[gd_scene load_steps=6 format=3 uid="uid://5kaqyh70jjf0"]
 
 [ext_resource type="Script" path="res://scripts/core/sound_player.gd" id="1_du8k4"]
 [ext_resource type="AudioStream" uid="uid://cu4qer0gad84b" path="res://music/before_escape.mp3" id="2_f1iec"]
 [ext_resource type="AudioStream" uid="uid://0lqu26wss0dk" path="res://music/after_escape.mp3" id="3_yw60s"]
 [ext_resource type="AudioStream" uid="uid://7hvvqivumnjt" path="res://music/outside.mp3" id="4_ssi7e"]
+[ext_resource type="AudioStream" uid="uid://dxmpt6qt60mt2" path="res://music/nature.mp3" id="5_jkt0b"]
 
 [node name="AudioPlayer" type="Node" node_paths=PackedStringArray("player")]
 script = ExtResource("1_du8k4")
@@ -11,5 +12,6 @@ player = NodePath("AudioStreamPlayer")
 terminal_before_escape = ExtResource("2_f1iec")
 terminal_after_escape = ExtResource("3_yw60s")
 outside = ExtResource("4_ssi7e")
+nature = ExtResource("5_jkt0b")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
