@@ -28,3 +28,9 @@ func _on_player_entered_raft() -> void:
 		LevelSwitcher.switch_to_end()
 	else:
 		LevelSwitcher.switch_to_main()
+
+
+func show_light() -> void:
+	var tween := create_tween()
+	tween.tween_property($SpotLight3D, "light_energy", 5.0, 1.0)
+	tween.tween_property($OmniLight3D, "light_energy", 1.4, 1.0)

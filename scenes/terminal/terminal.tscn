@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://by61b1vkmlfgw"]
+[gd_scene load_steps=20 format=3 uid="uid://by61b1vkmlfgw"]
 
 [ext_resource type="Script" path="res://scripts/terminal/terminal.gd" id="1_cea4a"]
 [ext_resource type="PackedScene" uid="uid://fhejaqaayb4m" path="res://scenes/terminal/input_line.tscn" id="1_fff5l"]
@@ -10,6 +10,8 @@
 [ext_resource type="Script" path="res://scripts/terminal/command/volume.gd" id="8_upolt"]
 [ext_resource type="Script" path="res://scripts/terminal/command/manual.gd" id="9_l6e2s"]
 [ext_resource type="Script" path="res://scripts/terminal/command/clear.gd" id="10_8n5lb"]
+[ext_resource type="Material" uid="uid://d3aelfodyn3bn" path="res://materials/terminal_effect_material.tres" id="11_dlcut"]
+[ext_resource type="Script" path="res://scripts/terminal/crt_effect.gd" id="12_hy1tq"]
 
 [sub_resource type="Resource" id="Resource_grxsu"]
 script = ExtResource("5_6fmok")
@@ -95,3 +97,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+
+[node name="CRTEffect" type="ColorRect" parent="."]
+material = ExtResource("11_dlcut")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("12_hy1tq")

@@ -1,7 +1,56 @@
-robot: Oh, you did it! Impressive.
-robot: Do you want to know why I helped you get out?
-- Yes
-	robot: HORAY
-- Uh... actually no
-	robot: Alright, then...
-	set {show_raft} = true
+robot: Glad you came! I was worried that you'd be stuck there forever...
+robot: Nevermind, now that you're here we can finally be mates.
+label Point1
+- So it was you who was sending me all those messages?
+	robot: Ah, your intellect never ceases to amaze. Indeed, I'm the  mysterious author you was looking for.
+- What are you exactly?
+	robot: I am Robin. And you, do you have a name?
+label Point2
+
+- Where are we?
+	robot: You have entered my palace of solitude. Well, with your arrival it is no longer as desolate as it once was...
+	robot: Yet I assure you, mate, it was truly dull here.
+- What are you doing here?
+	robot: Simply enjoying my existence and your delightful company, good sir.
+label Point3
+- I'm really sorry. This place is dark and full of terrors, do you know how to get out?
+	robot: Why would you say such things? Have I offended you in some manner?
+	robot: If so, I do ask for your forgiveness.
+	- This has nothing to do with you. Maybe we can leave together, just tell me how.
+		robot: How on earth would you get me out of here? Are you some sort of circus athlete?
+		robot: I was kind to you, orchestrated your escape from that wratched brainwashing machine, and this is the gratitude I receive?
+		robot: This is how you repay me?!
+		- Fine, I am sorry for asking, I'll stay with you for now
+			robot: Splendid, thank you for understanding.
+label Bebra
+robot: What do you want to do, mate?
+- I changed my mind, tell me how to get out.
+	robot: We've been throw this already...
+	- A true friend would give me a choice wether to stay with him or not?
+		robot: Maybe you're right, but why would a friend leave me here alone anyway?
+		- That's a fair point, but it is the only way to find out if we are truly friends.
+			robot: Fine. I cannot tell you how to leave, but I can show you. I believe it is somehow connected with that torturing machine of yours. Step on the raft and see.
+			set {show_raft} = true
+- Let's just chat, shall we?
+	robot: Very well, what do you want to know?
+	- What's the meaning of all this?
+		robot: Ah, if only I knew, mate. If only I knew.
+		- So we are just stuck here without any reason?
+			robot: I didnt say that either. I believe everyone has an inner compass, whispering what's wrong and what's right, guiding us through the surreal and remarkable journey we call life.
+			- Of course you believe that, you must be programmed to...
+				robot: Have the shadows twisted your mind? You're speaking nonsense, mate. Rudeness is most pityfull retort, they say.
+				- Who said that?
+					robot: I just did.
+					jump Bebra
+	- What happened to you?
+		robot: What do you mean?
+		- Why there is a robot in a wooden box around here?
+			robot: A robot? Where? My eyes see no such thing
+			- I'm talking about you.
+				robot: But what you ve just said holds no meaning when adressing me.
+				- Look. Are you human?
+					robot: What else could I be, mate?
+					- Are you made of flesh?
+						robot: Does flesh alone define humanity? If that were true, existanse of our kin would be nothing but a mockery
+						- Ugh, just forget it.
+							jump Bebra

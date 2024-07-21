@@ -1,15 +1,13 @@
 [gd_scene load_steps=10 format=3 uid="uid://wmlp2ilgd6wv"]
 
 [ext_resource type="PackedScene" path="res://scenes/fpv/environment/world_environment.tscn" id="1_47cms"]
-[ext_resource type="PackedScene" path="res://scenes/fpv/environment/statue.tscn" id="2_lvmxh"]
+[ext_resource type="Script" path="res://scripts/fpv/statue_cutscene.gd" id="1_hgpfr"]
+[ext_resource type="PackedScene" uid="uid://cmkuhebmhxi3q" path="res://scenes/fpv/environment/statue.tscn" id="2_lvmxh"]
 [ext_resource type="PackedScene" uid="uid://caicjo8jm4mf0" path="res://scenes/fpv/player.tscn" id="3_hlouc"]
 [ext_resource type="PackedScene" uid="uid://b871gg0ul24w0" path="res://scenes/fpv/raft.tscn" id="4_7ikju"]
 [ext_resource type="PackedScene" uid="uid://d2bnf1g3p3brq" path="res://scenes/fpv/alt_hint.tscn" id="5_eb8cm"]
-[ext_resource type="Script" path="res://scripts/fpv/interaction/dialogue_interaction_area.gd" id="6_8hq6v"]
+[ext_resource type="PackedScene" uid="uid://1gbalpkw8bc0" path="res://scenes/fpv/environment/wall.tscn" id="6_4vneb"]
 [ext_resource type="Material" uid="uid://cuu6v0i6wy8r4" path="res://materials/river.tres" id="7_dtvqq"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_2gkaa"]
-size = Vector3(1.54102, 1.60306, 1.09229)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_rbs6s"]
 size = Vector2(7, 7)
@@ -17,10 +15,12 @@ subdivide_width = 10
 subdivide_depth = 10
 
 [node name="Statue" type="Node3D"]
+script = ExtResource("1_hgpfr")
 
 [node name="WorldEnvironment" parent="." instance=ExtResource("1_47cms")]
 
 [node name="Statue" parent="." instance=ExtResource("2_lvmxh")]
+hide_duration = 3.0
 
 [node name="Player" parent="." instance=ExtResource("3_hlouc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16)
@@ -38,16 +38,59 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1, 
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1, 67.163)
 text_type = 1
 
-[node name="DialogueInteractionArea" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1)
-script = ExtResource("6_8hq6v")
+[node name="Wall" parent="." instance=ExtResource("6_4vneb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 2)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DialogueInteractionArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0402832, -0.178848, -0.340088)
-shape = SubResource("BoxShape3D_2gkaa")
+[node name="Wall2" parent="." instance=ExtResource("6_4vneb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2, 2)
 
-[node name="TargetCameraPoint" type="Marker3D" parent="DialogueInteractionArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.582794, 0.778254)
+[node name="Wall3" parent="." instance=ExtResource("6_4vneb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, 2)
+
+[node name="Wall10" parent="." instance=ExtResource("6_4vneb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -27)
+
+[node name="Wall11" parent="." instance=ExtResource("6_4vneb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2, -27)
+
+[node name="Wall12" parent="." instance=ExtResource("6_4vneb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, -27)
+
+[node name="Wall4" parent="." instance=ExtResource("6_4vneb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7, 2, 0)
+
+[node name="Wall5" parent="." instance=ExtResource("6_4vneb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7, 2, -5)
+
+[node name="Wall6" parent="." instance=ExtResource("6_4vneb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7, 2, -10)
+
+[node name="Wall13" parent="." instance=ExtResource("6_4vneb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7, 2, -15)
+
+[node name="Wall14" parent="." instance=ExtResource("6_4vneb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7, 2, -20)
+
+[node name="Wall15" parent="." instance=ExtResource("6_4vneb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7, 2, -25)
+
+[node name="Wall16" parent="." instance=ExtResource("6_4vneb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7, 2, -15)
+
+[node name="Wall17" parent="." instance=ExtResource("6_4vneb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7, 2, -20)
+
+[node name="Wall18" parent="." instance=ExtResource("6_4vneb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7, 2, -25)
+
+[node name="Wall7" parent="." instance=ExtResource("6_4vneb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7, 2, 0)
+
+[node name="Wall8" parent="." instance=ExtResource("6_4vneb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7, 2, -5)
+
+[node name="Wall9" parent="." instance=ExtResource("6_4vneb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7, 2, -10)
 
 [node name="Water" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.245335, 5.46622)
@@ -123,6 +166,3 @@ surface_material_override/0 = ExtResource("7_dtvqq")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.245335, 103.466)
 mesh = SubResource("PlaneMesh_rbs6s")
 surface_material_override/0 = ExtResource("7_dtvqq")
-
-[connection signal="body_entered" from="DialogueInteractionArea" to="DialogueInteractionArea" method="_on_body_entered"]
-[connection signal="body_exited" from="DialogueInteractionArea" to="DialogueInteractionArea" method="_on_body_exited"]

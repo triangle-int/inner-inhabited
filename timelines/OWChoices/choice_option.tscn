@@ -6,6 +6,9 @@
 [ext_resource type="Script" path="res://addons/dialogic/Modules/Choice/node_choice_button.gd" id="4_vx7m2"]
 
 [node name="ChoiceOption" type="HBoxContainer"]
+custom_minimum_size = Vector2(0, 23)
+offset_right = 350.0
+offset_bottom = 23.0
 theme = ExtResource("1_k4wld")
 script = ExtResource("2_e2k8t")
 
@@ -17,9 +20,9 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="ChoiceButton" type="Button" parent="."]
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 theme = ExtResource("1_k4wld")
-text = "Some text"
 alignment = 0
 script = ExtResource("4_vx7m2")
 

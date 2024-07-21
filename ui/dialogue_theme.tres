@@ -17,7 +17,7 @@ color = Color(1, 1, 1, 1)
 thickness = 3
 
 [resource]
-Button/font_sizes/font_size = 22
+Button/font_sizes/font_size = 16
 Button/fonts/font = ExtResource("1_iaoyl")
 Button/styles/disabled = SubResource("StyleBoxEmpty_nlal2")
 Button/styles/focus = SubResource("StyleBoxEmpty_ypsjn")
@@ -26,4 +26,5 @@ Button/styles/normal = SubResource("StyleBoxEmpty_g1e8r")
 Button/styles/pressed = SubResource("StyleBoxEmpty_7ax81")
 HBoxContainer/constants/separation = 14
 HSeparator/styles/separator = SubResource("StyleBoxLine_rncrs")
+Label/fonts/font = ExtResource("1_iaoyl")
 VBoxContainer/constants/separation = 14

@@ -21,8 +21,8 @@ SignalSender="*res://scenes/autoloads/signal_sender.tscn"
 LevelSwitcher="*res://scenes/autoloads/level_switcher.tscn"
 NodeInteraction="*res://scenes/autoloads/node_interaction.tscn"
 PlayerProgress="*res://scenes/autoloads/player_progress.tscn"
-Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 AudioPlayer="*res://scenes/autoloads/audio_player.tscn"
+Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [debug]
 
@@ -34,7 +34,8 @@ directories/dch_directory={
 "robot": "res://timelines/robot.dch"
 }
 directories/dtl_directory={
-"first_robot_encounter": "res://timelines/first_robot_encounter.dtl"
+"first_robot_encounter": "res://timelines/first_robot_encounter.dtl",
+"main_robot": "res://timelines/main_robot.dtl"
 }
 layout/style_list=["res://timelines/default_style.tres"]
 layout/default_style="res://timelines/default_style.tres"
@@ -42,6 +43,23 @@ glossary/default_case_sensitive=true
 variables={
 "show_raft": false
 }
+text/letter_speed=0.01
+text/initial_text_reveal_skippable=true
+text/text_reveal_skip_delay=0.1
+text/advance_delay=0.1
+text/autoadvance_per_character_delay=0.1
+text/autoadvance_ignored_characters_enabled=true
+animations/join_default_length=0.5
+animations/leave_default_length=0.5
+animations/leave_default_wait=true
+animations/join_default_wait=true
+choices/autofocus_first=true
+choices/delay=0.2
+choices/reveal_delay=0
+choices/reveal_by_input=false
+save/autosave_delay=60.0
+save/encryption_on_exports_only=true
+text/autopauses={}
 
 [display]
 

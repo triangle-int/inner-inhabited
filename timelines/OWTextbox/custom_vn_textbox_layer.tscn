@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://timelines/OWTextbox/vn_textbox_layer.gd" id="1_fr6uv"]
 [ext_resource type="Script" path="res://timelines/OWTextbox/animations.gd" id="2_p6eug"]
-[ext_resource type="StyleBox" uid="uid://dkv1pl1c1dq6" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/vn_textbox_default_panel.tres" id="3_n0bbk"]
+[ext_resource type="StyleBox" uid="uid://dkv1pl1c1dq6" path="res://timelines/OWTextbox/vn_textbox_default_panel.tres" id="3_n0bbk"]
 [ext_resource type="Script" path="res://addons/dialogic/Modules/Text/node_dialog_text.gd" id="4_5bqyb"]
 [ext_resource type="Script" path="res://addons/dialogic/Modules/Text/node_type_sound.gd" id="5_8hyeh"]
-[ext_resource type="StyleBox" uid="uid://m7gyepkysu83" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/vn_textbox_name_label_panel.tres" id="9_u3qa3"]
+[ext_resource type="StyleBox" uid="uid://m7gyepkysu83" path="res://timelines/OWTextbox/vn_textbox_name_label_panel.tres" id="9_u3qa3"]
 [ext_resource type="Script" path="res://addons/dialogic/Modules/Text/node_name_label.gd" id="10_l6sr7"]
 
 [sub_resource type="Animation" id="Animation_au0a2"]

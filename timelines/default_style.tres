@@ -22,7 +22,7 @@ overrides = {
 "box_margin_bottom": "220.0",
 "box_size": "Vector2(800, 60)",
 "normal_font": "\"res://fonts/FiraCode-Medium.ttf\"",
-"text_size": "24.0",
+"text_size": "16.0",
 "text_use_global_font": "false",
 "text_use_global_size": "false"
 }
@@ -37,4 +37,4 @@ script = ExtResource("10_g41n7")
 name = "default_style"
 base_overrides = {}
 layers = Array[ExtResource("2_wf7fx")]([SubResource("Resource_bu7ky"), SubResource("Resource_f334k"), SubResource("Resource_d3ipm")])
-metadata/_latest_layer = 1
+metadata/_latest_layer = -1

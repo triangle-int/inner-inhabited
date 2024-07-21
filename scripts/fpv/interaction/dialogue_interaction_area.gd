@@ -17,7 +17,26 @@ func interact(player: Player) -> void:
 	if Dialogic.current_timeline != null:
 		return
 	
-	Dialogic.start("first_robot_encounter")
+	if PlayerProgress.used_raft:
+		await start_sequence("first_robot_encounter", player)
+	else:
+		await start_sequence("main_robot", player)
+	
+	player.can_move = true
+	player.enable_interaction("TALK", self)
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+
+func continue_chat(player: Player) -> void:
+	if Dialogic.current_timeline != null:
+		return
+	
+	Dialogic.VAR.continue_chat = false
+	await start_sequence("main_robot", player)
+
+
+func start_sequence(seq_name: String, player: Player) -> void:
+	Dialogic.start(seq_name)
 	player.disable_interaction()
 	player.can_move = false
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -29,6 +48,3 @@ func interact(player: Player) -> void:
 	tween.parallel().tween_property(player.head, "rotation:x", 0, 1.0)
 	
 	await Dialogic.timeline_ended
-	player.can_move = true
-	player.enable_interaction("TALK", self)
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
