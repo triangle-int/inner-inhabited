@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://tbo3ngsdt67g"]
+[gd_scene load_steps=8 format=3 uid="uid://cmkuhebmhxi3q"]
 
+[ext_resource type="Script" path="res://scripts/fpv/raft/statue.gd" id="1_h5jxj"]
 [ext_resource type="PackedScene" uid="uid://cvlcyb8kpodvk" path="res://models/case/case.glb" id="1_usdst"]
 [ext_resource type="PackedScene" uid="uid://cuks2uci3hj2i" path="res://models/robot/robot.glb" id="2_kl7bo"]
+[ext_resource type="Script" path="res://scripts/fpv/interaction/dialogue_interaction_area.gd" id="4_qex6o"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tvc4y"]
 size = Vector3(1.4, 2.5, 1.4)
@@ -9,7 +11,11 @@ size = Vector3(1.4, 2.5, 1.4)
 [sub_resource type="BoxMesh" id="BoxMesh_ecmdl"]
 size = Vector3(4, 1, 4)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_sg4a2"]
+size = Vector3(1.54102, 1.60306, 1.09229)
+
 [node name="Statue" type="StaticBody3D"]
+script = ExtResource("1_h5jxj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
@@ -53,3 +59,17 @@ omni_attenuation = 1.86607
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.499, 0)
 layers = 2
 mesh = SubResource("BoxMesh_ecmdl")
+
+[node name="DialogueInteractionArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1)
+script = ExtResource("4_qex6o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DialogueInteractionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0402832, -0.178848, -0.340088)
+shape = SubResource("BoxShape3D_sg4a2")
+
+[node name="TargetCameraPoint" type="Marker3D" parent="DialogueInteractionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.582794, 0.778254)
+
+[connection signal="body_entered" from="DialogueInteractionArea" to="DialogueInteractionArea" method="_on_body_entered"]
+[connection signal="body_exited" from="DialogueInteractionArea" to="DialogueInteractionArea" method="_on_body_exited"]

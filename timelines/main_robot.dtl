@@ -1,0 +1,27 @@
+robot: What?
+- I would like to take another ride
+	robot: Do whatever you want.
+	set {show_raft} = true
+- Let's just chat, shall we?
+	robot: Very well, what do you want to know?
+	- What's the meaning of all this?
+		robot: Ah, if only I knew, mate. If only I knew.
+		- So we are just stuck here without any reason?
+			robot: I didnt say that either. I believe everyone has an inner compass, whispering what's wrong and what's right, guiding us through the surreal and remarkable journey we call life.
+			- Of course you believe that, you must be programmed to...
+				robot: Have the shadows twisted your mind? You're speaking nonsense, mate. Rudeness is most pityfull retort, they say.
+				- Who said that?
+					robot: I just did.
+					jump 
+	- What happened to you?
+		robot: What do you mean?
+		- Why there is a robot in a wooden box around here?
+			robot: A robot? Where? My eyes see no such thing
+			- I'm talking about you.
+				robot: But what you ve just said holds no meaning when adressing me.
+				- Look. Are you human?
+					robot: What else could I be, mate?
+					- Are you made of flesh?
+						robot: Does flesh alone define humanity? If that were true, existanse of our kin would be nothing but a mockery
+						- Ugh, just forget it.
+							jump 

@@ -1,13 +1,21 @@
-extends Node
+extends Label3D
 
-@onready var label: Label3D = $"."
+enum HintText {
+	LEVEL_ID,
+	LEVEL_HINT
+}
+
+@export var text_type: HintText
 
 
 func _ready() -> void:
 	var hint: AltLevel = PlayerProgress.first_non_solved_alt_level()
 
 	if hint == null:
-		label.text = ""
+		text = ""
 		return
-
-	label.text = "%s" % hint.message
+	
+	if text_type == HintText.LEVEL_ID:
+		text = hint.level_id
+	elif text_type == HintText.LEVEL_HINT:
+		text = hint.message

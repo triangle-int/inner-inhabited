@@ -7,8 +7,6 @@ func _matches_command(string: String) -> bool:
 
 
 func _execute(_command: String, _terminal: Terminal) -> String:
-	# TODO: A bit better visuals, sounds or smth
-	PlayerProgress.escaped_terminal = true
 	AudioPlayer.switch_to_outside()
 	LevelSwitcher.switch_to_main_from_terminal()
 

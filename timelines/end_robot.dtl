@@ -1,0 +1,11 @@
+robot: So that's it. You did it.
+- What happens now?
+	robot: The raft will carry you away.
+	- Where will I go?
+		robot: To the west.
+		- And what lies to the west?
+			robot: Ah, a good question mate, and one of those I cannot answer.
+			- Then I suppose this is farewell.
+				robot: I wish you luck on your journey. May your new home bring you joy.
+				robot: Very well, that's a relief, mate.
+				set {show_raft} = true
