@@ -28,11 +28,6 @@ axis = Vector3(1, 0, 0)
 
 [node name="Player" parent="PlayerSnap" instance=ExtResource("1_7os2t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
-movement_speed = 5.0
-rotation_speed = 0.005
-min_rotation_angle = -60.0
-max_rotation_angle = 60.0
-slide_time = 1.0
 
 [node name="MovingStatue" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_5uogj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)

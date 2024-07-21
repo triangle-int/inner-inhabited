@@ -4,6 +4,7 @@ extends Node3D
 @export var animation_duration: float
 
 var animating := false
+var start_head_position: Vector3
 
 @onready var path_follow_3d: PathFollow3D= $Path3D/PathFollow3D
 @onready var camera_look_target: Node3D = $CameraLookTarget
@@ -13,6 +14,7 @@ func _ready() -> void:
 	if LevelSwitcher.play_terminal_animation:
 		player.can_move = false
 		player.global_position = global_position
+		start_head_position = player.head.position
 		animating = true
 		path_follow_3d.progress_ratio = 0.0
 		var tween := create_tween()
@@ -26,6 +28,7 @@ func _ready() -> void:
 func end_animation() -> void:
 	animating = false
 	player.can_move = true
+	player.head.position = start_head_position
 
 
 func _process(_delta: float) -> void:
