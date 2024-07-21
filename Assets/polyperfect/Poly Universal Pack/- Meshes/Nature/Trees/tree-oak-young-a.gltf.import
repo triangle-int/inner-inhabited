@@ -30,8 +30,12 @@ animation/trimming=false
 animation/remove_immutable_tracks=false
 import_script/path=""
 _subresources={
-"animations": {},
-"materials": {},
+"materials": {
+"Universal Shader V10 - A": {
+"use_external/enabled": true,
+"use_external/path": "res://addons/poly_pack/materials/universal-a.material"
+}
+},
 "meshes": {
 "Root Scene_tree-oak-young-a": {
 "generate/lightmap_uv": 0,
@@ -42,18 +46,6 @@ _subresources={
 "save_to_file/enabled": true,
 "save_to_file/make_streamable": "",
 "save_to_file/path": "res://Assets/polyperfect/Poly Universal Pack/- Meshes/Nature/Trees/extracted/tree-oak-young-a.tree-oak-young-a.mesh"
-},
-"tree-oak-young-a": {
-"save_to_file/enabled": true,
-"save_to_file/make_streamable": "",
-"save_to_file/path": "res://Assets/polyperfect/Poly Universal Pack/- Meshes/Nature/Trees/extracted/tree-oak-young-a.tree-oak-young-a.mesh"
-}
-},
-"nodes": {
-"PATH:AnimationPlayer": {
-"optimizer/enabled": true,
-"optimizer/max_angular_error": 0.00277778,
-"optimizer/max_linear_error": 0.5
 }
 }
 }

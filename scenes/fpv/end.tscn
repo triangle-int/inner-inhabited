@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://cswlq0nw7tek8"]
+
+[ext_resource type="PackedScene" uid="uid://b5r4jygu8o3bu" path="res://Assets/polyperfect/Poly Universal Pack/- Meshes/Nature/Trees/tree-oak-young-a.gltf" id="1_fvbom"]
+[ext_resource type="PackedScene" uid="uid://dj3ysiapmikxo" path="res://Assets/polyperfect/Poly Universal Pack/- Meshes/Nature/Trees/tree-birch-young-a.gltf" id="2_avoj0"]
+[ext_resource type="FontFile" uid="uid://cwpg0ydx12vhx" path="res://fonts/FiraCode-Regular.ttf" id="3_py6qe"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uyvyv"]
+
+[sub_resource type="Sky" id="Sky_u30lp"]
+sky_material = SubResource("ProceduralSkyMaterial_uyvyv")
+
+[sub_resource type="Environment" id="Environment_7183c"]
+background_mode = 2
+background_energy_multiplier = 1.3
+sky = SubResource("Sky_u30lp")
+
+[node name="End" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_7183c")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.880477, 0.278662, 0.383545, -7.07265e-08, -0.809017, 0.587785, 0.474088, -0.517532, -0.712321, 0, 0, 0)
+
+[node name="Root Scene" parent="." instance=ExtResource("1_fvbom")]
+transform = Transform3D(0.0348993, 0, -0.999391, 0, 1, 0, 0.999391, 0, 0.0348993, 3.03154, 4.76837e-07, 1.58871)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.868994, -0.30645, -0.388506, 0, 0.785144, -0.619313, 0.494822, 0.53818, 0.682286, -1.58715, 1.12248, 3.42349)
+
+[node name="Root Scene2" parent="." instance=ExtResource("2_avoj0")]
+transform = Transform3D(-0.430511, 0, 0.902585, 0, 1, 0, -0.902585, 0, -0.430511, -1.899, -0.725, 1.794)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -484.5
+offset_top = -100.0
+offset_right = 484.5
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_py6qe")
+theme_override_font_sizes/font_size = 28
+text = "The more crutches you have
+the more it hurts when they're kicked down from under you"
+horizontal_alignment = 1

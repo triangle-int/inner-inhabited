@@ -30,8 +30,12 @@ animation/trimming=false
 animation/remove_immutable_tracks=false
 import_script/path=""
 _subresources={
-"animations": {},
-"materials": {},
+"materials": {
+"Universal Foliage V1 - C": {
+"use_external/enabled": true,
+"use_external/path": "res://addons/poly_pack/materials/foliage-c.material"
+}
+},
 "meshes": {
 "Root Scene_tree-pine-mature-a": {
 "generate/lightmap_uv": 0,
@@ -42,18 +46,6 @@ _subresources={
 "save_to_file/enabled": true,
 "save_to_file/make_streamable": "",
 "save_to_file/path": "res://Assets/polyperfect/Poly Universal Pack/- Meshes/Nature/Trees/extracted/tree-pine-mature-a.tree-pine-mature-a.mesh"
-},
-"tree-pine-mature-a": {
-"save_to_file/enabled": true,
-"save_to_file/make_streamable": "",
-"save_to_file/path": "res://Assets/polyperfect/Poly Universal Pack/- Meshes/Nature/Trees/extracted/tree-pine-mature-a.tree-pine-mature-a.mesh"
-}
-},
-"nodes": {
-"PATH:AnimationPlayer": {
-"optimizer/enabled": true,
-"optimizer/max_angular_error": 0.00277778,
-"optimizer/max_linear_error": 0.5
 }
 }
 }
