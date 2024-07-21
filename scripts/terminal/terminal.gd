@@ -75,10 +75,10 @@ func attach_level(level: Level) -> void:
 	_is_level_playing = true
 	lines_container.visible = false
 
-	level.finished.connect(_on_level_finished)
+	level.level_closed.connect(_on_level_finished)
 
 
-func _on_level_finished(_status: Level.SolutionStatus) -> void:
+func _on_level_finished() -> void:
 	# TODO: Proper level finish logic
 	_is_level_playing = false
 	lines_container.visible = true

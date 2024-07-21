@@ -9,21 +9,29 @@ func _matches_command(string: String) -> bool:
 		return false
 
 	var level_id := string.substr(1)
-	return find_level(level_id) != null
+	return levels.any(func(l: LevelResource) -> bool: return l.id == level_id)
 
 
 func _execute(command: String, terminal: Terminal) -> String:
 	var level_id := command.substr(1)
-	var level := find_level(level_id)
-	var level_node := level.level.instantiate() as Level
+	var index := find_level_index(level_id)
 
+	if index > 0:
+		var prev := levels[index - 1].id
+
+		if not PlayerProgress.passed_levels_ids.has(prev):
+			return "Level locked!\nYou should beat level %s to unlock this it." % prev
+
+	var level_node := levels[index].level.instantiate() as Level
+	level_node.level_id = level_id
 	terminal.attach_level(level_node)
 
-	return "Loading level %s...\n%s" % [level_id, level.hint]
+	return "Loading level %s...\n%s" % [level_id, levels[index].hint]
 
 
-func find_level(level_id: String) -> LevelResource:
-	var possible_levels := levels.filter(
-		func(level: LevelResource) -> bool: return level.id == level_id
-	)
-	return possible_levels.front() if possible_levels.size() == 1 else null
+func find_level_index(level_id: String) -> int:
+	for index in range(levels.size()):
+		if levels[index].id == level_id:
+			return index
+
+	return -1

@@ -1,9 +1,9 @@
 class_name Level
 extends Node
 
-enum SolutionStatus { NOT_SOLVED, ALTERNATIVELY_SOLVED, NORMALLY_SOLVED }
+enum SolutionStatus { ALTERNATIVELY_SOLVED, NORMALLY_SOLVED }
 
-signal finished(status: Level.SolutionStatus)
+signal level_closed
 signal sequence_updated
 
 @export var sequence: Array[SignalInfo]
@@ -15,6 +15,7 @@ signal sequence_updated
 static var current: Level = null
 
 var is_simulating: bool
+var level_id: String
 
 var _signals_sent: int = 0
 
@@ -32,7 +33,7 @@ func _on_signal_consumed() -> void:
 		_send_next()
 		return
 
-	_finish_level(SolutionStatus.NOT_SOLVED)
+	stop_simulation()
 
 
 func _check_goals() -> void:
@@ -46,17 +47,10 @@ func _check_goals() -> void:
 
 
 func _finish_level(status: Level.SolutionStatus) -> void:
-	print(
-		(
-			"not solved"
-			if status == SolutionStatus.NOT_SOLVED
-			else (
-				"alt solved" if status == SolutionStatus.ALTERNATIVELY_SOLVED else "normal solved"
-			)
-		)
-	)
+	print("alt solved" if status == SolutionStatus.ALTERNATIVELY_SOLVED else "normal solved")
 	stop_simulation()
-	finished.emit(status)
+	level_closed.emit()
+	PlayerProgress.register_level_solution(level_id, status)
 
 
 func start_simulation() -> void:
