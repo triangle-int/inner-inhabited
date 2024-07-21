@@ -19,6 +19,8 @@ func _ready() -> void:
 		tween.tween_property(path_follow_3d, "progress_ratio", 1.0, animation_duration)\
 			.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
 		tween.tween_callback(end_animation)
+		await player.can_interact
+		player.disable_interaction()
 
 
 func end_animation() -> void:
