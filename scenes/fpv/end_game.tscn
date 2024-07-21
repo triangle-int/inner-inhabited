@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0qok7ux8tuli"]
+
+[ext_resource type="FontFile" uid="uid://cwpg0ydx12vhx" path="res://fonts/FiraCode-Regular.ttf" id="1_cd1bo"]
+
+[node name="EndGame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_cd1bo")
+theme_override_font_sizes/font_size = 48
+text = "If you're reading this we didn't have enough time to add an ending scene...
+Anyway thank you for playing)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
