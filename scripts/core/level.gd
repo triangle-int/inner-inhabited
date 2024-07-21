@@ -79,7 +79,12 @@ func start_simulation() -> void:
 
 
 func stop_simulation() -> void:
+	if not is_simulating:
+		return
+
 	is_simulating = false
+	_signals_sent = 0
+	sequence_updated.emit()
 	SignalSender.stop_all_signals()
 
 	for child in get_children():
@@ -92,12 +97,13 @@ func stop_simulation() -> void:
 		node.signal_received.disconnect(_check_goals)
 		node.reset()
 
-	_signals_sent = 0
-	sequence_updated.emit()
-
 
 func _send_next() -> void:
 	root.receive_signal(sequence[_signals_sent])
+
+	if not is_simulating:
+		return
+
 	_signals_sent += 1
 	sequence_updated.emit()
 
