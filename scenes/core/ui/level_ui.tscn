@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://50raqfm2a7qy"]
+[gd_scene load_steps=5 format=3 uid="uid://50raqfm2a7qy"]
 
 [ext_resource type="Script" path="res://scripts/core/ui/level_ui.gd" id="1_t8llw"]
 [ext_resource type="FontFile" uid="uid://bctl7m13a8iki" path="res://fonts/FiraCode-Bold.ttf" id="2_k3oem"]
 [ext_resource type="FontFile" uid="uid://cmyiejxp2c5ru" path="res://fonts/FiraCode-Medium.ttf" id="3_tghst"]
+[ext_resource type="FontFile" uid="uid://cwpg0ydx12vhx" path="res://fonts/FiraCode-Regular.ttf" id="4_alnxe"]
 
-[node name="LevelUI" type="Control" node_paths=PackedStringArray("buttons_root", "label")]
+[node name="LevelUI" type="Control" node_paths=PackedStringArray("buttons_root", "sequence_label", "hint_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,7 +15,8 @@ grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_t8llw")
 buttons_root = NodePath("Panel/VBoxContainer")
-label = NodePath("Panel/Label")
+sequence_label = NodePath("Panel/Label")
+hint_label = NodePath("Panel3/Label")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -64,7 +66,7 @@ offset_top = 75.0
 offset_bottom = 120.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("3_tghst")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 16
 text = "1,2,3"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -95,6 +97,71 @@ grow_vertical = 0
 theme_override_fonts/font = ExtResource("2_k3oem")
 theme_override_font_sizes/font_size = 24
 text = "EXIT"
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -180.0
+offset_right = 200.0
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_alnxe")
+theme_override_font_sizes/font_size = 12
+text = "[SYSTEM]:
+Use LMB to drag nodes around.
+Use D or Del to delete selected nodes.
+Use RMB to connect nodes."
+autowrap_mode = 2
+
+[node name="Panel3" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 250.0
+
+[node name="Label2" type="Label" parent="Panel3"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 84.0
+offset_bottom = 31.0
+theme_override_fonts/font = ExtResource("4_alnxe")
+theme_override_font_sizes/font_size = 12
+text = "[HINT]:"
+
+[node name="Label" type="Label" parent="Panel3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 35.0
+offset_right = -15.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_alnxe")
+theme_override_font_sizes/font_size = 12
+text = "Fields of Verdun
+and the battle has begun
+No way to run
+Father and son
+Stand one by one
+Under the gun
+Thy will be done"
+autowrap_mode = 2
 
 [connection signal="pressed" from="Panel/Control/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Panel/Control/StopButton" to="." method="_on_stop_button_pressed"]

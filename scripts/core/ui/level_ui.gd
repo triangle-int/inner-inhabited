@@ -3,10 +3,15 @@ extends Node
 @export var level: Level
 @export var allowed_nodes: Array[PackedScene]
 @export var buttons_root: Node
-@export var label: Label
+@export var sequence_label: Label
+
+@export var hint: String
+@export var hint_label: Label
 
 
 func _ready() -> void:
+	hint_label.text = hint
+
 	for node in allowed_nodes:
 		var instance := node.instantiate()
 		buttons_root.add_child(instance)
@@ -24,7 +29,7 @@ func _on_stop_button_pressed() -> void:
 
 
 func _on_sequence_updated() -> void:
-	label.text = ", ".join(
+	sequence_label.text = ", ".join(
 		level.get_current_sequence().map(func(num: int) -> String: return str(num))
 	)
 
