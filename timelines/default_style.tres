@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="DialogicStyle" load_steps=9 format=3 uid="uid://ijwnkyw8p336"]
+
+[ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="2_wf7fx"]
+[ext_resource type="PackedScene" uid="uid://bquja8jyk8kbr" path="res://timelines/OWTextbox/custom_vn_textbox_layer.tscn" id="3_i0ype"]
+[ext_resource type="PackedScene" uid="uid://ckjlr8tmdobao" path="res://timelines/OWChoices/choice_layer.tscn" id="4_bb6h6"]
+[ext_resource type="PackedScene" uid="uid://cn674foxwedqu" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Input/full_advance_input_layer.tscn" id="4_ts07f"]
+[ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style.gd" id="10_g41n7"]
+
+[sub_resource type="Resource" id="Resource_bu7ky"]
+script = ExtResource("2_wf7fx")
+scene = ExtResource("4_ts07f")
+overrides = {}
+
+[sub_resource type="Resource" id="Resource_f334k"]
+script = ExtResource("2_wf7fx")
+scene = ExtResource("3_i0ype")
+overrides = {
+"box_animation_in": "0",
+"box_animation_out": "0",
+"box_color_custom": "Color(0, 0, 0, 0)",
+"box_color_use_global": "false",
+"box_margin_bottom": "220.0",
+"box_size": "Vector2(800, 60)",
+"normal_font": "\"res://fonts/FiraCode-Medium.ttf\"",
+"text_size": "24.0",
+"text_use_global_font": "false",
+"text_use_global_size": "false"
+}
+
+[sub_resource type="Resource" id="Resource_d3ipm"]
+script = ExtResource("2_wf7fx")
+scene = ExtResource("4_bb6h6")
+overrides = {}
+
+[resource]
+script = ExtResource("10_g41n7")
+name = "default_style"
+base_overrides = {}
+layers = Array[ExtResource("2_wf7fx")]([SubResource("Resource_bu7ky"), SubResource("Resource_f334k"), SubResource("Resource_d3ipm")])
+metadata/_latest_layer = 1

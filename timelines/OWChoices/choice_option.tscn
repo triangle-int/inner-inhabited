@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgvj3dk1ebb3b"]
+
+[ext_resource type="Theme" uid="uid://0opsyth5sc24" path="res://ui/dialogue_theme.tres" id="1_k4wld"]
+[ext_resource type="Script" path="res://scripts/dialogue/choice_hover.gd" id="2_e2k8t"]
+[ext_resource type="Texture2D" uid="uid://do737wn5ma7op" path="res://textures/dialogue_selector.png" id="3_7ukgw"]
+[ext_resource type="Script" path="res://addons/dialogic/Modules/Choice/node_choice_button.gd" id="4_vx7m2"]
+
+[node name="ChoiceOption" type="HBoxContainer"]
+theme = ExtResource("1_k4wld")
+script = ExtResource("2_e2k8t")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+texture = ExtResource("3_7ukgw")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ChoiceButton" type="Button" parent="."]
+layout_mode = 2
+theme = ExtResource("1_k4wld")
+text = "Some text"
+alignment = 0
+script = ExtResource("4_vx7m2")
+
+[connection signal="mouse_entered" from="ChoiceButton" to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ChoiceButton" to="." method="_on_mouse_exited"]

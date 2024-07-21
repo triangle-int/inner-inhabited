@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://ckjlr8tmdobao"]
+
+[ext_resource type="Script" path="res://scripts/dialogue/choice_layer.gd" id="1_sdgak"]
+[ext_resource type="Theme" uid="uid://0opsyth5sc24" path="res://ui/dialogue_theme.tres" id="2_sxamd"]
+[ext_resource type="PackedScene" uid="uid://cgvj3dk1ebb3b" path="res://timelines/OWChoices/choice_option.tscn" id="3_dpmo5"]
+[ext_resource type="Script" path="res://addons/dialogic/Modules/Choice/node_button_sound.gd" id="4_cqhd6"]
+[ext_resource type="AudioStream" uid="uid://b6c1p14bc20p1" path="res://addons/dialogic/Example Assets/sound-effects/typing1.wav" id="5_miu61"]
+[ext_resource type="AudioStream" uid="uid://c2viukvbub6v6" path="res://addons/dialogic/Example Assets/sound-effects/typing4.wav" id="6_bbidn"]
+
+[sub_resource type="AudioStream" id="AudioStream_pe27w"]
+
+[node name="ChoiceLayer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_sdgak")
+
+[node name="Choices" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -420.0
+offset_top = -222.0
+offset_right = 420.0
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme = ExtResource("2_sxamd")
+metadata/_edit_layout_mode = 1
+
+[node name="HSeparator" type="HSeparator" parent="Choices"]
+layout_mode = 2
+theme = ExtResource("2_sxamd")
+
+[node name="ChoiceOption" parent="Choices" instance=ExtResource("3_dpmo5")]
+layout_mode = 2
+
+[node name="ChoiceOption2" parent="Choices" instance=ExtResource("3_dpmo5")]
+layout_mode = 2
+
+[node name="ChoiceOption3" parent="Choices" instance=ExtResource("3_dpmo5")]
+layout_mode = 2
+
+[node name="ChoiceOption4" parent="Choices" instance=ExtResource("3_dpmo5")]
+layout_mode = 2
+
+[node name="DialogicNode_ButtonSound" type="AudioStreamPlayer" parent="Choices"]
+unique_name_in_owner = true
+script = ExtResource("4_cqhd6")
+sound_pressed = ExtResource("5_miu61")
+sound_hover = ExtResource("6_bbidn")
+sound_focus = SubResource("AudioStream_pe27w")

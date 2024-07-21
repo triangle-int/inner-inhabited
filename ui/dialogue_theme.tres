@@ -1,0 +1,29 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://0opsyth5sc24"]
+
+[ext_resource type="FontFile" uid="uid://cmyiejxp2c5ru" path="res://fonts/FiraCode-Medium.ttf" id="1_iaoyl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nlal2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ypsjn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1hodm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g1e8r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ax81"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_rncrs"]
+color = Color(1, 1, 1, 1)
+thickness = 3
+
+[resource]
+Button/font_sizes/font_size = 22
+Button/fonts/font = ExtResource("1_iaoyl")
+Button/styles/disabled = SubResource("StyleBoxEmpty_nlal2")
+Button/styles/focus = SubResource("StyleBoxEmpty_ypsjn")
+Button/styles/hover = SubResource("StyleBoxEmpty_1hodm")
+Button/styles/normal = SubResource("StyleBoxEmpty_g1e8r")
+Button/styles/pressed = SubResource("StyleBoxEmpty_7ax81")
+HBoxContainer/constants/separation = 14
+HSeparator/styles/separator = SubResource("StyleBoxLine_rncrs")
+VBoxContainer/constants/separation = 14

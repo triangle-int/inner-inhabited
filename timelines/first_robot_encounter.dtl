@@ -1,0 +1,7 @@
+robot: Oh, you did it! Impressive.
+robot: Do you want to know why I helped you get out?
+- Yes
+	robot: HORAY
+- Uh... actually no
+	robot: Alright, then...
+	[signal arg="show_raft"]
