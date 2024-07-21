@@ -52,8 +52,11 @@ offset_right = 484.5
 offset_bottom = -27.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("3_py6qe")
 theme_override_font_sizes/font_size = 28
-text = "The more crutches you have
-the more it hurts when they're kicked down from under you"
+text = "\"A man can be himself only so long as he is alone; and if he does not love solitude, he will not love freedom; for it is only when he is alone that he is really free.\"
+― Arthur Schopenhauer"
 horizontal_alignment = 1
+autowrap_mode = 2
