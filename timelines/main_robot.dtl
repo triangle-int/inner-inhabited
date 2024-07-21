@@ -1,6 +1,7 @@
 robot: What?
 - I would like to take another ride
-	Do whatever you want.
+	robot: Do whatever you want.
+	set {show_raft} = true
 - Let's just chat, shall we?
 	robot: Very well, what do you want to know?
 	- What's the meaning of all this?

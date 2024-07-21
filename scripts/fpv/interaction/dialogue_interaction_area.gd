@@ -17,8 +17,10 @@ func interact(player: Player) -> void:
 	if Dialogic.current_timeline != null:
 		return
 	
-	if PlayerProgress.used_raft:
+	if not PlayerProgress.used_raft:
 		await start_sequence("first_robot_encounter", player)
+	elif PlayerProgress.first_non_solved_alt_level() == null:
+		await start_sequence("end_robot", player)
 	else:
 		await start_sequence("main_robot", player)
 	

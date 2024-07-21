@@ -34,6 +34,7 @@ directories/dch_directory={
 "robot": "res://timelines/robot.dch"
 }
 directories/dtl_directory={
+"end_robot": "res://timelines/end_robot.dtl",
 "first_robot_encounter": "res://timelines/first_robot_encounter.dtl",
 "main_robot": "res://timelines/main_robot.dtl"
 }
