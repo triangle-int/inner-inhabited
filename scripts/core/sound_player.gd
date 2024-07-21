@@ -20,3 +20,7 @@ func _switch_to_stream(stream: AudioStream) -> void:
 	player.stop()
 	player.stream = stream
 	player.play()
+
+
+func set_volume(volume: float) -> void:
+	player.volume_db = linear_to_db(volume)
