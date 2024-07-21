@@ -1,15 +1,9 @@
-<<<<<<< HEAD
-[gd_scene load_steps=6 format=3 uid="uid://caicjo8jm4mf0"]
-
-[ext_resource type="Script" path="res://scripts/fpv/player.gd" id="1_qbcyw"]
-[ext_resource type="Theme" uid="uid://yrgk4422x7hg" path="res://ui/terminal_theme.tres" id="2_r1ln6"]
-[ext_resource type="Script" path="res://scripts/fpv/interaction_box.gd" id="2_tksur"]
-=======
-[gd_scene load_steps=4 format=3 uid="uid://caicjo8jm4mf0"]
+[gd_scene load_steps=7 format=3 uid="uid://caicjo8jm4mf0"]
 
 [ext_resource type="Script" path="res://scripts/fpv/player.gd" id="1_qbcyw"]
 [ext_resource type="Script" path="res://scripts/fpv/head_bobbing.gd" id="2_8nugv"]
->>>>>>> origin/main
+[ext_resource type="Theme" uid="uid://yrgk4422x7hg" path="res://ui/terminal_theme.tres" id="2_r1ln6"]
+[ext_resource type="Script" path="res://scripts/fpv/interaction_box.gd" id="2_tksur"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y14af"]
 radius = 0.3

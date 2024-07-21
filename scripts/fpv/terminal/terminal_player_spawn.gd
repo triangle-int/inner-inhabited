@@ -29,6 +29,7 @@ func end_animation() -> void:
 	animating = false
 	player.can_move = true
 	player.head.position = start_head_position
+	LevelSwitcher.play_terminal_animation = false
 
 
 func _process(_delta: float) -> void:
