@@ -34,7 +34,6 @@ func register_level_solution(level_id: String, status: Level.SolutionStatus) -> 
 		and passed_levels_ids.all(func(id: String) -> bool: return id != level_id)
 	):
 		passed_levels_ids.push_back(level_id)
-		return
 
 
 func _is_alt_solved(level_id: String) -> bool:
