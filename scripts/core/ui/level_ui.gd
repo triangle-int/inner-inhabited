@@ -27,3 +27,7 @@ func _on_sequence_updated() -> void:
 	label.text = ", ".join(
 		level.get_current_sequence().map(func(num: int) -> String: return str(num))
 	)
+
+
+func _on_exit_button_pressed() -> void:
+	level.finish_level(Level.SolutionStatus.NOT_SOLVED)

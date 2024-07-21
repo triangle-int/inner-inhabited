@@ -1,7 +1,7 @@
 class_name Level
 extends Node
 
-enum SolutionStatus { ALTERNATIVELY_SOLVED, NORMALLY_SOLVED }
+enum SolutionStatus { ALTERNATIVELY_SOLVED, NORMALLY_SOLVED, NOT_SOLVED }
 
 signal level_solved(status: Level.SolutionStatus)
 signal sequence_updated
@@ -38,15 +38,15 @@ func _on_signal_consumed() -> void:
 
 func _check_goals() -> void:
 	if alt_goal != null and alt_goal.is_achieved(self):
-		_finish_level(SolutionStatus.ALTERNATIVELY_SOLVED)
+		finish_level(SolutionStatus.ALTERNATIVELY_SOLVED)
 		return
 
 	if normal_goal.is_achieved(self):
-		_finish_level(SolutionStatus.NORMALLY_SOLVED)
+		finish_level(SolutionStatus.NORMALLY_SOLVED)
 		return
 
 
-func _finish_level(status: Level.SolutionStatus) -> void:
+func finish_level(status: Level.SolutionStatus) -> void:
 	print("alt solved" if status == SolutionStatus.ALTERNATIVELY_SOLVED else "normal solved")
 	stop_simulation()
 	level_solved.emit(status)
