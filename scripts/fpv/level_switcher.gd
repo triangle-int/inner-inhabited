@@ -41,4 +41,5 @@ func switch_to_main_from_terminal() -> void:
 	var tween := create_tween()
 	tween.tween_property(fade, "color:a", 1.0, fade_time)
 	tween.tween_callback(func() -> void: get_tree().change_scene_to_packed(main_level)) 
+	tween.tween_property(fade, "color:a", 0.0, fade_time)
 	
