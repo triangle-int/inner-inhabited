@@ -37,10 +37,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		if possible_commands.size() == 1:
 			response = possible_commands.front().execute(string, self)
 
-		var line := response_line_scene.instantiate() as ResponseLine
-		lines_container.add_child(line)
-		line.set_response_text(response)
-
+		_add_response_line(response)
 		_next_input_line()
 		return
 
@@ -75,11 +72,26 @@ func attach_level(level: Level) -> void:
 	_is_level_playing = true
 	lines_container.visible = false
 
-	level.level_closed.connect(_on_level_finished)
+	level.level_solved.connect(_on_level_finished)
 
 
-func _on_level_finished() -> void:
+func print(text: String) -> void:
+	if _last_input_line != null:
+		_last_input_line.queue_free()
+		_last_input_line = null
+
+	_add_response_line(text)
+	_next_input_line()
+
+
+func _on_level_finished(_status: Level.SolutionStatus) -> void:
 	# TODO: Proper level finish logic
 	_is_level_playing = false
 	lines_container.visible = true
 	level_container.get_children().front().queue_free()
+
+
+func _add_response_line(text: String) -> void:
+	var line := response_line_scene.instantiate() as ResponseLine
+	lines_container.add_child(line)
+	line.set_response_text(text)

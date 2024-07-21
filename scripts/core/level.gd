@@ -3,7 +3,7 @@ extends Node
 
 enum SolutionStatus { ALTERNATIVELY_SOLVED, NORMALLY_SOLVED }
 
-signal level_closed
+signal level_solved(status: Level.SolutionStatus)
 signal sequence_updated
 
 @export var sequence: Array[SignalInfo]
@@ -49,7 +49,7 @@ func _check_goals() -> void:
 func _finish_level(status: Level.SolutionStatus) -> void:
 	print("alt solved" if status == SolutionStatus.ALTERNATIVELY_SOLVED else "normal solved")
 	stop_simulation()
-	level_closed.emit()
+	level_solved.emit(status)
 	PlayerProgress.register_level_solution(level_id, status)
 
 

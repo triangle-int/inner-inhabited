@@ -23,10 +23,22 @@ func _execute(command: String, terminal: Terminal) -> String:
 			return "Level locked!\nYou should beat level %s to unlock this it." % prev
 
 	var level_node := levels[index].level.instantiate() as Level
+
 	level_node.level_id = level_id
+	level_node.level_solved.connect(
+		func(s: Level.SolutionStatus) -> void: return _on_level_solved(terminal, s, levels[index])
+	)
+
 	terminal.attach_level(level_node)
 
-	return "Loading level %s...\n%s" % [level_id, levels[index].hint]
+	return "Loading level %s..." % level_id
+
+
+func _on_level_solved(
+	terminal: Terminal, status: Level.SolutionStatus, level: LevelResource
+) -> void:
+	if status == Level.SolutionStatus.NORMALLY_SOLVED:
+		terminal.print(level.hint)
 
 
 func find_level_index(level_id: String) -> int:
