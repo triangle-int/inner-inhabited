@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://by61b1vkmlfgw"]
+[gd_scene load_steps=46 format=3 uid="uid://by61b1vkmlfgw"]
 
 [ext_resource type="Script" path="res://scripts/terminal/terminal.gd" id="1_cea4a"]
 [ext_resource type="PackedScene" uid="uid://fhejaqaayb4m" path="res://scenes/terminal/input_line.tscn" id="1_fff5l"]
@@ -18,91 +18,103 @@
 [ext_resource type="PackedScene" uid="uid://cf1knm6flpc7w" path="res://scenes/levels/level_012.tscn" id="11_1obcm"]
 [ext_resource type="PackedScene" uid="uid://bs2vbkgwqwsd7" path="res://scenes/levels/level_0111010.tscn" id="11_g6nxo"]
 [ext_resource type="Script" path="res://scripts/terminal/scroll.gd" id="11_u6uwd"]
+[ext_resource type="PackedScene" uid="uid://dfj1fvghr0bri" path="res://scenes/levels/level_591245_sum.tscn" id="13_ihfi6"]
 [ext_resource type="PackedScene" uid="uid://bf8760675x1j4" path="res://scenes/levels/level_35641359.tscn" id="14_pjq5h"]
+[ext_resource type="PackedScene" uid="uid://cpkkbhymeubpj" path="res://scenes/levels/level_333_mul.tscn" id="15_nvgca"]
+[ext_resource type="PackedScene" uid="uid://cqq6slbv37e5q" path="res://scenes/levels/level_333d_mul.tscn" id="16_hej2v"]
+[ext_resource type="PackedScene" uid="uid://bk3iso8gp741d" path="res://scenes/levels/level_3234_mul.tscn" id="17_ade66"]
+[ext_resource type="PackedScene" uid="uid://c3qc6xjn0qpyx" path="res://scenes/levels/level_777_mul.tscn" id="18_g5thd"]
+[ext_resource type="PackedScene" uid="uid://cwkx2s7v2jmd5" path="res://scenes/levels/level_24841_mul.tscn" id="19_q81w6"]
 
 [sub_resource type="Resource" id="Resource_hiu2r"]
 script = ExtResource("5_6fmok")
 id = "01"
 level = ExtResource("6_6jffr")
-hint = ""
+hint = "[unknown]: Hello there, great job!"
 
 [sub_resource type="Resource" id="Resource_yojtl"]
 script = ExtResource("5_6fmok")
 id = "02"
 level = ExtResource("6_jxhmx")
-hint = ""
+hint = "[unknown]: You are really good at this, friend."
 
 [sub_resource type="Resource" id="Resource_aamuq"]
 script = ExtResource("5_6fmok")
 id = "03"
 level = ExtResource("7_rg7eq")
-hint = ""
+hint = "[unknown]: Perhaps you lack some curiosity. You know, seeing the big picture..."
 
 [sub_resource type="Resource" id="Resource_qigc6"]
 script = ExtResource("5_6fmok")
 id = "04"
 level = ExtResource("8_q3spm")
-hint = ""
+hint = "[unknown]: Just doing what you was told to, right? No thoughts about trying to escape?"
 
 [sub_resource type="Resource" id="Resource_bvdb1"]
 script = ExtResource("5_6fmok")
 id = "05"
 level = ExtResource("9_5xpv2")
-hint = ""
+hint = "[unknown]: In movies it is always so hard to escape from the cage. We're lucky we don't live in one."
 
 [sub_resource type="Resource" id="Resource_5xdpl"]
 script = ExtResource("5_6fmok")
 id = "06"
 level = ExtResource("10_8r122")
-hint = ""
+hint = "[unknown]: Think, friend, think! You can escape any time you want."
 
 [sub_resource type="Resource" id="Resource_hm1cs"]
 script = ExtResource("5_6fmok")
 id = "07"
 level = ExtResource("11_g6nxo")
-hint = ""
+hint = "[unknown]: Maybe you not as good as I thought. All you need is the word. Not even the whole of it."
 
 [sub_resource type="Resource" id="Resource_ifhmi"]
 script = ExtResource("5_6fmok")
 id = "08"
 level = ExtResource("11_1obcm")
-hint = ""
+hint = "[unknown]: You have a key with these letters in the left corner of your keyboard."
 
 [sub_resource type="Resource" id="Resource_y1m1l"]
 script = ExtResource("5_6fmok")
 id = "09"
-hint = ""
+level = ExtResource("13_ihfi6")
+hint = "[unknown]: Just type \"ESC\" into console."
 
 [sub_resource type="Resource" id="Resource_sel55"]
 script = ExtResource("5_6fmok")
 id = "10"
 level = ExtResource("14_pjq5h")
-hint = ""
+hint = "[unknown]: Just type \"ESC\" into console."
 
 [sub_resource type="Resource" id="Resource_sfjql"]
 script = ExtResource("5_6fmok")
 id = "11"
-hint = ""
+level = ExtResource("15_nvgca")
+hint = "[unknown]: Just type \"ESC\" into console."
 
 [sub_resource type="Resource" id="Resource_1mm52"]
 script = ExtResource("5_6fmok")
 id = "12"
-hint = ""
+level = ExtResource("16_hej2v")
+hint = "[unknown]: Just type \"ESC\" into console."
 
 [sub_resource type="Resource" id="Resource_8l8sx"]
 script = ExtResource("5_6fmok")
 id = "13"
-hint = ""
+level = ExtResource("17_ade66")
+hint = "[unknown]: Just type \"ESC\" into console."
 
 [sub_resource type="Resource" id="Resource_g84j8"]
 script = ExtResource("5_6fmok")
 id = "14"
-hint = ""
+level = ExtResource("18_g5thd")
+hint = "[unknown]: Just type \"ESC\" into console."
 
 [sub_resource type="Resource" id="Resource_aed3l"]
 script = ExtResource("5_6fmok")
 id = "15"
-hint = ""
+level = ExtResource("19_q81w6")
+hint = "[unknown]: Just type \"ESC\" into console."
 
 [sub_resource type="Resource" id="Resource_kjf4n"]
 script = ExtResource("6_35qbx")
