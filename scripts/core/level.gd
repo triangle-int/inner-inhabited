@@ -21,13 +21,6 @@ var _signals_received: int = 0
 func _ready() -> void:
 	current = self
 
-	for node in get_children():
-		var signal_node := node as BaseSignalNode
-
-		if signal_node != null and signal_node != root:
-			signal_node.signal_consumed.connect(_on_signal_consumed)
-			signal_node.signal_received.connect(_check_goals)
-
 
 func _exit_tree() -> void:
 	current = null
@@ -41,6 +34,7 @@ func _on_signal_consumed() -> void:
 		return
 
 	print("not solved")
+	stop_simulation()
 	finished.emit(SolutionStatus.NOT_SOLVED)
 
 
@@ -60,6 +54,15 @@ func start_simulation() -> void:
 	if is_simulating:
 		return
 
+	for child in get_children():
+		var node := child as BaseSignalNode
+
+		if node == null:
+			continue
+
+		node.signal_consumed.connect(_on_signal_consumed)
+		node.signal_received.connect(_check_goals)
+
 	NodeInteraction.deselect()
 
 	is_simulating = true
@@ -77,6 +80,8 @@ func stop_simulation() -> void:
 		if node == null:
 			continue
 
+		node.signal_consumed.disconnect(_on_signal_consumed)
+		node.signal_received.disconnect(_check_goals)
 		node.reset()
 
 

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/core/level.gd" id="1_yg6jh"]
 [ext_resource type="PackedScene" uid="uid://50raqfm2a7qy" path="res://scenes/core/ui/level_ui.tscn" id="3_p0uh4"]
 [ext_resource type="PackedScene" uid="uid://dkoakrtki43s5" path="res://scenes/core/ui/intersection_button.tscn" id="4_ubs8x"]
-[ext_resource type="PackedScene" path="res://scenes/core/root_node.tscn" id="5_p2fch"]
+[ext_resource type="PackedScene" uid="uid://7pmpnt64e464" path="res://scenes/core/nodes/root_node.tscn" id="5_p2fch"]
 
 [node name="BaseLevel" type="Control" node_paths=PackedStringArray("root")]
 layout_mode = 3

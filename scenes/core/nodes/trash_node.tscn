@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://cif8yl81wsuur"]
+
+[ext_resource type="PackedScene" uid="uid://by6jsd6ng1o2p" path="res://scenes/core/nodes/base_signal_node.tscn" id="1_mgfe5"]
+[ext_resource type="PackedScene" uid="uid://coew4enk4amt" path="res://scenes/core/drag.tscn" id="2_73rnf"]
+[ext_resource type="Script" path="res://scripts/core/node/trash.gd" id="2_g7fip"]
+
+[node name="BaseSignalNode" instance=ExtResource("1_mgfe5")]
+script = ExtResource("2_g7fip")
+
+[node name="Drag" parent="." index="2" instance=ExtResource("2_73rnf")]
