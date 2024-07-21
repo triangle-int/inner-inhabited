@@ -77,7 +77,7 @@ func attach_to_raft(raft: Node3D) -> void:
 
 
 func is_moving() -> bool:
-	return velocity.length_squared() > 0
+	return can_move and velocity.length_squared() > 0 
 
 
 func enable_interaction(text: String, object: Node) -> void:
