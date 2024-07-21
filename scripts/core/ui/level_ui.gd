@@ -7,10 +7,14 @@ extends Node
 
 @export_multiline var hint: String
 @export var hint_label: Label
+@export var hint_panel: Control
 
 
 func _ready() -> void:
-	hint_label.text = hint
+	if hint != "":
+		hint_label.text = hint
+	else:
+		hint_panel.visible = false
 
 	for node in allowed_nodes:
 		var instance := node.instantiate()
