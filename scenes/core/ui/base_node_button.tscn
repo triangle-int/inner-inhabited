@@ -1,7 +1,67 @@
-[gd_scene load_steps=3 format=3 uid="uid://ccwqh0h7q8ugm"]
+[gd_scene load_steps=8 format=3 uid="uid://ccwqh0h7q8ugm"]
 
 [ext_resource type="FontFile" uid="uid://cmyiejxp2c5ru" path="res://fonts/FiraCode-Medium.ttf" id="1_falec"]
 [ext_resource type="Script" path="res://scripts/core/ui/button.gd" id="1_fca5a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tpfv3"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 6
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ijpe0"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 6
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a8kjy"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 6
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ahc0r"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 6
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_plisw"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 6
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="NodeButton" type="Button"]
 custom_minimum_size = Vector2(170, 60)
@@ -9,6 +69,11 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("1_falec")
 theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_tpfv3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ijpe0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_a8kjy")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_ahc0r")
+theme_override_styles/focus = SubResource("StyleBoxFlat_plisw")
 text = "AMOGUS"
 script = ExtResource("1_fca5a")
 
