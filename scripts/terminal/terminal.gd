@@ -4,6 +4,7 @@ extends Control
 @export var input_line_scene: PackedScene
 @export var response_line_scene: PackedScene
 @export var commands: Array[BaseTerminalCommand]
+@export var switch_sound := true
 
 @onready var lines_container := $MarginContainer/LinesContainer
 @onready var level_container := $LevelContainer
@@ -13,6 +14,9 @@ var _is_level_playing: bool
 
 
 func _ready() -> void:
+	if switch_sound:
+		AudioPlayer.switch_to_terminal()
+
 	clear()
 	_next_input_line()
 

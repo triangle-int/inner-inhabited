@@ -21,6 +21,7 @@ SignalSender="*res://scenes/autoloads/signal_sender.tscn"
 LevelSwitcher="*res://scenes/autoloads/level_switcher.tscn"
 NodeInteraction="*res://scenes/autoloads/node_interaction.tscn"
 PlayerProgress="*res://scenes/autoloads/player_progress.tscn"
+AudioPlayer="*res://scenes/autoloads/audio_player.tscn"
 
 [debug]
 
