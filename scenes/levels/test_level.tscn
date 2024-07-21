@@ -31,4 +31,4 @@ normal_goal = SubResource("Resource_q3tpx")
 allowed_nodes = Array[PackedScene]([ExtResource("4_o7qkm"), ExtResource("5_falup"), ExtResource("6_ej133"), ExtResource("7_3r5p8")])
 
 [node name="ReceiverNode" parent="." index="2" instance=ExtResource("6_1eem8")]
-position = Vector2(556, 542)
+position = Vector2(537, 580)

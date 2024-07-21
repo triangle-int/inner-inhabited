@@ -4,11 +4,19 @@
 [ext_resource type="Script" path="res://scripts/terminal/response_line.gd" id="1_g52yw"]
 
 [node name="ResponseLine" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/separation = 10
 script = ExtResource("1_g52yw")
 
 [node name="Response" type="Label" parent="."]
+custom_minimum_size = Vector2(1000, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 theme = ExtResource("1_aewp0")
 theme_override_font_sizes/font_size = 34
-text = "Unknown command."
+text = "Use command MAN to open the manual."
+autowrap_mode = 2

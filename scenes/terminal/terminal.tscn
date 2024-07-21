@@ -1,26 +1,50 @@
-[gd_scene load_steps=13 format=3 uid="uid://by61b1vkmlfgw"]
+[gd_scene load_steps=18 format=3 uid="uid://by61b1vkmlfgw"]
 
 [ext_resource type="Script" path="res://scripts/terminal/terminal.gd" id="1_cea4a"]
 [ext_resource type="PackedScene" uid="uid://fhejaqaayb4m" path="res://scenes/terminal/input_line.tscn" id="1_fff5l"]
-[ext_resource type="Material" uid="uid://d3aelfodyn3bn" path="res://materials/terminal_effect_material.tres" id="2_kla3r"]
 [ext_resource type="PackedScene" uid="uid://blxqg5qptkwsa" path="res://scenes/terminal/response_line.tscn" id="2_xdqnh"]
 [ext_resource type="PackedScene" uid="uid://corjgcidgpl3t" path="res://scenes/levels/test_level.tscn" id="4_mv1qg"]
 [ext_resource type="Script" path="res://scripts/terminal/command/level.gd" id="5_6fmok"]
 [ext_resource type="Script" path="res://scripts/terminal/command/level_load.gd" id="6_35qbx"]
 [ext_resource type="Script" path="res://scripts/terminal/command/escape_command.gd" id="7_5n7gl"]
-[ext_resource type="Script" path="res://scripts/terminal/crt_effect.gd" id="9_s17l6"]
+[ext_resource type="Script" path="res://scripts/terminal/command/volume.gd" id="8_upolt"]
+[ext_resource type="Script" path="res://scripts/terminal/command/manual.gd" id="9_l6e2s"]
+[ext_resource type="Script" path="res://scripts/terminal/command/clear.gd" id="10_8n5lb"]
 
 [sub_resource type="Resource" id="Resource_grxsu"]
 script = ExtResource("5_6fmok")
 id = "TEST"
 level = ExtResource("4_mv1qg")
+hint = "blah blah"
+
+[sub_resource type="Resource" id="Resource_h6sme"]
+script = ExtResource("5_6fmok")
+id = "TEST2"
+level = ExtResource("4_mv1qg")
+hint = "omg you so smart"
 
 [sub_resource type="Resource" id="Resource_kjf4n"]
 script = ExtResource("6_35qbx")
-levels = Array[ExtResource("5_6fmok")]([SubResource("Resource_grxsu")])
+levels = Array[ExtResource("5_6fmok")]([SubResource("Resource_grxsu"), SubResource("Resource_h6sme")])
 
 [sub_resource type="Resource" id="Resource_mh2nj"]
 script = ExtResource("7_5n7gl")
+
+[sub_resource type="Resource" id="Resource_g0l3x"]
+script = ExtResource("8_upolt")
+
+[sub_resource type="Resource" id="Resource_pidie"]
+script = ExtResource("9_l6e2s")
+text = "Welcome to Loonix shell.
+You can use one of the following commands:
+
+ VOL [X] - Set audio volume to X percent.
+ CLR     - Clear the window.
+ L[XX]   - Load level XX. For example L01 will load level 01.
+ %&^     - *&^@(e the si)#*!(ion."
+
+[sub_resource type="Resource" id="Resource_5ervd"]
+script = ExtResource("10_8n5lb")
 
 [node name="Terminal" type="Control"]
 layout_mode = 3
@@ -33,7 +57,7 @@ mouse_filter = 1
 script = ExtResource("1_cea4a")
 input_line_scene = ExtResource("1_fff5l")
 response_line_scene = ExtResource("2_xdqnh")
-commands = Array[Resource("res://scripts/terminal/command/base_command.gd")]([SubResource("Resource_kjf4n"), SubResource("Resource_mh2nj")])
+commands = Array[Resource("res://scripts/terminal/command/base_command.gd")]([SubResource("Resource_kjf4n"), SubResource("Resource_mh2nj"), SubResource("Resource_g0l3x"), SubResource("Resource_pidie"), SubResource("Resource_5ervd")])
 
 [node name="Background" type="ColorRect" parent="."]
 z_index = -2
@@ -60,9 +84,6 @@ theme_override_constants/margin_bottom = 50
 layout_mode = 2
 theme_override_constants/separation = 5
 
-[node name="InputLine" parent="MarginContainer/LinesContainer" instance=ExtResource("1_fff5l")]
-layout_mode = 2
-
 [node name="ResponseLine" parent="MarginContainer/LinesContainer" instance=ExtResource("2_xdqnh")]
 layout_mode = 2
 
@@ -74,14 +95,3 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-
-[node name="CRTEffect" type="ColorRect" parent="."]
-material = ExtResource("2_kla3r")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-script = ExtResource("9_s17l6")

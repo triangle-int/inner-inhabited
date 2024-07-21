@@ -11,6 +11,8 @@ func _receive_signal(signal_info: SignalInfo) -> void:
 		self.signal_consumed.emit()
 		return
 
+	_should_send = false
+
 	if outgoing_connections.is_empty():
 		Level.current.stop_simulation()
 		return

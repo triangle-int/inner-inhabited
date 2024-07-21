@@ -1,9 +1,10 @@
 class_name Level
 extends Node
 
-enum SolutionStatus { NOT_SOLVED, ALTERNATIVELY_SOLVED, NORMALLY_SOLVED }
+enum SolutionStatus { ALTERNATIVELY_SOLVED, NORMALLY_SOLVED, NOT_SOLVED }
 
-signal finished(status: Level.SolutionStatus)
+signal level_solved(status: Level.SolutionStatus)
+signal sequence_updated
 
 @export var sequence: Array[SignalInfo]
 @export var root: BaseSignalNode
@@ -14,8 +15,9 @@ signal finished(status: Level.SolutionStatus)
 static var current: Level = null
 
 var is_simulating: bool
+var level_id: String
 
-var _signals_received: int = 0
+var _signals_sent: int = 0
 
 
 func _ready() -> void:
@@ -27,37 +29,28 @@ func _exit_tree() -> void:
 
 
 func _on_signal_consumed() -> void:
-	_signals_received += 1
-
-	if _signals_received < sequence.size():
+	if _signals_sent < sequence.size():
 		_send_next()
 		return
 
-	_finish_level(SolutionStatus.NOT_SOLVED)
+	stop_simulation()
 
 
 func _check_goals() -> void:
 	if alt_goal != null and alt_goal.is_achieved(self):
-		_finish_level(SolutionStatus.ALTERNATIVELY_SOLVED)
+		finish_level(SolutionStatus.ALTERNATIVELY_SOLVED)
 		return
 
 	if normal_goal.is_achieved(self):
-		_finish_level(SolutionStatus.NORMALLY_SOLVED)
+		finish_level(SolutionStatus.NORMALLY_SOLVED)
 		return
 
 
-func _finish_level(status: Level.SolutionStatus) -> void:
-	print(
-		(
-			"not solved"
-			if status == SolutionStatus.NOT_SOLVED
-			else (
-				"alt solved" if status == SolutionStatus.ALTERNATIVELY_SOLVED else "normal solved"
-			)
-		)
-	)
+func finish_level(status: Level.SolutionStatus) -> void:
+	print("alt solved" if status == SolutionStatus.ALTERNATIVELY_SOLVED else "normal solved")
 	stop_simulation()
-	finished.emit(status)
+	level_solved.emit(status)
+	PlayerProgress.register_level_solution(level_id, status)
 
 
 func start_simulation() -> void:
@@ -76,12 +69,16 @@ func start_simulation() -> void:
 	NodeInteraction.deselect()
 
 	is_simulating = true
-	_signals_received = 0
 	_send_next()
 
 
 func stop_simulation() -> void:
+	if not is_simulating:
+		return
+
 	is_simulating = false
+	_signals_sent = 0
+	sequence_updated.emit()
 	SignalSender.stop_all_signals()
 
 	for child in get_children():
@@ -96,4 +93,14 @@ func stop_simulation() -> void:
 
 
 func _send_next() -> void:
-	root.receive_signal(sequence[_signals_received])
+	root.receive_signal(sequence[_signals_sent])
+
+	if not is_simulating:
+		return
+
+	_signals_sent += 1
+	sequence_updated.emit()
+
+
+func get_current_sequence() -> Array:
+	return sequence.slice(_signals_sent).map(func(s: SignalInfo) -> int: return s.number)

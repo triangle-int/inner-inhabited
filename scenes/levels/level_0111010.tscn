@@ -1,0 +1,68 @@
+[gd_scene load_steps=18 format=3 uid="uid://bs2vbkgwqwsd7"]
+
+[ext_resource type="PackedScene" uid="uid://b1bpb1u2oqt8f" path="res://scenes/levels/base_level.tscn" id="1_5dcbh"]
+[ext_resource type="Script" path="res://scripts/core/signal/signal_info.gd" id="2_eefs8"]
+[ext_resource type="Script" path="res://scripts/core/goal/sequence.gd" id="3_l2txm"]
+[ext_resource type="Script" path="res://scripts/core/goal/and.gd" id="4_bcotb"]
+[ext_resource type="PackedScene" uid="uid://dkoakrtki43s5" path="res://scenes/core/ui/intersection_button.tscn" id="5_nouxk"]
+[ext_resource type="PackedScene" uid="uid://dylm2rolg2r3" path="res://scenes/core/ui/reverse_intersection_button.tscn" id="6_1lqug"]
+[ext_resource type="PackedScene" uid="uid://b3i6otukvqj0c" path="res://scenes/core/nodes/receiver_node.tscn" id="7_cueyy"]
+
+[sub_resource type="Resource" id="Resource_7aw7f"]
+script = ExtResource("2_eefs8")
+number = 0
+
+[sub_resource type="Resource" id="Resource_6fls8"]
+script = ExtResource("2_eefs8")
+number = 1
+
+[sub_resource type="Resource" id="Resource_lispv"]
+script = ExtResource("2_eefs8")
+number = 1
+
+[sub_resource type="Resource" id="Resource_t7641"]
+script = ExtResource("2_eefs8")
+number = 1
+
+[sub_resource type="Resource" id="Resource_hoxan"]
+script = ExtResource("2_eefs8")
+number = 0
+
+[sub_resource type="Resource" id="Resource_8qjdn"]
+script = ExtResource("2_eefs8")
+number = 1
+
+[sub_resource type="Resource" id="Resource_vkui4"]
+script = ExtResource("2_eefs8")
+number = 0
+
+[sub_resource type="Resource" id="Resource_762v5"]
+script = ExtResource("3_l2txm")
+receiver_path = NodePath("ReceiverNode")
+target_sequence = Array[int]([0, 0, 0])
+invert = false
+
+[sub_resource type="Resource" id="Resource_xpbmq"]
+script = ExtResource("3_l2txm")
+receiver_path = NodePath("ReceiverNode2")
+target_sequence = Array[int]([1, 1, 1, 1])
+invert = false
+
+[sub_resource type="Resource" id="Resource_dfbha"]
+script = ExtResource("4_bcotb")
+goals = Array[Resource("res://scripts/core/goal/base_goal.gd")]([SubResource("Resource_762v5"), SubResource("Resource_xpbmq")])
+invert = false
+
+[node name="BaseLevel" instance=ExtResource("1_5dcbh")]
+sequence = Array[ExtResource("2_eefs8")]([SubResource("Resource_7aw7f"), SubResource("Resource_6fls8"), SubResource("Resource_lispv"), SubResource("Resource_t7641"), SubResource("Resource_hoxan"), SubResource("Resource_8qjdn"), SubResource("Resource_vkui4")])
+normal_goal = SubResource("Resource_dfbha")
+
+[node name="LevelUI" parent="." index="0"]
+allowed_nodes = Array[PackedScene]([ExtResource("5_nouxk"), ExtResource("6_1lqug")])
+
+[node name="ReceiverNode" parent="." index="2" instance=ExtResource("7_cueyy")]
+position = Vector2(280, 514)
+
+[node name="ReceiverNode2" parent="." index="3" instance=ExtResource("7_cueyy")]
+position = Vector2(777, 520)
+hint = "1"

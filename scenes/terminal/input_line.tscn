@@ -11,7 +11,7 @@ script = ExtResource("1_76bik")
 layout_mode = 2
 theme = ExtResource("1_j5g0j")
 theme_override_font_sizes/font_size = 34
-text = "User???> "
+text = "User-069-083-067 > "
 
 [node name="Input" type="Label" parent="."]
 layout_mode = 2

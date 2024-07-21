@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b1bpb1u2oqt8f"]
+[gd_scene load_steps=4 format=3 uid="uid://b1bpb1u2oqt8f"]
 
 [ext_resource type="Script" path="res://scripts/core/level.gd" id="1_yg6jh"]
 [ext_resource type="PackedScene" uid="uid://50raqfm2a7qy" path="res://scenes/core/ui/level_ui.tscn" id="3_p0uh4"]
-[ext_resource type="PackedScene" uid="uid://dkoakrtki43s5" path="res://scenes/core/ui/intersection_button.tscn" id="4_ubs8x"]
 [ext_resource type="PackedScene" uid="uid://7pmpnt64e464" path="res://scenes/core/nodes/root_node.tscn" id="5_p2fch"]
 
 [node name="BaseLevel" type="Control" node_paths=PackedStringArray("root")]
@@ -16,9 +15,9 @@ mouse_filter = 2
 script = ExtResource("1_yg6jh")
 root = NodePath("RootNode")
 
-[node name="LevelUI" parent="." instance=ExtResource("3_p0uh4")]
+[node name="LevelUI" parent="." node_paths=PackedStringArray("level") instance=ExtResource("3_p0uh4")]
 layout_mode = 1
-allowed_nodes = Array[PackedScene]([ExtResource("4_ubs8x"), ExtResource("4_ubs8x")])
+level = NodePath("..")
 
 [node name="RootNode" parent="." instance=ExtResource("5_p2fch")]
-position = Vector2(537, 67)
+position = Vector2(537, 64)

@@ -1,0 +1,63 @@
+[gd_scene load_steps=19 format=3 uid="uid://c3qc6xjn0qpyx"]
+
+[ext_resource type="PackedScene" uid="uid://b1bpb1u2oqt8f" path="res://scenes/levels/base_level.tscn" id="1_51qiq"]
+[ext_resource type="Script" path="res://scripts/core/signal/signal_info.gd" id="2_id4q1"]
+[ext_resource type="Script" path="res://scripts/core/goal/sum_equal.gd" id="3_ebf3n"]
+[ext_resource type="PackedScene" uid="uid://dkoakrtki43s5" path="res://scenes/core/ui/intersection_button.tscn" id="3_hanva"]
+[ext_resource type="PackedScene" uid="uid://dylm2rolg2r3" path="res://scenes/core/ui/reverse_intersection_button.tscn" id="4_6erg2"]
+[ext_resource type="Script" path="res://scripts/core/goal/sequence.gd" id="4_yghri"]
+[ext_resource type="PackedScene" uid="uid://ce6j6hof0swu6" path="res://scenes/core/ui/multiplicator_button.tscn" id="5_abkfn"]
+[ext_resource type="PackedScene" uid="uid://buokm32k0djs1" path="res://scenes/core/ui/trash_button.tscn" id="6_w3jbo"]
+[ext_resource type="PackedScene" uid="uid://b3i6otukvqj0c" path="res://scenes/core/nodes/receiver_node.tscn" id="7_ka63i"]
+
+[sub_resource type="Resource" id="Resource_p275f"]
+script = ExtResource("2_id4q1")
+number = 5
+
+[sub_resource type="Resource" id="Resource_cwwpe"]
+script = ExtResource("2_id4q1")
+number = 7
+
+[sub_resource type="Resource" id="Resource_wxh7m"]
+script = ExtResource("2_id4q1")
+number = 2
+
+[sub_resource type="Resource" id="Resource_ypqsw"]
+script = ExtResource("2_id4q1")
+number = 7
+
+[sub_resource type="Resource" id="Resource_ylbl0"]
+script = ExtResource("2_id4q1")
+number = 2
+
+[sub_resource type="Resource" id="Resource_ao0st"]
+script = ExtResource("2_id4q1")
+number = 7
+
+[sub_resource type="Resource" id="Resource_lnjis"]
+script = ExtResource("2_id4q1")
+number = 9
+
+[sub_resource type="Resource" id="Resource_pc51m"]
+script = ExtResource("3_ebf3n")
+receiver_path = NodePath("ReceiverNode")
+target_sum = 28
+invert = false
+
+[sub_resource type="Resource" id="Resource_52aa4"]
+script = ExtResource("4_yghri")
+receiver_path = NodePath("ReceiverNode")
+target_sequence = Array[int]([16, 12])
+invert = false
+
+[node name="BaseLevel" instance=ExtResource("1_51qiq")]
+sequence = Array[ExtResource("2_id4q1")]([SubResource("Resource_p275f"), SubResource("Resource_cwwpe"), SubResource("Resource_wxh7m"), SubResource("Resource_ypqsw"), SubResource("Resource_ylbl0"), SubResource("Resource_ao0st"), SubResource("Resource_lnjis")])
+normal_goal = SubResource("Resource_pc51m")
+alt_goal = SubResource("Resource_52aa4")
+
+[node name="LevelUI" parent="." index="0"]
+allowed_nodes = Array[PackedScene]([ExtResource("3_hanva"), ExtResource("4_6erg2"), ExtResource("5_abkfn"), ExtResource("6_w3jbo")])
+
+[node name="ReceiverNode" parent="." index="2" instance=ExtResource("7_ka63i")]
+position = Vector2(540, 556)
+hint = "28"

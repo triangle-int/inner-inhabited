@@ -1,11 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://ccwqh0h7q8ugm"]
+[gd_scene load_steps=3 format=3 uid="uid://ccwqh0h7q8ugm"]
 
+[ext_resource type="FontFile" uid="uid://cmyiejxp2c5ru" path="res://fonts/FiraCode-Medium.ttf" id="1_falec"]
 [ext_resource type="Script" path="res://scripts/core/ui/button.gd" id="1_fca5a"]
 
 [node name="NodeButton" type="Button"]
-custom_minimum_size = Vector2(120, 120)
+custom_minimum_size = Vector2(170, 60)
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_falec")
+theme_override_font_sizes/font_size = 24
 text = "AMOGUS"
 script = ExtResource("1_fca5a")
 

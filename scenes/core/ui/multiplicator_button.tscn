@@ -4,5 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://dn63jd2aiv1f0" path="res://scenes/core/ui/plan/multiplicator_plan.tscn" id="2_l7oyl"]
 
 [node name="NodeButton" instance=ExtResource("1_adwp0")]
-text = "MULT"
+theme_override_font_sizes/font_size = 20
+text = "MULTIPLICATOR"
 target_plan = ExtResource("2_l7oyl")

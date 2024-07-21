@@ -9,21 +9,41 @@ func _matches_command(string: String) -> bool:
 		return false
 
 	var level_id := string.substr(1)
-	return find_level(level_id) != null
+	return levels.any(func(l: LevelResource) -> bool: return l.id == level_id)
 
 
 func _execute(command: String, terminal: Terminal) -> String:
 	var level_id := command.substr(1)
-	var level := find_level(level_id).level
-	var level_node := level.instantiate() as Level
+	var index := find_level_index(level_id)
+
+	if index > 0:
+		var prev := levels[index - 1].id
+
+		if not PlayerProgress.passed_levels_ids.has(prev):
+			return "Level locked!\nYou should beat level %s to unlock this it." % prev
+
+	var level_node := levels[index].level.instantiate() as Level
+
+	level_node.level_id = level_id
+	level_node.level_solved.connect(
+		func(s: Level.SolutionStatus) -> void: return _on_level_solved(terminal, s, levels[index])
+	)
 
 	terminal.attach_level(level_node)
 
 	return "Loading level %s..." % level_id
 
 
-func find_level(level_id: String) -> LevelResource:
-	var possible_levels := levels.filter(
-		func(level: LevelResource) -> bool: return level.id == level_id
-	)
-	return possible_levels.front() if possible_levels.size() == 1 else null
+func _on_level_solved(
+	terminal: Terminal, status: Level.SolutionStatus, level: LevelResource
+) -> void:
+	if status == Level.SolutionStatus.NORMALLY_SOLVED:
+		terminal.print(level.hint)
+
+
+func find_level_index(level_id: String) -> int:
+	for index in range(levels.size()):
+		if levels[index].id == level_id:
+			return index
+
+	return -1

@@ -22,6 +22,7 @@ LevelSwitcher="*res://scenes/autoloads/level_switcher.tscn"
 NodeInteraction="*res://scenes/autoloads/node_interaction.tscn"
 PlayerProgress="*res://scenes/autoloads/player_progress.tscn"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+AudioPlayer="*res://scenes/autoloads/audio_player.tscn"
 
 [debug]
 

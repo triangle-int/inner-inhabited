@@ -4,6 +4,7 @@ extends Control
 @export var input_line_scene: PackedScene
 @export var response_line_scene: PackedScene
 @export var commands: Array[BaseTerminalCommand]
+@export var switch_sound := true
 
 @onready var lines_container := $MarginContainer/LinesContainer
 @onready var level_container := $LevelContainer
@@ -13,7 +14,9 @@ var _is_level_playing: bool
 
 
 func _ready() -> void:
-	clear()
+	if switch_sound:
+		AudioPlayer.switch_to_terminal()
+
 	_next_input_line()
 
 
@@ -37,10 +40,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		if possible_commands.size() == 1:
 			response = possible_commands.front().execute(string, self)
 
-		var line := response_line_scene.instantiate() as ResponseLine
-		lines_container.add_child(line)
-		line.set_response_text(response)
-
+		_add_response_line(response)
 		_next_input_line()
 		return
 
@@ -75,7 +75,16 @@ func attach_level(level: Level) -> void:
 	_is_level_playing = true
 	lines_container.visible = false
 
-	level.finished.connect(_on_level_finished)
+	level.level_solved.connect(_on_level_finished)
+
+
+func print(text: String) -> void:
+	if _last_input_line != null:
+		_last_input_line.queue_free()
+		_last_input_line = null
+
+	_add_response_line(text)
+	_next_input_line()
 
 
 func _on_level_finished(_status: Level.SolutionStatus) -> void:
@@ -83,3 +92,9 @@ func _on_level_finished(_status: Level.SolutionStatus) -> void:
 	_is_level_playing = false
 	lines_container.visible = true
 	level_container.get_children().front().queue_free()
+
+
+func _add_response_line(text: String) -> void:
+	var line := response_line_scene.instantiate() as ResponseLine
+	lines_container.add_child(line)
+	line.set_response_text(text)
