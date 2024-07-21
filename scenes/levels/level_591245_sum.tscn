@@ -61,6 +61,7 @@ normal_goal = SubResource("Resource_x6ng1")
 
 [node name="LevelUI" parent="." index="0"]
 allowed_nodes = Array[PackedScene]([ExtResource("5_ns623"), ExtResource("6_1llq1")])
+hint = "Since now numbers on triangles indicate target sum, not the numbers themselves."
 
 [node name="ReceiverNode" parent="." index="2" instance=ExtResource("7_y40wl")]
 position = Vector2(186, 496)

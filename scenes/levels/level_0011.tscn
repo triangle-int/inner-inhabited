@@ -46,6 +46,11 @@ normal_goal = SubResource("Resource_hbbw5")
 
 [node name="LevelUI" parent="." index="0"]
 allowed_nodes = Array[PackedScene]([ExtResource("5_0wliy")])
+hint = "Route signals to matching triangles.
+
+Use \"INTERSECTION\" to redirect signal flow.
+Every odd signal flows left.
+Every even signal flows right."
 
 [node name="ReceiverNode" parent="." index="2" instance=ExtResource("6_lb5gj")]
 position = Vector2(274, 452)
