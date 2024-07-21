@@ -1,33 +1,127 @@
 [gd_scene load_steps=20 format=3 uid="uid://by61b1vkmlfgw"]
+[gd_scene load_steps=46 format=3 uid="uid://by61b1vkmlfgw"]
 
 [ext_resource type="Script" path="res://scripts/terminal/terminal.gd" id="1_cea4a"]
 [ext_resource type="PackedScene" uid="uid://fhejaqaayb4m" path="res://scenes/terminal/input_line.tscn" id="1_fff5l"]
 [ext_resource type="PackedScene" uid="uid://blxqg5qptkwsa" path="res://scenes/terminal/response_line.tscn" id="2_xdqnh"]
-[ext_resource type="PackedScene" uid="uid://corjgcidgpl3t" path="res://scenes/levels/test_level.tscn" id="4_mv1qg"]
 [ext_resource type="Script" path="res://scripts/terminal/command/level.gd" id="5_6fmok"]
+[ext_resource type="PackedScene" uid="uid://bi2gdu7ilivgq" path="res://scenes/levels/level_0011.tscn" id="6_6jffr"]
 [ext_resource type="Script" path="res://scripts/terminal/command/level_load.gd" id="6_35qbx"]
+[ext_resource type="PackedScene" uid="uid://bcgbg7hpixsti" path="res://scenes/levels/level_0001.tscn" id="6_jxhmx"]
 [ext_resource type="Script" path="res://scripts/terminal/command/escape_command.gd" id="7_5n7gl"]
+[ext_resource type="PackedScene" uid="uid://bqrtfgkoyqlwp" path="res://scenes/levels/level_01000.tscn" id="7_rg7eq"]
+[ext_resource type="PackedScene" uid="uid://jhi4uirj18b2" path="res://scenes/levels/level_23.tscn" id="8_q3spm"]
 [ext_resource type="Script" path="res://scripts/terminal/command/volume.gd" id="8_upolt"]
+[ext_resource type="PackedScene" uid="uid://cv3g3xqvny7qr" path="res://scenes/levels/level_00123.tscn" id="9_5xpv2"]
 [ext_resource type="Script" path="res://scripts/terminal/command/manual.gd" id="9_l6e2s"]
 [ext_resource type="Script" path="res://scripts/terminal/command/clear.gd" id="10_8n5lb"]
 [ext_resource type="Material" uid="uid://d3aelfodyn3bn" path="res://materials/terminal_effect_material.tres" id="11_dlcut"]
 [ext_resource type="Script" path="res://scripts/terminal/crt_effect.gd" id="12_hy1tq"]
+[ext_resource type="PackedScene" uid="uid://c185jxh5dgtf1" path="res://scenes/levels/level_01021.tscn" id="10_8r122"]
+[ext_resource type="PackedScene" uid="uid://cf1knm6flpc7w" path="res://scenes/levels/level_012.tscn" id="11_1obcm"]
+[ext_resource type="PackedScene" uid="uid://bs2vbkgwqwsd7" path="res://scenes/levels/level_0111010.tscn" id="11_g6nxo"]
+[ext_resource type="Script" path="res://scripts/terminal/scroll.gd" id="11_u6uwd"]
+[ext_resource type="PackedScene" uid="uid://dfj1fvghr0bri" path="res://scenes/levels/level_591245_sum.tscn" id="13_ihfi6"]
+[ext_resource type="PackedScene" uid="uid://bf8760675x1j4" path="res://scenes/levels/level_35641359.tscn" id="14_pjq5h"]
+[ext_resource type="PackedScene" uid="uid://cpkkbhymeubpj" path="res://scenes/levels/level_333_mul.tscn" id="15_nvgca"]
+[ext_resource type="PackedScene" uid="uid://cqq6slbv37e5q" path="res://scenes/levels/level_333d_mul.tscn" id="16_hej2v"]
+[ext_resource type="PackedScene" uid="uid://bk3iso8gp741d" path="res://scenes/levels/level_3234_mul.tscn" id="17_ade66"]
+[ext_resource type="PackedScene" uid="uid://c3qc6xjn0qpyx" path="res://scenes/levels/level_777_mul.tscn" id="18_g5thd"]
+[ext_resource type="PackedScene" uid="uid://cwkx2s7v2jmd5" path="res://scenes/levels/level_24841_mul.tscn" id="19_q81w6"]
 
-[sub_resource type="Resource" id="Resource_grxsu"]
+[sub_resource type="Resource" id="Resource_hiu2r"]
 script = ExtResource("5_6fmok")
-id = "TEST"
-level = ExtResource("4_mv1qg")
-hint = "blah blah"
+id = "01"
+level = ExtResource("6_6jffr")
+hint = "[unknown]: Hello there, great job!"
 
-[sub_resource type="Resource" id="Resource_h6sme"]
+[sub_resource type="Resource" id="Resource_yojtl"]
 script = ExtResource("5_6fmok")
-id = "TEST2"
-level = ExtResource("4_mv1qg")
-hint = "omg you so smart"
+id = "02"
+level = ExtResource("6_jxhmx")
+hint = "[unknown]: You are really good at this, friend."
+
+[sub_resource type="Resource" id="Resource_aamuq"]
+script = ExtResource("5_6fmok")
+id = "03"
+level = ExtResource("7_rg7eq")
+hint = "[unknown]: Perhaps you lack some curiosity. You know, seeing the big picture..."
+
+[sub_resource type="Resource" id="Resource_qigc6"]
+script = ExtResource("5_6fmok")
+id = "04"
+level = ExtResource("8_q3spm")
+hint = "[unknown]: Just doing what you was told to, right? No thoughts about trying to escape?"
+
+[sub_resource type="Resource" id="Resource_bvdb1"]
+script = ExtResource("5_6fmok")
+id = "05"
+level = ExtResource("9_5xpv2")
+hint = "[unknown]: In movies it is always so hard to escape from the cage. We're lucky we don't live in one."
+
+[sub_resource type="Resource" id="Resource_5xdpl"]
+script = ExtResource("5_6fmok")
+id = "06"
+level = ExtResource("10_8r122")
+hint = "[unknown]: Think, friend, think! You can escape any time you want."
+
+[sub_resource type="Resource" id="Resource_hm1cs"]
+script = ExtResource("5_6fmok")
+id = "07"
+level = ExtResource("11_g6nxo")
+hint = "[unknown]: Maybe you not as good as I thought. All you need is the word. Not even the whole of it."
+
+[sub_resource type="Resource" id="Resource_ifhmi"]
+script = ExtResource("5_6fmok")
+id = "08"
+level = ExtResource("11_1obcm")
+hint = "[unknown]: You have a key with these letters in the left corner of your keyboard."
+
+[sub_resource type="Resource" id="Resource_y1m1l"]
+script = ExtResource("5_6fmok")
+id = "09"
+level = ExtResource("13_ihfi6")
+hint = "[unknown]: Just type \"ESC\" into console."
+
+[sub_resource type="Resource" id="Resource_sel55"]
+script = ExtResource("5_6fmok")
+id = "10"
+level = ExtResource("14_pjq5h")
+hint = "[unknown]: Just type \"ESC\" into console."
+
+[sub_resource type="Resource" id="Resource_sfjql"]
+script = ExtResource("5_6fmok")
+id = "11"
+level = ExtResource("15_nvgca")
+hint = "[unknown]: Just type \"ESC\" into console."
+
+[sub_resource type="Resource" id="Resource_1mm52"]
+script = ExtResource("5_6fmok")
+id = "12"
+level = ExtResource("16_hej2v")
+hint = "[unknown]: Just type \"ESC\" into console."
+
+[sub_resource type="Resource" id="Resource_8l8sx"]
+script = ExtResource("5_6fmok")
+id = "13"
+level = ExtResource("17_ade66")
+hint = "[unknown]: Just type \"ESC\" into console."
+
+[sub_resource type="Resource" id="Resource_g84j8"]
+script = ExtResource("5_6fmok")
+id = "14"
+level = ExtResource("18_g5thd")
+hint = "[unknown]: Just type \"ESC\" into console."
+
+[sub_resource type="Resource" id="Resource_aed3l"]
+script = ExtResource("5_6fmok")
+id = "15"
+level = ExtResource("19_q81w6")
+hint = "[unknown]: Just type \"ESC\" into console."
 
 [sub_resource type="Resource" id="Resource_kjf4n"]
 script = ExtResource("6_35qbx")
-levels = Array[ExtResource("5_6fmok")]([SubResource("Resource_grxsu"), SubResource("Resource_h6sme")])
+levels = Array[ExtResource("5_6fmok")]([SubResource("Resource_hiu2r"), SubResource("Resource_yojtl"), SubResource("Resource_aamuq"), SubResource("Resource_qigc6"), SubResource("Resource_bvdb1"), SubResource("Resource_5xdpl"), SubResource("Resource_hm1cs"), SubResource("Resource_ifhmi"), SubResource("Resource_y1m1l"), SubResource("Resource_sel55"), SubResource("Resource_sfjql"), SubResource("Resource_1mm52"), SubResource("Resource_8l8sx"), SubResource("Resource_g84j8"), SubResource("Resource_aed3l")])
 
 [sub_resource type="Resource" id="Resource_mh2nj"]
 script = ExtResource("7_5n7gl")
@@ -69,25 +163,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
-
-[node name="LinesContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 5
-
-[node name="ResponseLine" parent="MarginContainer/LinesContainer" instance=ExtResource("2_xdqnh")]
-layout_mode = 2
+mouse_filter = 2
 
 [node name="LevelContainer" type="Control" parent="."]
 layout_mode = 1
@@ -107,3 +183,28 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("12_hy1tq")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+vertical_scroll_mode = 3
+script = ExtResource("11_u6uwd")
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="LinesContainer" type="VBoxContainer" parent="ScrollContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 5
+
+[node name="ResponseLine" parent="ScrollContainer/MarginContainer/LinesContainer" instance=ExtResource("2_xdqnh")]
+layout_mode = 2

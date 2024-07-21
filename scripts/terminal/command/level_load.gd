@@ -38,7 +38,16 @@ func _on_level_solved(
 	terminal: Terminal, status: Level.SolutionStatus, level: LevelResource
 ) -> void:
 	if status == Level.SolutionStatus.NORMALLY_SOLVED:
-		terminal.print(level.hint)
+		terminal.print("Level solved.")
+
+		if level.hint != "":
+			terminal.print(level.hint)
+
+		return
+
+	if status == Level.SolutionStatus.ALTERNATIVELY_SOLVED:
+		terminal.print("Alternative solution detected.")
+		return
 
 
 func find_level_index(level_id: String) -> int:

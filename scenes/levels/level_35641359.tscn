@@ -1,0 +1,146 @@
+[gd_scene load_steps=29 format=3 uid="uid://bf8760675x1j4"]
+
+[ext_resource type="PackedScene" uid="uid://b1bpb1u2oqt8f" path="res://scenes/levels/base_level.tscn" id="1_hcius"]
+[ext_resource type="PackedScene" uid="uid://b3i6otukvqj0c" path="res://scenes/core/nodes/receiver_node.tscn" id="2_mt1jy"]
+[ext_resource type="Script" path="res://scripts/core/signal/signal_info.gd" id="2_n4vqk"]
+[ext_resource type="Script" path="res://scripts/core/goal/sum_equal.gd" id="3_p2lud"]
+[ext_resource type="Script" path="res://scripts/core/goal/and.gd" id="4_qdu50"]
+[ext_resource type="Script" path="res://scripts/core/goal/has_n.gd" id="5_4jht6"]
+
+[sub_resource type="Resource" id="Resource_hpngb"]
+script = ExtResource("2_n4vqk")
+number = 3
+
+[sub_resource type="Resource" id="Resource_m5spv"]
+script = ExtResource("2_n4vqk")
+number = 5
+
+[sub_resource type="Resource" id="Resource_imolg"]
+script = ExtResource("2_n4vqk")
+number = 6
+
+[sub_resource type="Resource" id="Resource_lfsvo"]
+script = ExtResource("2_n4vqk")
+number = 4
+
+[sub_resource type="Resource" id="Resource_fnqey"]
+script = ExtResource("2_n4vqk")
+number = 1
+
+[sub_resource type="Resource" id="Resource_6gd8f"]
+script = ExtResource("2_n4vqk")
+number = 3
+
+[sub_resource type="Resource" id="Resource_n7god"]
+script = ExtResource("2_n4vqk")
+number = 5
+
+[sub_resource type="Resource" id="Resource_folx1"]
+script = ExtResource("2_n4vqk")
+number = 9
+
+[sub_resource type="Resource" id="Resource_vx300"]
+script = ExtResource("3_p2lud")
+receiver_path = NodePath("ReceiverNode")
+target_sum = 12
+invert = false
+
+[sub_resource type="Resource" id="Resource_46h14"]
+script = ExtResource("3_p2lud")
+receiver_path = NodePath("ReceiverNode2")
+target_sum = 5
+invert = false
+
+[sub_resource type="Resource" id="Resource_gf7k4"]
+script = ExtResource("3_p2lud")
+receiver_path = NodePath("ReceiverNode3")
+target_sum = 10
+invert = false
+
+[sub_resource type="Resource" id="Resource_xfmcc"]
+script = ExtResource("3_p2lud")
+receiver_path = NodePath("ReceiverNode4")
+target_sum = 9
+invert = false
+
+[sub_resource type="Resource" id="Resource_icqh8"]
+script = ExtResource("4_qdu50")
+goals = Array[Resource("res://scripts/core/goal/base_goal.gd")]([SubResource("Resource_vx300"), SubResource("Resource_46h14"), SubResource("Resource_gf7k4"), SubResource("Resource_xfmcc")])
+invert = false
+
+[sub_resource type="Resource" id="Resource_bh86g"]
+script = ExtResource("5_4jht6")
+receiver_path = NodePath("ReceiverNode")
+count = 2
+invert = false
+
+[sub_resource type="Resource" id="Resource_1tdbx"]
+script = ExtResource("5_4jht6")
+receiver_path = NodePath("ReceiverNode2")
+count = 2
+invert = false
+
+[sub_resource type="Resource" id="Resource_t4p4c"]
+script = ExtResource("5_4jht6")
+receiver_path = NodePath("ReceiverNode3")
+count = 2
+invert = false
+
+[sub_resource type="Resource" id="Resource_ove5c"]
+script = ExtResource("5_4jht6")
+receiver_path = NodePath("ReceiverNode4")
+count = 2
+invert = false
+
+[sub_resource type="Resource" id="Resource_ke2uw"]
+script = ExtResource("3_p2lud")
+receiver_path = NodePath("ReceiverNode")
+target_sum = 12
+invert = false
+
+[sub_resource type="Resource" id="Resource_6bykx"]
+script = ExtResource("3_p2lud")
+receiver_path = NodePath("ReceiverNode2")
+target_sum = 5
+invert = false
+
+[sub_resource type="Resource" id="Resource_fgbuw"]
+script = ExtResource("3_p2lud")
+receiver_path = NodePath("ReceiverNode3")
+target_sum = 10
+invert = false
+
+[sub_resource type="Resource" id="Resource_o1ff1"]
+script = ExtResource("3_p2lud")
+receiver_path = NodePath("ReceiverNode4")
+target_sum = 9
+invert = false
+
+[sub_resource type="Resource" id="Resource_5wvr7"]
+script = ExtResource("4_qdu50")
+goals = Array[Resource("res://scripts/core/goal/base_goal.gd")]([SubResource("Resource_bh86g"), SubResource("Resource_1tdbx"), SubResource("Resource_t4p4c"), SubResource("Resource_ove5c"), SubResource("Resource_ke2uw"), SubResource("Resource_6bykx"), SubResource("Resource_fgbuw"), SubResource("Resource_o1ff1")])
+invert = false
+
+[node name="BaseLevel" instance=ExtResource("1_hcius")]
+sequence = Array[ExtResource("2_n4vqk")]([SubResource("Resource_hpngb"), SubResource("Resource_m5spv"), SubResource("Resource_imolg"), SubResource("Resource_lfsvo"), SubResource("Resource_fnqey"), SubResource("Resource_6gd8f"), SubResource("Resource_n7god"), SubResource("Resource_folx1")])
+normal_goal = SubResource("Resource_icqh8")
+alt_goal = SubResource("Resource_5wvr7")
+
+[node name="LevelUI" parent="." index="0"]
+hint = "Numbers on triangles indicate target sum, not the numbers themselves."
+
+[node name="ReceiverNode" parent="." index="2" instance=ExtResource("2_mt1jy")]
+position = Vector2(286, 555)
+hint = "12"
+
+[node name="ReceiverNode2" parent="." index="3" instance=ExtResource("2_mt1jy")]
+position = Vector2(463, 556)
+hint = "5"
+
+[node name="ReceiverNode3" parent="." index="4" instance=ExtResource("2_mt1jy")]
+position = Vector2(639, 556)
+hint = "10"
+
+[node name="ReceiverNode4" parent="." index="5" instance=ExtResource("2_mt1jy")]
+position = Vector2(822, 554)
+hint = "9"
