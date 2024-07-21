@@ -1,9 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://bk3iso8gp741d"]
+[gd_scene load_steps=18 format=3 uid="uid://bk3iso8gp741d"]
 
 [ext_resource type="PackedScene" uid="uid://b1bpb1u2oqt8f" path="res://scenes/levels/base_level.tscn" id="1_fbndp"]
 [ext_resource type="Script" path="res://scripts/core/signal/signal_info.gd" id="2_p0xcw"]
 [ext_resource type="Script" path="res://scripts/core/goal/sum_equal.gd" id="3_8ibkt"]
 [ext_resource type="PackedScene" uid="uid://dkoakrtki43s5" path="res://scenes/core/ui/intersection_button.tscn" id="4_b7ywk"]
+[ext_resource type="Script" path="res://scripts/core/goal/sequence.gd" id="4_xrqbl"]
+[ext_resource type="Script" path="res://scripts/core/goal/and.gd" id="5_0pqjl"]
 [ext_resource type="PackedScene" uid="uid://dylm2rolg2r3" path="res://scenes/core/ui/reverse_intersection_button.tscn" id="5_47hwg"]
 [ext_resource type="PackedScene" uid="uid://ce6j6hof0swu6" path="res://scenes/core/ui/multiplicator_button.tscn" id="6_7yhjx"]
 [ext_resource type="PackedScene" uid="uid://buokm32k0djs1" path="res://scenes/core/ui/trash_button.tscn" id="7_ibuy6"]
@@ -31,9 +33,21 @@ receiver_path = NodePath("ReceiverNode")
 target_sum = 12
 invert = false
 
+[sub_resource type="Resource" id="Resource_xog58"]
+script = ExtResource("4_xrqbl")
+receiver_path = NodePath("ReceiverNode")
+target_sequence = Array[int]([12])
+invert = false
+
+[sub_resource type="Resource" id="Resource_get27"]
+script = ExtResource("5_0pqjl")
+goals = Array[Resource("res://scripts/core/goal/base_goal.gd")]([SubResource("Resource_xog58")])
+invert = false
+
 [node name="BaseLevel" instance=ExtResource("1_fbndp")]
 sequence = Array[ExtResource("2_p0xcw")]([SubResource("Resource_pji88"), SubResource("Resource_dd05c"), SubResource("Resource_yw6xy"), SubResource("Resource_6r3m3")])
 normal_goal = SubResource("Resource_raqgp")
+alt_goal = SubResource("Resource_get27")
 
 [node name="LevelUI" parent="." index="0"]
 allowed_nodes = Array[PackedScene]([ExtResource("4_b7ywk"), ExtResource("5_47hwg"), ExtResource("6_7yhjx"), ExtResource("7_ibuy6")])

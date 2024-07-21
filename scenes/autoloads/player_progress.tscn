@@ -1,13 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://daqiv7duerbfq"]
+[gd_scene load_steps=8 format=3 uid="uid://daqiv7duerbfq"]
 
 [ext_resource type="Script" path="res://scripts/core/player_progress.gd" id="1_n78ci"]
 [ext_resource type="Script" path="res://scripts/core/alt_level.gd" id="2_lgwga"]
 
 [sub_resource type="Resource" id="Resource_xu8u8"]
 script = ExtResource("2_lgwga")
-level_id = "TEST"
-message = "blah blah blah"
+level_id = "04"
+message = "Triangles indicate not the signals, but their counts. (You have 3 signals of type 2 and 2 signals of type 3. What are the odds?)"
+
+[sub_resource type="Resource" id="Resource_rqulc"]
+script = ExtResource("2_lgwga")
+level_id = "10"
+message = "Communism time. Each triangle must receive the same number of signals, but target sums are still required"
+
+[sub_resource type="Resource" id="Resource_mh7q3"]
+script = ExtResource("2_lgwga")
+level_id = "13"
+message = "Use multiplicator and \"throw away\" useless signals"
+
+[sub_resource type="Resource" id="Resource_7i5ko"]
+script = ExtResource("2_lgwga")
+level_id = "14"
+message = "Lucky number? It's just a trash, you should have thrown it away long time ago"
+
+[sub_resource type="Resource" id="Resource_biqt4"]
+script = ExtResource("2_lgwga")
+level_id = "15"
+message = "Good job, but make it 8 times bigger"
 
 [node name="PlayerProgress" type="Node"]
 script = ExtResource("1_n78ci")
-alt_levels = Array[ExtResource("2_lgwga")]([SubResource("Resource_xu8u8")])
+alt_levels = Array[ExtResource("2_lgwga")]([SubResource("Resource_xu8u8"), SubResource("Resource_rqulc"), SubResource("Resource_mh7q3"), SubResource("Resource_7i5ko"), SubResource("Resource_biqt4")])
