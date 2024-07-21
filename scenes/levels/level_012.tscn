@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://cf1knm6flpc7w"]
+[gd_scene load_steps=18 format=3 uid="uid://cf1knm6flpc7w"]
 
 [ext_resource type="PackedScene" uid="uid://b1bpb1u2oqt8f" path="res://scenes/levels/base_level.tscn" id="1_s6ot8"]
 [ext_resource type="Script" path="res://scripts/core/signal/signal_info.gd" id="2_2kpef"]
 [ext_resource type="Script" path="res://scripts/core/goal/sequence.gd" id="3_idasb"]
 [ext_resource type="Script" path="res://scripts/core/goal/and.gd" id="4_33i6w"]
 [ext_resource type="PackedScene" uid="uid://dkoakrtki43s5" path="res://scenes/core/ui/intersection_button.tscn" id="5_ccclc"]
+[ext_resource type="PackedScene" uid="uid://dylm2rolg2r3" path="res://scenes/core/ui/reverse_intersection_button.tscn" id="6_iayqp"]
 [ext_resource type="PackedScene" uid="uid://b3i6otukvqj0c" path="res://scenes/core/nodes/receiver_node.tscn" id="6_nnxfr"]
 
 [sub_resource type="Resource" id="Resource_866fj"]
@@ -59,7 +60,7 @@ sequence = Array[ExtResource("2_2kpef")]([SubResource("Resource_866fj"), SubReso
 normal_goal = SubResource("Resource_foaau")
 
 [node name="LevelUI" parent="." index="0"]
-allowed_nodes = Array[PackedScene]([ExtResource("5_ccclc")])
+allowed_nodes = Array[PackedScene]([ExtResource("5_ccclc"), ExtResource("6_iayqp")])
 
 [node name="ReceiverNode" parent="." index="2" instance=ExtResource("6_nnxfr")]
 position = Vector2(221, 539)
