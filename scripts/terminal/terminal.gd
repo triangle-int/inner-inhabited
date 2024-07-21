@@ -17,7 +17,7 @@ func _ready() -> void:
 	if switch_sound:
 		AudioPlayer.switch_to_terminal()
 
-	next_input_line()
+	_next_input_line()
 
 
 func _unhandled_key_input(event: InputEvent) -> void:
@@ -41,7 +41,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 			response = possible_commands.front().execute(string, self)
 
 		_add_response_line(response)
-		next_input_line()
+		_next_input_line()
 		return
 
 	if event.keycode == KEY_BACKSPACE or event.keycode == KEY_DELETE:
@@ -58,7 +58,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 	_last_input_line.add_text(new_symbol)
 
 
-func next_input_line() -> void:
+func _next_input_line() -> void:
 	_last_input_line = input_line_scene.instantiate()
 	lines_container.add_child(_last_input_line)
 
@@ -84,7 +84,7 @@ func print(text: String) -> void:
 		_last_input_line = null
 
 	_add_response_line(text)
-	next_input_line()
+	_next_input_line()
 
 
 func _on_level_finished(_status: Level.SolutionStatus) -> void:
