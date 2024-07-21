@@ -4,6 +4,7 @@ extends Node
 enum SolutionStatus { NOT_SOLVED, ALTERNATIVELY_SOLVED, NORMALLY_SOLVED }
 
 signal finished(status: Level.SolutionStatus)
+signal sequence_updated
 
 @export var sequence: Array[SignalInfo]
 @export var root: BaseSignalNode
@@ -15,7 +16,7 @@ static var current: Level = null
 
 var is_simulating: bool
 
-var _signals_received: int = 0
+var _signals_sent: int = 0
 
 
 func _ready() -> void:
@@ -27,9 +28,7 @@ func _exit_tree() -> void:
 
 
 func _on_signal_consumed() -> void:
-	_signals_received += 1
-
-	if _signals_received < sequence.size():
+	if _signals_sent < sequence.size():
 		_send_next()
 		return
 
@@ -76,7 +75,6 @@ func start_simulation() -> void:
 	NodeInteraction.deselect()
 
 	is_simulating = true
-	_signals_received = 0
 	_send_next()
 
 
@@ -94,6 +92,15 @@ func stop_simulation() -> void:
 		node.signal_received.disconnect(_check_goals)
 		node.reset()
 
+	_signals_sent = 0
+	sequence_updated.emit()
+
 
 func _send_next() -> void:
-	root.receive_signal(sequence[_signals_received])
+	root.receive_signal(sequence[_signals_sent])
+	_signals_sent += 1
+	sequence_updated.emit()
+
+
+func get_current_sequence() -> Array:
+	return sequence.slice(_signals_sent).map(func(s: SignalInfo) -> int: return s.number)

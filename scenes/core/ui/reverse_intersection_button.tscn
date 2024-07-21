@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cggct0unucwh5" path="res://scenes/core/ui/plan/reverse_intersection_plan.tscn" id="2_tca0c"]
 
 [node name="NodeButton" instance=ExtResource("1_k1erb")]
+theme_override_font_sizes/font_size = 20
 text = "REVERSE
-JUNCTION"
+INTERSECTION"
 target_plan = ExtResource("2_tca0c")

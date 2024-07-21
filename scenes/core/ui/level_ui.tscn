@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://50raqfm2a7qy"]
+[gd_scene load_steps=4 format=3 uid="uid://50raqfm2a7qy"]
 
 [ext_resource type="Script" path="res://scripts/core/ui/level_ui.gd" id="1_t8llw"]
+[ext_resource type="FontFile" uid="uid://bctl7m13a8iki" path="res://fonts/FiraCode-Bold.ttf" id="2_k3oem"]
+[ext_resource type="FontFile" uid="uid://cmyiejxp2c5ru" path="res://fonts/FiraCode-Medium.ttf" id="3_tghst"]
 
-[node name="LevelUI" type="Control" node_paths=PackedStringArray("buttons_root")]
+[node name="LevelUI" type="Control" node_paths=PackedStringArray("buttons_root", "label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,6 +14,7 @@ grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_t8llw")
 buttons_root = NodePath("Panel/VBoxContainer")
+label = NodePath("Panel/Label")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -23,32 +26,58 @@ offset_left = -200.0
 grow_horizontal = 0
 grow_vertical = 2
 
+[node name="Control" type="Control" parent="Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 15.0
+offset_bottom = 60.0
+grow_horizontal = 2
+
+[node name="StartButton" type="Button" parent="Panel/Control"]
+layout_mode = 2
+offset_left = 15.0
+offset_right = 98.0
+offset_bottom = 45.0
+theme_override_fonts/font = ExtResource("2_k3oem")
+theme_override_font_sizes/font_size = 24
+text = "Start"
+
+[node name="StopButton" type="Button" parent="Panel/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -83.0
+offset_right = -15.0
+offset_bottom = 45.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("2_k3oem")
+theme_override_font_sizes/font_size = 24
+text = "Stop"
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 75.0
+offset_bottom = 120.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_tghst")
+theme_override_font_sizes/font_size = 24
+text = "1,2,3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 90.0
+offset_top = 135.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 30
+theme_override_constants/separation = 15
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 60.0
-grow_horizontal = 2
-theme_override_constants/separation = 30
-alignment = 1
-
-[node name="StartButton" type="Button" parent="Panel/HBoxContainer"]
-layout_mode = 2
-text = "start"
-
-[node name="StopButton" type="Button" parent="Panel/HBoxContainer"]
-layout_mode = 2
-text = "stop"
-
-[connection signal="pressed" from="Panel/HBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="Panel/HBoxContainer/StopButton" to="." method="_on_stop_button_pressed"]
+[connection signal="pressed" from="Panel/Control/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Panel/Control/StopButton" to="." method="_on_stop_button_pressed"]
