@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://cmyiejxp2c5ru" path="res://fonts/FiraCode-Medium.ttf" id="3_tghst"]
 [ext_resource type="FontFile" uid="uid://cwpg0ydx12vhx" path="res://fonts/FiraCode-Regular.ttf" id="4_alnxe"]
 
-[node name="LevelUI" type="Control" node_paths=PackedStringArray("buttons_root", "sequence_label", "hint_label")]
+[node name="LevelUI" type="Control" node_paths=PackedStringArray("buttons_root", "sequence_label", "hint_label", "hint_panel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,6 +17,7 @@ script = ExtResource("1_t8llw")
 buttons_root = NodePath("Panel/VBoxContainer")
 sequence_label = NodePath("Panel/Label")
 hint_label = NodePath("Panel3/Label")
+hint_panel = NodePath("Panel3")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
