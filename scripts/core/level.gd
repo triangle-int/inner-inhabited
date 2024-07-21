@@ -33,21 +33,31 @@ func _on_signal_consumed() -> void:
 		_send_next()
 		return
 
-	print("not solved")
-	stop_simulation()
-	finished.emit(SolutionStatus.NOT_SOLVED)
+	_finish_level(SolutionStatus.NOT_SOLVED)
 
 
 func _check_goals() -> void:
 	if alt_goal != null and alt_goal.is_achieved(self):
-		print("solved alternatively")
-		finished.emit(SolutionStatus.ALTERNATIVELY_SOLVED)
+		_finish_level(SolutionStatus.ALTERNATIVELY_SOLVED)
 		return
 
 	if normal_goal.is_achieved(self):
-		print("solved normally")
-		finished.emit(SolutionStatus.NORMALLY_SOLVED)
+		_finish_level(SolutionStatus.NORMALLY_SOLVED)
 		return
+
+
+func _finish_level(status: Level.SolutionStatus) -> void:
+	print(
+		(
+			"not solved"
+			if status == SolutionStatus.NOT_SOLVED
+			else (
+				"alt solved" if status == SolutionStatus.ALTERNATIVELY_SOLVED else "normal solved"
+			)
+		)
+	)
+	stop_simulation()
+	finished.emit(status)
 
 
 func start_simulation() -> void:

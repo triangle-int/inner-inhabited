@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://ce6j6hof0swu6"]
+
+[ext_resource type="PackedScene" uid="uid://ccwqh0h7q8ugm" path="res://scenes/core/ui/base_node_button.tscn" id="1_adwp0"]
+[ext_resource type="PackedScene" uid="uid://dn63jd2aiv1f0" path="res://scenes/core/ui/plan/multiplicator_plan.tscn" id="2_l7oyl"]
+
+[node name="NodeButton" instance=ExtResource("1_adwp0")]
+text = "MULT"
+target_plan = ExtResource("2_l7oyl")
