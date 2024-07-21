@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://by61b1vkmlfgw"]
+[gd_scene load_steps=40 format=3 uid="uid://by61b1vkmlfgw"]
 
 [ext_resource type="Script" path="res://scripts/terminal/terminal.gd" id="1_cea4a"]
 [ext_resource type="PackedScene" uid="uid://fhejaqaayb4m" path="res://scenes/terminal/input_line.tscn" id="1_fff5l"]
@@ -17,13 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://c185jxh5dgtf1" path="res://scenes/levels/level_01021.tscn" id="10_8r122"]
 [ext_resource type="PackedScene" uid="uid://cf1knm6flpc7w" path="res://scenes/levels/level_012.tscn" id="11_1obcm"]
 [ext_resource type="PackedScene" uid="uid://bs2vbkgwqwsd7" path="res://scenes/levels/level_0111010.tscn" id="11_g6nxo"]
-[ext_resource type="PackedScene" uid="uid://dfj1fvghr0bri" path="res://scenes/levels/level_591245_sum.tscn" id="12_8y1ob"]
+[ext_resource type="Script" path="res://scripts/terminal/scroll.gd" id="11_u6uwd"]
 [ext_resource type="PackedScene" uid="uid://bf8760675x1j4" path="res://scenes/levels/level_35641359.tscn" id="14_pjq5h"]
-[ext_resource type="PackedScene" uid="uid://cpkkbhymeubpj" path="res://scenes/levels/level_333_mul.tscn" id="15_nftd7"]
-[ext_resource type="PackedScene" uid="uid://cqq6slbv37e5q" path="res://scenes/levels/level_333d_mul.tscn" id="16_u88yc"]
-[ext_resource type="PackedScene" uid="uid://bk3iso8gp741d" path="res://scenes/levels/level_3234_mul.tscn" id="17_2fus2"]
-[ext_resource type="PackedScene" uid="uid://c3qc6xjn0qpyx" path="res://scenes/levels/level_777_mul.tscn" id="18_34d8p"]
-[ext_resource type="PackedScene" uid="uid://cwkx2s7v2jmd5" path="res://scenes/levels/level_24841_mul.tscn" id="19_vmj6g"]
 
 [sub_resource type="Resource" id="Resource_hiu2r"]
 script = ExtResource("5_6fmok")
@@ -76,7 +71,6 @@ hint = ""
 [sub_resource type="Resource" id="Resource_y1m1l"]
 script = ExtResource("5_6fmok")
 id = "09"
-level = ExtResource("12_8y1ob")
 hint = ""
 
 [sub_resource type="Resource" id="Resource_sel55"]
@@ -88,31 +82,26 @@ hint = ""
 [sub_resource type="Resource" id="Resource_sfjql"]
 script = ExtResource("5_6fmok")
 id = "11"
-level = ExtResource("15_nftd7")
 hint = ""
 
 [sub_resource type="Resource" id="Resource_1mm52"]
 script = ExtResource("5_6fmok")
 id = "12"
-level = ExtResource("16_u88yc")
 hint = ""
 
 [sub_resource type="Resource" id="Resource_8l8sx"]
 script = ExtResource("5_6fmok")
 id = "13"
-level = ExtResource("17_2fus2")
 hint = ""
 
 [sub_resource type="Resource" id="Resource_g84j8"]
 script = ExtResource("5_6fmok")
 id = "14"
-level = ExtResource("18_34d8p")
 hint = ""
 
 [sub_resource type="Resource" id="Resource_aed3l"]
 script = ExtResource("5_6fmok")
 id = "15"
-level = ExtResource("19_vmj6g")
 hint = ""
 
 [sub_resource type="Resource" id="Resource_kjf4n"]
@@ -159,25 +148,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
-
-[node name="LinesContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 5
-
-[node name="ResponseLine" parent="MarginContainer/LinesContainer" instance=ExtResource("2_xdqnh")]
-layout_mode = 2
+mouse_filter = 2
 
 [node name="LevelContainer" type="Control" parent="."]
 layout_mode = 1
@@ -187,3 +158,28 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+vertical_scroll_mode = 3
+script = ExtResource("11_u6uwd")
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="LinesContainer" type="VBoxContainer" parent="ScrollContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 5
+
+[node name="ResponseLine" parent="ScrollContainer/MarginContainer/LinesContainer" instance=ExtResource("2_xdqnh")]
+layout_mode = 2
