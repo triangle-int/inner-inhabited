@@ -11,12 +11,12 @@ var _is_dragging: bool
 func _input(event: InputEvent) -> void:
 	if event.is_action_released("drag_node"):
 		_is_dragging = false
-	
+
 	if event.is_action_pressed("delete_node") and NodeInteraction.is_selected(self):
 		if not Level.current.is_simulating:
 			(get_parent() as BaseSignalNode).destroy()
 		# TODO: Instead stop simulation
-	
+
 	if event is InputEventMouseMotion:
 		if _is_dragging and NodeInteraction.is_selected(self):
 			get_parent().position += event.relative

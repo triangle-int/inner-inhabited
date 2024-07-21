@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://caicjo8jm4mf0"]
+[gd_scene load_steps=4 format=3 uid="uid://caicjo8jm4mf0"]
 
 [ext_resource type="Script" path="res://scripts/fpv/player.gd" id="1_qbcyw"]
+[ext_resource type="Script" path="res://scripts/fpv/head_bobbing.gd" id="2_8nugv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y14af"]
 radius = 0.3
@@ -16,4 +17,11 @@ shape = SubResource("CapsuleShape3D_y14af")
 [node name="Head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 
-[node name="Camera3D" type="Camera3D" parent="Head"]
+[node name="Camera3D" type="Camera3D" parent="Head" node_paths=PackedStringArray("camera_look_node", "player_movement")]
+script = ExtResource("2_8nugv")
+frequency = 8.0
+amplitude_x = 0.18
+amplitude_y = 0.3
+smooth_speed = 2.0
+camera_look_node = NodePath("..")
+player_movement = NodePath("../..")
