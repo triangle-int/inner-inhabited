@@ -1,63 +1,34 @@
-[gd_scene load_steps=14 format=3 uid="uid://bou72wqxg1rjn"]
+[gd_scene load_steps=12 format=3 uid="uid://corjgcidgpl3t"]
 
-[ext_resource type="Script" path="res://scripts/core/level.gd" id="1_bimvr"]
-[ext_resource type="Script" path="res://scripts/core/signal/signal_info.gd" id="2_6c7n2"]
-[ext_resource type="Script" path="res://scripts/core/validator/count_param.gd" id="5_dtdu5"]
-[ext_resource type="PackedScene" uid="uid://50raqfm2a7qy" path="res://scenes/core/ui/level_ui.tscn" id="5_mwf1r"]
-[ext_resource type="PackedScene" uid="uid://7pmpnt64e464" path="res://scenes/core/root_node.tscn" id="5_vsvwr"]
-[ext_resource type="PackedScene" uid="uid://b3i6otukvqj0c" path="res://scenes/core/receiver_node.tscn" id="6_88gk8"]
-[ext_resource type="Script" path="res://scripts/core/validator/count_validator.gd" id="6_e0uo0"]
-[ext_resource type="PackedScene" uid="uid://dkoakrtki43s5" path="res://scenes/core/ui/intersection_button.tscn" id="6_tca8u"]
+[ext_resource type="PackedScene" uid="uid://b1bpb1u2oqt8f" path="res://scenes/levels/base_level.tscn" id="1_ghc5h"]
+[ext_resource type="Script" path="res://scripts/core/signal/signal_info.gd" id="2_rrmng"]
+[ext_resource type="Script" path="res://scripts/core/goal/sequence.gd" id="3_2vc5b"]
+[ext_resource type="PackedScene" uid="uid://dkoakrtki43s5" path="res://scenes/core/ui/intersection_button.tscn" id="4_o7qkm"]
+[ext_resource type="PackedScene" uid="uid://buokm32k0djs1" path="res://scenes/core/ui/trash_button.tscn" id="5_falup"]
+[ext_resource type="PackedScene" uid="uid://b3i6otukvqj0c" path="res://scenes/core/nodes/receiver_node.tscn" id="6_1eem8"]
+[ext_resource type="PackedScene" uid="uid://dylm2rolg2r3" path="res://scenes/core/ui/reverse_intersection_button.tscn" id="6_ej133"]
+[ext_resource type="PackedScene" uid="uid://ce6j6hof0swu6" path="res://scenes/core/ui/multiplicator_button.tscn" id="7_3r5p8"]
 
-[sub_resource type="Resource" id="Resource_p071k"]
-script = ExtResource("2_6c7n2")
-number = 0
+[sub_resource type="Resource" id="Resource_gfsn6"]
+script = ExtResource("2_rrmng")
+number = 5
 
-[sub_resource type="Resource" id="Resource_r7g8l"]
-script = ExtResource("2_6c7n2")
-number = 0
+[sub_resource type="Resource" id="Resource_i74p4"]
+script = ExtResource("2_rrmng")
+number = 5
 
-[sub_resource type="Resource" id="Resource_xhi4g"]
-script = ExtResource("2_6c7n2")
-number = 0
+[sub_resource type="Resource" id="Resource_q3tpx"]
+script = ExtResource("3_2vc5b")
+receiver_path = NodePath("ReceiverNode")
+target_sequence = Array[int]([25])
+invert = false
 
-[sub_resource type="Resource" id="Resource_nw370"]
-script = ExtResource("5_dtdu5")
-number = 0
-expected_count = 1
+[node name="BaseLevel" instance=ExtResource("1_ghc5h")]
+sequence = Array[ExtResource("2_rrmng")]([SubResource("Resource_gfsn6"), SubResource("Resource_i74p4")])
+normal_goal = SubResource("Resource_q3tpx")
 
-[sub_resource type="Resource" id="Resource_bgqqs"]
-script = ExtResource("6_e0uo0")
-counts = Array[ExtResource("5_dtdu5")]([SubResource("Resource_nw370")])
+[node name="LevelUI" parent="." index="0"]
+allowed_nodes = Array[PackedScene]([ExtResource("4_o7qkm"), ExtResource("5_falup"), ExtResource("6_ej133"), ExtResource("7_3r5p8")])
 
-[node name="TestLevel" type="Control" node_paths=PackedStringArray("receivers", "root")]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-script = ExtResource("1_bimvr")
-sequence = Array[ExtResource("2_6c7n2")]([SubResource("Resource_p071k"), SubResource("Resource_r7g8l"), SubResource("Resource_xhi4g")])
-receivers = [NodePath("BaseSignalNode2"), NodePath("BaseSignalNode3"), NodePath("BaseSignalNode4")]
-root = NodePath("RootNode")
-
-[node name="LevelUI" parent="." instance=ExtResource("5_mwf1r")]
-layout_mode = 1
-allowed_nodes = Array[PackedScene]([ExtResource("6_tca8u"), ExtResource("6_tca8u")])
-
-[node name="RootNode" parent="." instance=ExtResource("5_vsvwr")]
-position = Vector2(475, 94)
-
-[node name="BaseSignalNode2" parent="." instance=ExtResource("6_88gk8")]
-position = Vector2(229, 479)
-normal_validator = SubResource("Resource_bgqqs")
-
-[node name="BaseSignalNode3" parent="." instance=ExtResource("6_88gk8")]
-position = Vector2(492, 481)
-normal_validator = SubResource("Resource_bgqqs")
-
-[node name="BaseSignalNode4" parent="." instance=ExtResource("6_88gk8")]
-position = Vector2(759, 479)
-normal_validator = SubResource("Resource_bgqqs")
+[node name="ReceiverNode" parent="." index="2" instance=ExtResource("6_1eem8")]
+position = Vector2(556, 542)

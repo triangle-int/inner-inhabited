@@ -6,8 +6,10 @@ enum SolutionStatus { NOT_SOLVED, ALTERNATIVELY_SOLVED, NORMALLY_SOLVED }
 signal finished(status: Level.SolutionStatus)
 
 @export var sequence: Array[SignalInfo]
-@export var receivers: Array[SignalReceiver]
 @export var root: BaseSignalNode
+
+@export var normal_goal: BaseLevelGoal
+@export var alt_goal: BaseLevelGoal
 
 static var current: Level = null
 
@@ -19,51 +21,57 @@ var _signals_received: int = 0
 func _ready() -> void:
 	current = self
 
-	for receiver in receivers:
-		receiver.signal_received.connect(_on_signal_reached_endpoint)
-
 
 func _exit_tree() -> void:
 	current = null
 
 
-func _on_signal_reached_endpoint() -> void:
+func _on_signal_consumed() -> void:
 	_signals_received += 1
 
 	if _signals_received < sequence.size():
 		_send_next()
 		return
 
-	var statuses := receivers.map(
-		func(receiver: SignalReceiver) -> Level.SolutionStatus: return (
-			receiver.get_solution_status()
+	_finish_level(SolutionStatus.NOT_SOLVED)
+
+
+func _check_goals() -> void:
+	if alt_goal != null and alt_goal.is_achieved(self):
+		_finish_level(SolutionStatus.ALTERNATIVELY_SOLVED)
+		return
+
+	if normal_goal.is_achieved(self):
+		_finish_level(SolutionStatus.NORMALLY_SOLVED)
+		return
+
+
+func _finish_level(status: Level.SolutionStatus) -> void:
+	print(
+		(
+			"not solved"
+			if status == SolutionStatus.NOT_SOLVED
+			else (
+				"alt solved" if status == SolutionStatus.ALTERNATIVELY_SOLVED else "normal solved"
+			)
 		)
 	)
 	stop_simulation()
-
-	if statuses.all(
-		func(status: Level.SolutionStatus) -> bool: return (
-			status == SolutionStatus.ALTERNATIVELY_SOLVED
-		)
-	):
-		print("solved alternatively")
-		finished.emit(SolutionStatus.ALTERNATIVELY_SOLVED)
-		return
-
-	if statuses.all(
-		func(status: Level.SolutionStatus) -> bool: return status == SolutionStatus.NORMALLY_SOLVED
-	):
-		print("solved normally")
-		finished.emit(SolutionStatus.NORMALLY_SOLVED)
-		return
-
-	print("not solved")
-	finished.emit(SolutionStatus.NOT_SOLVED)
+	finished.emit(status)
 
 
 func start_simulation() -> void:
 	if is_simulating:
 		return
+
+	for child in get_children():
+		var node := child as BaseSignalNode
+
+		if node == null:
+			continue
+
+		node.signal_consumed.connect(_on_signal_consumed)
+		node.signal_received.connect(_check_goals)
 
 	NodeInteraction.deselect()
 
@@ -82,6 +90,8 @@ func stop_simulation() -> void:
 		if node == null:
 			continue
 
+		node.signal_consumed.disconnect(_on_signal_consumed)
+		node.signal_received.disconnect(_check_goals)
 		node.reset()
 
 

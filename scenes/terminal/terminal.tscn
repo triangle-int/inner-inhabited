@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://fhejaqaayb4m" path="res://scenes/terminal/input_line.tscn" id="1_fff5l"]
 [ext_resource type="Material" uid="uid://d3aelfodyn3bn" path="res://materials/terminal_screen_material.tres" id="2_kla3r"]
 [ext_resource type="PackedScene" uid="uid://blxqg5qptkwsa" path="res://scenes/terminal/response_line.tscn" id="2_xdqnh"]
-[ext_resource type="PackedScene" uid="uid://bou72wqxg1rjn" path="res://scenes/levels/test_level.tscn" id="4_g873g"]
+[ext_resource type="PackedScene" uid="uid://corjgcidgpl3t" path="res://scenes/levels/test_level.tscn" id="4_mv1qg"]
 [ext_resource type="Script" path="res://scripts/terminal/command/level.gd" id="5_6fmok"]
 [ext_resource type="Script" path="res://scripts/terminal/command/level_load.gd" id="6_35qbx"]
 [ext_resource type="Script" path="res://scripts/terminal/command/escape_command.gd" id="7_5n7gl"]
@@ -12,7 +12,7 @@
 [sub_resource type="Resource" id="Resource_grxsu"]
 script = ExtResource("5_6fmok")
 id = "TEST"
-level = ExtResource("4_g873g")
+level = ExtResource("4_mv1qg")
 
 [sub_resource type="Resource" id="Resource_kjf4n"]
 script = ExtResource("6_35qbx")

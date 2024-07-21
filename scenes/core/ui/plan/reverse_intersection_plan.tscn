@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cggct0unucwh5"]
+
+[ext_resource type="PackedScene" uid="uid://bi8175nt5vwhr" path="res://scenes/core/ui/plan/base_node_plan.tscn" id="1_f6ivd"]
+[ext_resource type="PackedScene" uid="uid://bc2dx0d40mt21" path="res://scenes/core/nodes/reverse_intersection.tscn" id="2_8pkj5"]
+
+[node name="BaseNodePlan" instance=ExtResource("1_f6ivd")]
+scale = Vector2(0.235, 0.235)
+target_node = ExtResource("2_8pkj5")
