@@ -1,13 +1,19 @@
 class_name BaseSignalNode
 extends Node2D
 
+signal signal_consumed
+signal signal_received
+
 @export var connection_limit: int
 
 var outgoing_connections: Array[Connection]
 var incoming_connections: Array[Connection]
+var received_signals: Array[SignalInfo]
 
 
 func receive_signal(signal_info: SignalInfo) -> void:
+	received_signals.push_back(signal_info)
+	signal_received.emit()
 	_receive_signal(signal_info)
 
 
@@ -16,6 +22,7 @@ func _receive_signal(_signal_info: SignalInfo) -> void:
 
 
 func reset() -> void:
+	received_signals.clear()
 	_reset()
 
 
@@ -39,3 +46,8 @@ func sort_outgoing_connections() -> void:
 	outgoing_connections.sort_custom(
 		func(a: Connection, b: Connection) -> bool: return a.target.position.x < b.target.position.x
 	)
+
+
+func _sort_in_incoming() -> void:
+	for conn in incoming_connections:
+		conn.source.sort_outgoing_connections()

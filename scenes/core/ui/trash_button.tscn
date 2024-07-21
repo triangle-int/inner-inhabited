@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://buokm32k0djs1"]
+
+[ext_resource type="PackedScene" uid="uid://ccwqh0h7q8ugm" path="res://scenes/core/ui/base_node_button.tscn" id="1_qf0mu"]
+[ext_resource type="PackedScene" uid="uid://bvhwhi68b0hda" path="res://scenes/core/ui/plan/trash_plan.tscn" id="2_jnm8a"]
+
+[node name="NodeButton" instance=ExtResource("1_qf0mu")]
+text = "TRASH"
+target_plan = ExtResource("2_jnm8a")

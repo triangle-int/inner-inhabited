@@ -4,5 +4,5 @@
 [ext_resource type="PackedScene" uid="uid://ceua3wogpuk6y" path="res://scenes/core/ui/plan/intersection_plan.tscn" id="2_ttp84"]
 
 [node name="NodeButton" instance=ExtResource("1_k8ev3")]
-text = "intersection"
+text = "JUNCTION"
 target_plan = ExtResource("2_ttp84")

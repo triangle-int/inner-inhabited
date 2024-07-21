@@ -22,7 +22,7 @@ func _input(event: InputEvent) -> void:
 			get_parent().position += event.relative
 
 
-func _input_event(viewport: Viewport, event: InputEvent, shape_idx: int) -> void:
+func _input_event(viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
 	if event.is_action_pressed("drag_node"):
 		if Level.current.is_simulating:
 			return

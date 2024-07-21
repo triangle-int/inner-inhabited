@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://by6jsd6ng1o2p"]
+
+[ext_resource type="Texture2D" uid="uid://3tnbwwnnk4th" path="res://textures/circle.png" id="1_s6lvy"]
+[ext_resource type="PackedScene" uid="uid://bk7jdnoknpq6c" path="res://scenes/core/connection_holder.tscn" id="2_lom17"]
+
+[node name="BaseSignalNode" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(0.465, 0.465)
+texture = ExtResource("1_s6lvy")
+
+[node name="ConnectionHolder" parent="." instance=ExtResource("2_lom17")]
