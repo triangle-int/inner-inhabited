@@ -1,0 +1,55 @@
+[gd_scene load_steps=14 format=3 uid="uid://bcgbg7hpixsti"]
+
+[ext_resource type="PackedScene" uid="uid://b1bpb1u2oqt8f" path="res://scenes/levels/base_level.tscn" id="1_c6eng"]
+[ext_resource type="Script" path="res://scripts/core/signal/signal_info.gd" id="2_oxlax"]
+[ext_resource type="Script" path="res://scripts/core/goal/sequence.gd" id="3_7b5yj"]
+[ext_resource type="Script" path="res://scripts/core/goal/and.gd" id="4_enxe6"]
+[ext_resource type="PackedScene" uid="uid://b3i6otukvqj0c" path="res://scenes/core/nodes/receiver_node.tscn" id="5_exrvh"]
+[ext_resource type="PackedScene" uid="uid://dkoakrtki43s5" path="res://scenes/core/ui/intersection_button.tscn" id="5_wv0l7"]
+
+[sub_resource type="Resource" id="Resource_sdelr"]
+script = ExtResource("2_oxlax")
+number = 0
+
+[sub_resource type="Resource" id="Resource_m8c8j"]
+script = ExtResource("2_oxlax")
+number = 0
+
+[sub_resource type="Resource" id="Resource_5cv7p"]
+script = ExtResource("2_oxlax")
+number = 0
+
+[sub_resource type="Resource" id="Resource_84rhq"]
+script = ExtResource("2_oxlax")
+number = 1
+
+[sub_resource type="Resource" id="Resource_0vc5c"]
+script = ExtResource("3_7b5yj")
+receiver_path = NodePath("ReceiverNode")
+target_sequence = Array[int]([0, 0, 0])
+invert = false
+
+[sub_resource type="Resource" id="Resource_4gmfh"]
+script = ExtResource("3_7b5yj")
+receiver_path = NodePath("ReceiverNode2")
+target_sequence = Array[int]([1])
+invert = false
+
+[sub_resource type="Resource" id="Resource_ksbpm"]
+script = ExtResource("4_enxe6")
+goals = Array[Resource("res://scripts/core/goal/base_goal.gd")]([SubResource("Resource_0vc5c"), SubResource("Resource_4gmfh")])
+invert = false
+
+[node name="BaseLevel" instance=ExtResource("1_c6eng")]
+sequence = Array[ExtResource("2_oxlax")]([SubResource("Resource_sdelr"), SubResource("Resource_m8c8j"), SubResource("Resource_5cv7p"), SubResource("Resource_84rhq")])
+normal_goal = SubResource("Resource_ksbpm")
+
+[node name="LevelUI" parent="." index="0"]
+allowed_nodes = Array[PackedScene]([ExtResource("5_wv0l7")])
+
+[node name="ReceiverNode" parent="." index="2" instance=ExtResource("5_exrvh")]
+position = Vector2(232, 492)
+
+[node name="ReceiverNode2" parent="." index="3" instance=ExtResource("5_exrvh")]
+position = Vector2(785, 495)
+hint = "1"

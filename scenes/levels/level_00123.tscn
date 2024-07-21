@@ -1,0 +1,79 @@
+[gd_scene load_steps=17 format=3 uid="uid://cv3g3xqvny7qr"]
+
+[ext_resource type="PackedScene" uid="uid://b1bpb1u2oqt8f" path="res://scenes/levels/base_level.tscn" id="1_y3cvr"]
+[ext_resource type="Script" path="res://scripts/core/signal/signal_info.gd" id="2_sndef"]
+[ext_resource type="PackedScene" uid="uid://b3i6otukvqj0c" path="res://scenes/core/nodes/receiver_node.tscn" id="2_tj65r"]
+[ext_resource type="Script" path="res://scripts/core/goal/sequence.gd" id="3_ffnuv"]
+[ext_resource type="Script" path="res://scripts/core/goal/and.gd" id="4_efmau"]
+[ext_resource type="PackedScene" uid="uid://dkoakrtki43s5" path="res://scenes/core/ui/intersection_button.tscn" id="5_plhv5"]
+
+[sub_resource type="Resource" id="Resource_h8y17"]
+script = ExtResource("2_sndef")
+number = 0
+
+[sub_resource type="Resource" id="Resource_k67xe"]
+script = ExtResource("2_sndef")
+number = 0
+
+[sub_resource type="Resource" id="Resource_k5wov"]
+script = ExtResource("2_sndef")
+number = 1
+
+[sub_resource type="Resource" id="Resource_r2emy"]
+script = ExtResource("2_sndef")
+number = 2
+
+[sub_resource type="Resource" id="Resource_eep33"]
+script = ExtResource("2_sndef")
+number = 3
+
+[sub_resource type="Resource" id="Resource_pexyw"]
+script = ExtResource("3_ffnuv")
+receiver_path = NodePath("ReceiverNode")
+target_sequence = Array[int]([0, 0])
+invert = false
+
+[sub_resource type="Resource" id="Resource_sdypc"]
+script = ExtResource("3_ffnuv")
+receiver_path = NodePath("ReceiverNode2")
+target_sequence = Array[int]([1])
+invert = false
+
+[sub_resource type="Resource" id="Resource_net6s"]
+script = ExtResource("3_ffnuv")
+receiver_path = NodePath("ReceiverNode3")
+target_sequence = Array[int]([2])
+invert = false
+
+[sub_resource type="Resource" id="Resource_vddqk"]
+script = ExtResource("3_ffnuv")
+receiver_path = NodePath("ReceiverNode4")
+target_sequence = Array[int]([3])
+invert = false
+
+[sub_resource type="Resource" id="Resource_r1uvi"]
+script = ExtResource("4_efmau")
+goals = Array[Resource("res://scripts/core/goal/base_goal.gd")]([SubResource("Resource_pexyw"), SubResource("Resource_sdypc"), SubResource("Resource_net6s"), SubResource("Resource_vddqk")])
+invert = false
+
+[node name="BaseLevel" instance=ExtResource("1_y3cvr")]
+sequence = Array[ExtResource("2_sndef")]([SubResource("Resource_h8y17"), SubResource("Resource_k67xe"), SubResource("Resource_k5wov"), SubResource("Resource_r2emy"), SubResource("Resource_eep33")])
+normal_goal = SubResource("Resource_r1uvi")
+
+[node name="LevelUI" parent="." index="0"]
+allowed_nodes = Array[PackedScene]([ExtResource("5_plhv5")])
+
+[node name="ReceiverNode" parent="." index="2" instance=ExtResource("2_tj65r")]
+position = Vector2(177, 532)
+
+[node name="ReceiverNode2" parent="." index="3" instance=ExtResource("2_tj65r")]
+position = Vector2(395, 534)
+hint = "1"
+
+[node name="ReceiverNode3" parent="." index="4" instance=ExtResource("2_tj65r")]
+position = Vector2(648, 538)
+hint = "2"
+
+[node name="ReceiverNode4" parent="." index="5" instance=ExtResource("2_tj65r")]
+position = Vector2(870, 533)
+hint = "3"
