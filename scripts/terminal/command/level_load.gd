@@ -14,12 +14,12 @@ func _matches_command(string: String) -> bool:
 
 func _execute(command: String, terminal: Terminal) -> String:
 	var level_id := command.substr(1)
-	var level := find_level(level_id).level
-	var level_node := level.instantiate() as Level
+	var level := find_level(level_id)
+	var level_node := level.level.instantiate() as Level
 
 	terminal.attach_level(level_node)
 
-	return "Loading level %s..." % level_id
+	return "Loading level %s...\n%s" % [level_id, level.hint]
 
 
 func find_level(level_id: String) -> LevelResource:
