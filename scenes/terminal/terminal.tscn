@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://by61b1vkmlfgw"]
+[gd_scene load_steps=13 format=3 uid="uid://by61b1vkmlfgw"]
 
 [ext_resource type="Script" path="res://scripts/terminal/terminal.gd" id="1_cea4a"]
 [ext_resource type="PackedScene" uid="uid://fhejaqaayb4m" path="res://scenes/terminal/input_line.tscn" id="1_fff5l"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scripts/terminal/command/level.gd" id="5_6fmok"]
 [ext_resource type="Script" path="res://scripts/terminal/command/level_load.gd" id="6_35qbx"]
 [ext_resource type="Script" path="res://scripts/terminal/command/escape_command.gd" id="7_5n7gl"]
+[ext_resource type="Script" path="res://scripts/terminal/crt_effect.gd" id="9_s17l6"]
 
 [sub_resource type="Resource" id="Resource_grxsu"]
 script = ExtResource("5_6fmok")
@@ -20,7 +21,6 @@ levels = Array[ExtResource("5_6fmok")]([SubResource("Resource_grxsu")])
 
 [sub_resource type="Resource" id="Resource_mh2nj"]
 script = ExtResource("7_5n7gl")
-delay = 2.0
 
 [node name="Terminal" type="Control"]
 layout_mode = 3
@@ -83,3 +83,4 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+script = ExtResource("9_s17l6")
