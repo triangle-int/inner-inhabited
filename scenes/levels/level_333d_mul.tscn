@@ -45,6 +45,9 @@ normal_goal = SubResource("Resource_biuga")
 
 [node name="LevelUI" parent="." index="0"]
 allowed_nodes = Array[PackedScene]([ExtResource("5_yqywj"), ExtResource("6_8l1v2"), ExtResource("7_87bh7"), ExtResource("8_cblsw")])
+hint = "Numbers on triangles indicate target sum, not the numbers themselves.
+
+Use \"TRASH\" to delete incoming signal."
 
 [node name="ReceiverNode" parent="." index="2" instance=ExtResource("9_cgdps")]
 position = Vector2(345, 519)

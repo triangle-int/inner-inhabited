@@ -126,6 +126,9 @@ sequence = Array[ExtResource("2_n4vqk")]([SubResource("Resource_hpngb"), SubReso
 normal_goal = SubResource("Resource_icqh8")
 alt_goal = SubResource("Resource_5wvr7")
 
+[node name="LevelUI" parent="." index="0"]
+hint = "Numbers on triangles indicate target sum, not the numbers themselves."
+
 [node name="ReceiverNode" parent="." index="2" instance=ExtResource("2_mt1jy")]
 position = Vector2(286, 555)
 hint = "12"

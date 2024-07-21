@@ -51,6 +51,9 @@ normal_goal = SubResource("Resource_3iwtb")
 
 [node name="LevelUI" parent="." index="0"]
 allowed_nodes = Array[PackedScene]([ExtResource("5_xnwa1"), ExtResource("6_80c3t")])
+hint = "Use \"REVERSE INTERSECTION\" to redirect signal flow.
+Every odd signal flows right.
+Every even signal flows left."
 
 [node name="ReceiverNode" parent="." index="2" instance=ExtResource("7_o56qi")]
 position = Vector2(313, 526)

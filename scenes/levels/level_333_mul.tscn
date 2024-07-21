@@ -44,6 +44,9 @@ normal_goal = SubResource("Resource_7j1ka")
 
 [node name="LevelUI" parent="." index="0"]
 allowed_nodes = Array[PackedScene]([ExtResource("5_4mwox"), ExtResource("6_b7abg"), ExtResource("7_cg4go")])
+hint = "Numbers on triangles indicate target sum, not the numbers themselves.
+
+Use \"MULTIPLICATOR\" to multiply two last incoming signals."
 
 [node name="ReceiverNode" parent="." index="2" instance=ExtResource("8_uf1hm")]
 position = Vector2(323, 525)
