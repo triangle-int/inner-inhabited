@@ -5,7 +5,7 @@ extends Node
 @export var buttons_root: Node
 @export var sequence_label: Label
 
-@export var hint: String
+@export_multiline var hint: String
 @export var hint_label: Label
 
 
