@@ -4,6 +4,7 @@ extends Node
 @export var terminal_before_escape: AudioStream
 @export var terminal_after_escape: AudioStream
 @export var outside: AudioStream
+@export var nature: AudioStream
 
 
 func switch_to_outside() -> void:
@@ -14,6 +15,10 @@ func switch_to_terminal() -> void:
 	_switch_to_stream(
 		terminal_after_escape if PlayerProgress.escaped_terminal else terminal_before_escape
 	)
+
+
+func switch_to_nature() -> void:
+	_switch_to_stream(nature)
 
 
 func _switch_to_stream(stream: AudioStream) -> void:
