@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://340oa3u2cixc"]
+[gd_scene load_steps=6 format=3 uid="uid://340oa3u2cixc"]
 
 [ext_resource type="PackedScene" uid="uid://by6jsd6ng1o2p" path="res://scenes/core/nodes/base_signal_node.tscn" id="1_b4usp"]
 [ext_resource type="Script" path="res://scripts/core/node/multiplicator_node.gd" id="2_trhm0"]
 [ext_resource type="PackedScene" uid="uid://coew4enk4amt" path="res://scenes/core/drag.tscn" id="2_ugdvj"]
+[ext_resource type="Texture2D" uid="uid://cn4rmhqjogawx" path="res://textures/multiplicator/multiplicator.png" id="3_nxb1k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jy74q"]
 size = Vector2(60, 60)
@@ -12,7 +13,9 @@ script = ExtResource("2_trhm0")
 connection_limit = 1
 
 [node name="Sprite2D" parent="." index="0"]
+modulate = Color(1, 1, 1, 1)
 scale = Vector2(0.233, 0.233)
+texture = ExtResource("3_nxb1k")
 
 [node name="CollisionShape2D" parent="ConnectionHolder" index="0"]
 shape = SubResource("RectangleShape2D_jy74q")

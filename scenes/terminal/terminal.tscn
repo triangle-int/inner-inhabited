@@ -36,6 +36,7 @@ response_line_scene = ExtResource("2_xdqnh")
 commands = Array[Resource("res://scripts/terminal/command/base_command.gd")]([SubResource("Resource_kjf4n"), SubResource("Resource_mh2nj")])
 
 [node name="Background" type="ColorRect" parent="."]
+z_index = -2
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
