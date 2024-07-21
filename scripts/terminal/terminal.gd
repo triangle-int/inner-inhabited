@@ -6,7 +6,8 @@ extends Control
 @export var commands: Array[BaseTerminalCommand]
 @export var switch_sound := true
 
-@onready var lines_container := $MarginContainer/LinesContainer
+@onready var lines_container := $ScrollContainer/MarginContainer/LinesContainer
+@onready var scroll_container: TerminalScroll = $ScrollContainer
 @onready var level_container := $LevelContainer
 
 var _last_input_line: InputLine
@@ -29,6 +30,8 @@ func _unhandled_key_input(event: InputEvent) -> void:
 
 	if event.is_released():
 		return
+
+	scroll_container.follow = true
 
 	if event.keycode == KEY_ENTER:
 		var string := _last_input_line.get_text()
@@ -73,7 +76,7 @@ func clear() -> void:
 func attach_level(level: Level) -> void:
 	level_container.add_child(level)
 	_is_level_playing = true
-	lines_container.visible = false
+	scroll_container.visible = false
 
 	level.level_solved.connect(_on_level_finished)
 
@@ -90,7 +93,7 @@ func print(text: String) -> void:
 func _on_level_finished(_status: Level.SolutionStatus) -> void:
 	# TODO: Proper level finish logic
 	_is_level_playing = false
-	lines_container.visible = true
+	scroll_container.visible = true
 	level_container.get_children().front().queue_free()
 
 
