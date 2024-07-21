@@ -1,9 +1,8 @@
 class_name AndGoal
 extends BaseLevelGoal
 
-@export var a: BaseLevelGoal
-@export var b: BaseLevelGoal
+@export var goals: Array[BaseLevelGoal]
 
 
 func _is_achieved(level: Level) -> bool:
-	return a.is_achieved(level) and b.is_achieved(level)
+	return goals.all(func(g: BaseLevelGoal) -> bool: return g.is_achieved(level))
