@@ -23,4 +23,4 @@ func _switch_to_stream(stream: AudioStream) -> void:
 
 
 func set_volume(volume: float) -> void:
-	player.volume_db = linear_to_db(volume)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(volume))
