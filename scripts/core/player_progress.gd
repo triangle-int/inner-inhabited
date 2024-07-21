@@ -23,5 +23,18 @@ func all_alt_solved() -> bool:
 	return alt_levels.all(func(hint: AltLevel) -> bool: return _is_alt_solved(hint.level_id))
 
 
+func register_level_solution(level_id: String, status: Level.SolutionStatus) -> void:
+	if (
+		status == Level.SolutionStatus.ALTERNATIVELY_SOLVED
+		and alt_passed_levels_ids.all(func(id: String) -> bool: return id != level_id)
+	):
+		alt_passed_levels_ids.push_back(level_id)
+	elif (
+		status == Level.SolutionStatus.NORMALLY_SOLVED
+		and passed_levels_ids.all(func(id: String) -> bool: return id != level_id)
+	):
+		passed_levels_ids.push_back(level_id)
+
+
 func _is_alt_solved(level_id: String) -> bool:
 	return alt_passed_levels_ids.has(level_id)
