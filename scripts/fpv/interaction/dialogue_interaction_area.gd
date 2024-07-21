@@ -2,9 +2,11 @@ extends Area3D
 
 @onready var target_camera_point: Node3D = $TargetCameraPoint
 
+var can_be_interacted := true
+
 
 func _on_body_entered(body: Node3D) -> void:
-	if body is Player:
+	if body is Player and can_be_interacted:
 		body.enable_interaction("TALK", self)
 
 
@@ -24,17 +26,10 @@ func interact(player: Player) -> void:
 	else:
 		await start_sequence("main_robot", player)
 	
+	if Dialogic.VAR.show_raft:
+		can_be_interacted = false
 	player.can_move = true
-	player.enable_interaction("TALK", self)
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-
-
-func continue_chat(player: Player) -> void:
-	if Dialogic.current_timeline != null:
-		return
-	
-	Dialogic.VAR.continue_chat = false
-	await start_sequence("main_robot", player)
 
 
 func start_sequence(seq_name: String, player: Player) -> void:

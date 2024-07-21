@@ -1,5 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://by61b1vkmlfgw"]
-[gd_scene load_steps=46 format=3 uid="uid://by61b1vkmlfgw"]
+[gd_scene load_steps=48 format=3 uid="uid://by61b1vkmlfgw"]
 
 [ext_resource type="Script" path="res://scripts/terminal/terminal.gd" id="1_cea4a"]
 [ext_resource type="PackedScene" uid="uid://fhejaqaayb4m" path="res://scenes/terminal/input_line.tscn" id="1_fff5l"]
@@ -7,20 +6,20 @@
 [ext_resource type="Script" path="res://scripts/terminal/command/level.gd" id="5_6fmok"]
 [ext_resource type="PackedScene" uid="uid://bi2gdu7ilivgq" path="res://scenes/levels/level_0011.tscn" id="6_6jffr"]
 [ext_resource type="Script" path="res://scripts/terminal/command/level_load.gd" id="6_35qbx"]
-[ext_resource type="PackedScene" uid="uid://bcgbg7hpixsti" path="res://scenes/levels/level_0001.tscn" id="6_jxhmx"]
+[ext_resource type="PackedScene" path="res://scenes/levels/level_0001.tscn" id="6_jxhmx"]
 [ext_resource type="Script" path="res://scripts/terminal/command/escape_command.gd" id="7_5n7gl"]
 [ext_resource type="PackedScene" uid="uid://bqrtfgkoyqlwp" path="res://scenes/levels/level_01000.tscn" id="7_rg7eq"]
-[ext_resource type="PackedScene" uid="uid://jhi4uirj18b2" path="res://scenes/levels/level_23.tscn" id="8_q3spm"]
+[ext_resource type="PackedScene" path="res://scenes/levels/level_23.tscn" id="8_q3spm"]
 [ext_resource type="Script" path="res://scripts/terminal/command/volume.gd" id="8_upolt"]
-[ext_resource type="PackedScene" uid="uid://cv3g3xqvny7qr" path="res://scenes/levels/level_00123.tscn" id="9_5xpv2"]
+[ext_resource type="PackedScene" path="res://scenes/levels/level_00123.tscn" id="9_5xpv2"]
 [ext_resource type="Script" path="res://scripts/terminal/command/manual.gd" id="9_l6e2s"]
 [ext_resource type="Script" path="res://scripts/terminal/command/clear.gd" id="10_8n5lb"]
+[ext_resource type="PackedScene" path="res://scenes/levels/level_01021.tscn" id="10_8r122"]
+[ext_resource type="PackedScene" path="res://scenes/levels/level_012.tscn" id="11_1obcm"]
 [ext_resource type="Material" uid="uid://d3aelfodyn3bn" path="res://materials/terminal_effect_material.tres" id="11_dlcut"]
-[ext_resource type="Script" path="res://scripts/terminal/crt_effect.gd" id="12_hy1tq"]
-[ext_resource type="PackedScene" uid="uid://c185jxh5dgtf1" path="res://scenes/levels/level_01021.tscn" id="10_8r122"]
-[ext_resource type="PackedScene" uid="uid://cf1knm6flpc7w" path="res://scenes/levels/level_012.tscn" id="11_1obcm"]
-[ext_resource type="PackedScene" uid="uid://bs2vbkgwqwsd7" path="res://scenes/levels/level_0111010.tscn" id="11_g6nxo"]
+[ext_resource type="PackedScene" path="res://scenes/levels/level_0111010.tscn" id="11_g6nxo"]
 [ext_resource type="Script" path="res://scripts/terminal/scroll.gd" id="11_u6uwd"]
+[ext_resource type="Script" path="res://scripts/terminal/crt_effect.gd" id="12_hy1tq"]
 [ext_resource type="PackedScene" uid="uid://dfj1fvghr0bri" path="res://scenes/levels/level_591245_sum.tscn" id="13_ihfi6"]
 [ext_resource type="PackedScene" uid="uid://bf8760675x1j4" path="res://scenes/levels/level_35641359.tscn" id="14_pjq5h"]
 [ext_resource type="PackedScene" uid="uid://cpkkbhymeubpj" path="res://scenes/levels/level_333_mul.tscn" id="15_nvgca"]
@@ -174,16 +173,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="CRTEffect" type="ColorRect" parent="."]
-material = ExtResource("11_dlcut")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("12_hy1tq")
-
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -208,3 +197,14 @@ theme_override_constants/separation = 5
 
 [node name="ResponseLine" parent="ScrollContainer/MarginContainer/LinesContainer" instance=ExtResource("2_xdqnh")]
 layout_mode = 2
+
+[node name="CRTEffect" type="ColorRect" parent="."]
+material = ExtResource("11_dlcut")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("12_hy1tq")

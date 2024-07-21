@@ -17,6 +17,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 
 
 func _on_player_entered_raft() -> void:
+	PlayerProgress.used_raft = true
 	var tween := get_tree().create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(_player, "position", _player.position + offset, tween_time)
 	tween.parallel().tween_property(self, "position", position + offset, tween_time)
