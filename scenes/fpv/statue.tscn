@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://bv5b30febt42g"]
+[gd_scene load_steps=8 format=3 uid="uid://wmlp2ilgd6wv"]
 
-[ext_resource type="PackedScene" uid="uid://c347rww62mav5" path="res://scenes/fpv/environment/world_environment.tscn" id="1_47cms"]
-[ext_resource type="PackedScene" uid="uid://tbo3ngsdt67g" path="res://scenes/fpv/environment/statue.tscn" id="2_lvmxh"]
+[ext_resource type="PackedScene" path="res://scenes/fpv/environment/world_environment.tscn" id="1_47cms"]
+[ext_resource type="PackedScene" path="res://scenes/fpv/environment/statue.tscn" id="2_lvmxh"]
 [ext_resource type="PackedScene" uid="uid://caicjo8jm4mf0" path="res://scenes/fpv/player.tscn" id="3_hlouc"]
 [ext_resource type="PackedScene" uid="uid://b871gg0ul24w0" path="res://scenes/fpv/raft.tscn" id="4_7ikju"]
 [ext_resource type="PackedScene" uid="uid://d2bnf1g3p3brq" path="res://scenes/fpv/alt_hint.tscn" id="5_eb8cm"]
+[ext_resource type="Script" path="res://scripts/fpv/interaction/dialogue_interaction_area.gd" id="6_8hq6v"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2gkaa"]
+size = Vector3(1.54102, 1.60306, 1.09229)
 
 [node name="Statue" type="Node3D"]
 
@@ -22,3 +26,17 @@ offset = Vector3(0, 0, 10)
 
 [node name="AltHint" parent="." instance=ExtResource("5_eb8cm")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 4, 12)
+
+[node name="DialogueInteractionArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1)
+script = ExtResource("6_8hq6v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DialogueInteractionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0402832, -0.178848, -0.340088)
+shape = SubResource("BoxShape3D_2gkaa")
+
+[node name="TargetCameraPoint" type="Marker3D" parent="DialogueInteractionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.582794, 0.778254)
+
+[connection signal="body_entered" from="DialogueInteractionArea" to="DialogueInteractionArea" method="_on_body_entered"]
+[connection signal="body_exited" from="DialogueInteractionArea" to="DialogueInteractionArea" method="_on_body_exited"]
