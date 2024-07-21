@@ -19,4 +19,6 @@ shape = SubResource("RectangleShape2D_jy74q")
 
 [node name="Drag" parent="." index="2" instance=ExtResource("2_ugdvj")]
 
+[connection signal="drag_stopped" from="Drag" to="." method="_on_drag_stopped"]
+
 [editable path="ConnectionHolder"]
