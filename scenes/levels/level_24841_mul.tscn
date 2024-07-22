@@ -47,3 +47,4 @@ allowed_nodes = Array[PackedScene]([ExtResource("4_jdbln"), ExtResource("5_0dcne
 
 [node name="ReceiverNode" parent="." index="2" instance=ExtResource("8_jd0w2")]
 position = Vector2(549, 543)
+hint = "32"
