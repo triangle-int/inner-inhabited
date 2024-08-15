@@ -1,8 +1,9 @@
-[gd_scene load_steps=48 format=3 uid="uid://by61b1vkmlfgw"]
+[gd_scene load_steps=49 format=3 uid="uid://by61b1vkmlfgw"]
 
 [ext_resource type="Script" path="res://scripts/terminal/terminal.gd" id="1_cea4a"]
 [ext_resource type="PackedScene" uid="uid://fhejaqaayb4m" path="res://scenes/terminal/input_line.tscn" id="1_fff5l"]
 [ext_resource type="PackedScene" uid="uid://blxqg5qptkwsa" path="res://scenes/terminal/response_line.tscn" id="2_xdqnh"]
+[ext_resource type="Script" path="res://scripts/terminal/command/base_command.gd" id="4_oyiuu"]
 [ext_resource type="Script" path="res://scripts/terminal/command/level.gd" id="5_6fmok"]
 [ext_resource type="PackedScene" uid="uid://bi2gdu7ilivgq" path="res://scenes/levels/level_0011.tscn" id="6_6jffr"]
 [ext_resource type="Script" path="res://scripts/terminal/command/level_load.gd" id="6_35qbx"]
@@ -152,7 +153,7 @@ mouse_filter = 1
 script = ExtResource("1_cea4a")
 input_line_scene = ExtResource("1_fff5l")
 response_line_scene = ExtResource("2_xdqnh")
-commands = Array[Resource("res://scripts/terminal/command/base_command.gd")]([SubResource("Resource_kjf4n"), SubResource("Resource_mh2nj"), SubResource("Resource_g0l3x"), SubResource("Resource_pidie"), SubResource("Resource_5ervd")])
+commands = Array[ExtResource("4_oyiuu")]([SubResource("Resource_kjf4n"), SubResource("Resource_mh2nj"), SubResource("Resource_g0l3x"), SubResource("Resource_pidie"), SubResource("Resource_5ervd")])
 
 [node name="Background" type="ColorRect" parent="."]
 z_index = -2

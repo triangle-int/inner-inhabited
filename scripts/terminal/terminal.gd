@@ -21,49 +21,26 @@ func _ready() -> void:
 	_next_input_line()
 
 
-func _unhandled_key_input(event: InputEvent) -> void:
-	if _is_level_playing:
-		return
+func _on_command_sent(command: String) -> void:
+	var possible_commands := commands.filter(
+		func(cmd: BaseTerminalCommand) -> bool: return cmd.matches_command(command)
+	)
+	var response := "Unknown command"
 
-	if not (event is InputEventKey):
-		return
+	if possible_commands.size() == 1:
+		response = possible_commands.front().execute(command, self)
 
-	if event.is_released():
-		return
-
+	_add_response_line(response)
+	_next_input_line()
 	scroll_container.follow = true
-
-	if event.keycode == KEY_ENTER:
-		var string := _last_input_line.get_text()
-		var possible_commands := commands.filter(
-			func(command: BaseTerminalCommand) -> bool: return command.matches_command(string)
-		)
-		var response := "Unknown command"
-
-		if possible_commands.size() == 1:
-			response = possible_commands.front().execute(string, self)
-
-		_add_response_line(response)
-		_next_input_line()
-		return
-
-	if event.keycode == KEY_BACKSPACE or event.keycode == KEY_DELETE:
-		_last_input_line.backspace()
-
-	if event.keycode == KEY_SPACE:
-		_last_input_line.add_text(" ")
-
-	var new_symbol := OS.get_keycode_string(event.key_label)
-
-	if new_symbol.length() > 1:
-		return
-
-	_last_input_line.add_text(new_symbol)
 
 
 func _next_input_line() -> void:
+	if _last_input_line:
+		_last_input_line.command_sent.disconnect(_on_command_sent)
 	_last_input_line = input_line_scene.instantiate()
 	lines_container.add_child(_last_input_line)
+	_last_input_line.command_sent.connect(_on_command_sent)
 
 
 func clear() -> void:

@@ -1,17 +1,29 @@
 class_name InputLine
 extends Node
 
-@onready var _input_label: Label = $Input
+signal command_sent
+
+@onready var _input_line: LineEdit = $Input
 
 
-func add_text(new_text: String) -> void:
-	_input_label.text += new_text
+func _ready() -> void:
+	_input_line.grab_focus.call_deferred()
 
 
-func backspace() -> void:
-	var text := _input_label.text.substr(0, _input_label.text.length() - 1)
-	_input_label.text = text
+func _input(event: InputEvent) -> void:
+	if not (event is InputEventKey):
+		return
+
+	if not event.is_pressed():
+		return
 
 
-func get_text() -> String:
-	return _input_label.text
+func _on_input_text_changed(new_text: String) -> void:
+	var caret_pos: int = _input_line.caret_column
+	_input_line.text = new_text.to_upper()
+	_input_line.caret_column = caret_pos
+
+
+func _on_input_text_submitted(new_text: String) -> void:
+	_input_line.editable = false
+	command_sent.emit(new_text)
