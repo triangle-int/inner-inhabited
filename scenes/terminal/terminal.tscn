@@ -1,8 +1,6 @@
-[gd_scene load_steps=49 format=3 uid="uid://by61b1vkmlfgw"]
+[gd_scene load_steps=44 format=3 uid="uid://ciclsul180iqv"]
 
-[ext_resource type="Script" path="res://scripts/terminal/terminal.gd" id="1_cea4a"]
-[ext_resource type="PackedScene" uid="uid://fhejaqaayb4m" path="res://scenes/terminal/input_line.tscn" id="1_fff5l"]
-[ext_resource type="PackedScene" uid="uid://blxqg5qptkwsa" path="res://scenes/terminal/response_line.tscn" id="2_xdqnh"]
+[ext_resource type="PackedScene" uid="uid://by61b1vkmlfgw" path="res://scenes/terminal/terminal_ui.tscn" id="1_08vt1"]
 [ext_resource type="Script" path="res://scripts/terminal/command/base_command.gd" id="4_oyiuu"]
 [ext_resource type="Script" path="res://scripts/terminal/command/level.gd" id="5_6fmok"]
 [ext_resource type="PackedScene" uid="uid://bi2gdu7ilivgq" path="res://scenes/levels/level_0011.tscn" id="6_6jffr"]
@@ -17,10 +15,7 @@
 [ext_resource type="Script" path="res://scripts/terminal/command/clear.gd" id="10_8n5lb"]
 [ext_resource type="PackedScene" uid="uid://c185jxh5dgtf1" path="res://scenes/levels/level_01021.tscn" id="10_8r122"]
 [ext_resource type="PackedScene" uid="uid://cf1knm6flpc7w" path="res://scenes/levels/level_012.tscn" id="11_1obcm"]
-[ext_resource type="Material" uid="uid://d3aelfodyn3bn" path="res://materials/terminal_effect_material.tres" id="11_dlcut"]
 [ext_resource type="PackedScene" uid="uid://bs2vbkgwqwsd7" path="res://scenes/levels/level_0111010.tscn" id="11_g6nxo"]
-[ext_resource type="Script" path="res://scripts/terminal/scroll.gd" id="11_u6uwd"]
-[ext_resource type="Script" path="res://scripts/terminal/crt_effect.gd" id="12_hy1tq"]
 [ext_resource type="PackedScene" uid="uid://dfj1fvghr0bri" path="res://scenes/levels/level_591245_sum.tscn" id="13_ihfi6"]
 [ext_resource type="PackedScene" uid="uid://bf8760675x1j4" path="res://scenes/levels/level_35641359.tscn" id="14_pjq5h"]
 [ext_resource type="PackedScene" uid="uid://cpkkbhymeubpj" path="res://scenes/levels/level_333_mul.tscn" id="15_nvgca"]
@@ -142,70 +137,7 @@ You can use one of the following commands:
 [sub_resource type="Resource" id="Resource_5ervd"]
 script = ExtResource("10_8n5lb")
 
-[node name="Terminal" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-script = ExtResource("1_cea4a")
-input_line_scene = ExtResource("1_fff5l")
-response_line_scene = ExtResource("2_xdqnh")
+[node name="Terminal" type="CanvasLayer"]
+
+[node name="TerminalUI" parent="." instance=ExtResource("1_08vt1")]
 commands = Array[ExtResource("4_oyiuu")]([SubResource("Resource_kjf4n"), SubResource("Resource_mh2nj"), SubResource("Resource_g0l3x"), SubResource("Resource_pidie"), SubResource("Resource_5ervd")])
-
-[node name="Background" type="ColorRect" parent="."]
-z_index = -2
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="LevelContainer" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-vertical_scroll_mode = 3
-script = ExtResource("11_u6uwd")
-
-[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
-
-[node name="LinesContainer" type="VBoxContainer" parent="ScrollContainer/MarginContainer"]
-layout_mode = 2
-size_flags_vertical = 4
-theme_override_constants/separation = 5
-
-[node name="ResponseLine" parent="ScrollContainer/MarginContainer/LinesContainer" instance=ExtResource("2_xdqnh")]
-layout_mode = 2
-
-[node name="CRTEffect" type="ColorRect" parent="."]
-material = ExtResource("11_dlcut")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-script = ExtResource("12_hy1tq")

@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c347rww62mav5" path="res://scenes/fpv/environment/world_environment.tscn" id="1_ayi28"]
 [ext_resource type="PackedScene" uid="uid://cbmrhykpnpl4y" path="res://scenes/fpv/environment/moving_statue.tscn" id="5_5uogj"]
 [ext_resource type="Script" path="res://scripts/fpv/terminal/terminal_viewport.gd" id="6_e4yxp"]
-[ext_resource type="PackedScene" uid="uid://by61b1vkmlfgw" path="res://scenes/terminal/terminal.tscn" id="6_kkhuf"]
+[ext_resource type="PackedScene" uid="uid://d1a80u8c23w3f" path="res://scenes/terminal/3d_terminal.tscn" id="7_qabd1"]
 [ext_resource type="Script" path="res://scripts/fpv/terminal/terminal_player_spawn.gd" id="8_efh5a"]
 
 [sub_resource type="Curve3D" id="Curve3D_6o0p8"]
@@ -46,8 +46,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
 size = Vector2i(1152, 648)
 script = ExtResource("6_e4yxp")
 
-[node name="Terminal" parent="SubViewport" instance=ExtResource("6_kkhuf")]
-switch_sound = false
+[node name="3DTerminal" parent="SubViewport" instance=ExtResource("7_qabd1")]
 
 [node name="TerminalPlayerSpawn" type="Node3D" parent="." node_paths=PackedStringArray("player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.118496, 0, -8.40907)

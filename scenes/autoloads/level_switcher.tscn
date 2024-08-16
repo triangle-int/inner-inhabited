@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/fpv/level_switcher.gd" id="1_3sn3o"]
 [ext_resource type="PackedScene" uid="uid://dac05n7bv4674" path="res://scenes/fpv/main.tscn" id="2_lbmu5"]
-[ext_resource type="PackedScene" uid="uid://bv5b30febt42g" path="res://scenes/fpv/statue.tscn" id="3_qemf4"]
-[ext_resource type="PackedScene" uid="uid://by61b1vkmlfgw" path="res://scenes/terminal/terminal.tscn" id="4_4188x"]
+[ext_resource type="PackedScene" uid="uid://wmlp2ilgd6wv" path="res://scenes/fpv/statue.tscn" id="3_qemf4"]
+[ext_resource type="PackedScene" uid="uid://ciclsul180iqv" path="res://scenes/terminal/terminal.tscn" id="4_4188x"]
 [ext_resource type="PackedScene" uid="uid://cswlq0nw7tek8" path="res://scenes/fpv/end.tscn" id="5_sdj7e"]
 
 [node name="LevelSwitcher" type="Node" node_paths=PackedStringArray("fade")]
@@ -16,6 +16,7 @@ fade = NodePath("CanvasLayer/ColorRect")
 fade_time = 2.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 10
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 15

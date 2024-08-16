@@ -2,6 +2,10 @@ extends ColorRect
 
 
 func _ready() -> void:
+	#if OS.has_feature("web_macos"):
+		#print("Disabling screen effect, because of MacOS screen texture bug")
+		#visible = false
+	
 	if PlayerProgress.showed_terminal_effect:
 		material.set_shader_parameter("intensity", 1.0)
 	else: 

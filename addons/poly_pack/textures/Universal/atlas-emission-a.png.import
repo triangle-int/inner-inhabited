@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://mkm6rbov0udj"
-path.s3tc="res://.godot/imported/atlas-emission-a.png-3c36309cf48128e2a269fa00bba02660.s3tc.ctex"
+path.s3tc="res://.godot/imported/atlas-emission-a.png-877ffa503e2998fa3b02f81119c9dcee.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://addons/poly_pack/textures/Universal/atlas-emission-a.png"
-dest_files=["res://.godot/imported/atlas-emission-a.png-3c36309cf48128e2a269fa00bba02660.s3tc.ctex"]
+source_file="res://addons/poly_pack/textures/universal/atlas-emission-a.png"
+dest_files=["res://.godot/imported/atlas-emission-a.png-877ffa503e2998fa3b02f81119c9dcee.s3tc.ctex"]
 
 [params]
 

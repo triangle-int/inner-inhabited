@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://emqlfq0tycsn"
-path.s3tc="res://.godot/imported/atlas-emission-night-c.png-b3d921217c4079e9448befe58e6106f6.s3tc.ctex"
+path.s3tc="res://.godot/imported/atlas-emission-night-c.png-99a2554135008373b984bd35726b4ad3.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://addons/poly_pack/textures/Universal/atlas-emission-night-c.png"
-dest_files=["res://.godot/imported/atlas-emission-night-c.png-b3d921217c4079e9448befe58e6106f6.s3tc.ctex"]
+source_file="res://addons/poly_pack/textures/universal/atlas-emission-night-c.png"
+dest_files=["res://.godot/imported/atlas-emission-night-c.png-99a2554135008373b984bd35726b4ad3.s3tc.ctex"]
 
 [params]
 
