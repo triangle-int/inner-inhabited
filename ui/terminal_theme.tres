@@ -1,8 +1,41 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://yrgk4422x7hg"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://yrgk4422x7hg"]
 
 [ext_resource type="FontFile" uid="uid://cmyiejxp2c5ru" path="res://fonts/FiraCode-Medium.ttf" id="1_x1s72"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1h45l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5g23v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_72qcx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3ia5l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ogk7j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0iyfu"]
 
 [resource]
 Label/colors/font_color = Color(0, 0, 0, 1)
 Label/font_sizes/font_size = 34
 Label/fonts/font = ExtResource("1_x1s72")
+LineEdit/colors/caret_color = Color(0, 0, 0, 1)
+LineEdit/colors/font_color = Color(0, 0, 0, 1)
+LineEdit/colors/font_selected_color = Color(1, 1, 1, 1)
+LineEdit/colors/font_uneditable_color = Color(0, 0, 0, 1)
+LineEdit/colors/selection_color = Color(0, 0, 0, 1)
+LineEdit/constants/caret_width = 24
+LineEdit/font_sizes/font_size = 34
+LineEdit/fonts/font = ExtResource("1_x1s72")
+LineEdit/styles/focus = SubResource("StyleBoxEmpty_1h45l")
+LineEdit/styles/normal = SubResource("StyleBoxEmpty_5g23v")
+LineEdit/styles/read_only = SubResource("StyleBoxEmpty_72qcx")
+TextEdit/colors/font_color = Color(0, 0, 0, 1)
+TextEdit/colors/font_readonly_color = Color(0, 0, 0, 1)
+TextEdit/colors/font_selected_color = Color(1, 1, 1, 1)
+TextEdit/colors/selection_color = Color(0, 0, 0, 1)
+TextEdit/constants/line_spacing = 3
+TextEdit/font_sizes/font_size = 34
+TextEdit/fonts/font = ExtResource("1_x1s72")
+TextEdit/styles/focus = SubResource("StyleBoxEmpty_3ia5l")
+TextEdit/styles/normal = SubResource("StyleBoxEmpty_ogk7j")
+TextEdit/styles/read_only = SubResource("StyleBoxEmpty_0iyfu")

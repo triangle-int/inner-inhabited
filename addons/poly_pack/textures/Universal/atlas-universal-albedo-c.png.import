@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://5chmps44024t"
-path.s3tc="res://.godot/imported/atlas-universal-albedo-c.png-a4c85f78391ecad197008dbc16142c62.s3tc.ctex"
+path.s3tc="res://.godot/imported/atlas-universal-albedo-c.png-3a8dc2eff0e2e532dad57837154c5663.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://addons/poly_pack/textures/Universal/atlas-universal-albedo-c.png"
-dest_files=["res://.godot/imported/atlas-universal-albedo-c.png-a4c85f78391ecad197008dbc16142c62.s3tc.ctex"]
+source_file="res://addons/poly_pack/textures/universal/atlas-universal-albedo-c.png"
+dest_files=["res://.godot/imported/atlas-universal-albedo-c.png-3a8dc2eff0e2e532dad57837154c5663.s3tc.ctex"]
 
 [params]
 

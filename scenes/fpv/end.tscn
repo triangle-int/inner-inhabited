@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cswlq0nw7tek8"]
 
-[ext_resource type="PackedScene" uid="uid://b5r4jygu8o3bu" path="res://Assets/polyperfect/Poly Universal Pack/- Meshes/Nature/Trees/tree-oak-young-a.gltf" id="1_fvbom"]
-[ext_resource type="PackedScene" uid="uid://dj3ysiapmikxo" path="res://Assets/polyperfect/Poly Universal Pack/- Meshes/Nature/Trees/tree-birch-young-a.gltf" id="2_avoj0"]
+[ext_resource type="PackedScene" uid="uid://b5r4jygu8o3bu" path="res://addons/poly_pack/meshes/nature/trees/tree-oak-young-a.gltf" id="1_fvbom"]
+[ext_resource type="PackedScene" uid="uid://dj3ysiapmikxo" path="res://addons/poly_pack/meshes/nature/trees/tree-birch-young-a.gltf" id="2_avoj0"]
 [ext_resource type="FontFile" uid="uid://cwpg0ydx12vhx" path="res://fonts/FiraCode-Regular.ttf" id="3_py6qe"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uyvyv"]

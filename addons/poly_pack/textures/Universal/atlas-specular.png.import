@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://w78nmwohm7p5"
-path.s3tc="res://.godot/imported/atlas-specular.png-23d97a9e69688bd08d68726f5013fa46.s3tc.ctex"
+path.s3tc="res://.godot/imported/atlas-specular.png-fd6a5f952e6b38e5196a109b4be840bd.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://addons/poly_pack/textures/Universal/atlas-specular.png"
-dest_files=["res://.godot/imported/atlas-specular.png-23d97a9e69688bd08d68726f5013fa46.s3tc.ctex"]
+source_file="res://addons/poly_pack/textures/universal/atlas-specular.png"
+dest_files=["res://.godot/imported/atlas-specular.png-fd6a5f952e6b38e5196a109b4be840bd.s3tc.ctex"]
 
 [params]
 

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1a80u8c23w3f"]
+
+[ext_resource type="PackedScene" uid="uid://ciclsul180iqv" path="res://scenes/terminal/terminal.tscn" id="1_sluf0"]
+
+[node name="3DTerminal" instance=ExtResource("1_sluf0")]
+
+[node name="TerminalUI" parent="." index="0"]
+switch_sound = false
